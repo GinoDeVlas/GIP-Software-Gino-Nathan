@@ -4,19 +4,19 @@ session_start();
   include("connection.php");
   include("functions.php");
 
-  if($_SERVER['REQUEST_METHOD'] == "POST")
+  /*if($_SERVER['REQUEST_METHOD'] == "POST")
   {
     $user_name = $_POST['user_name'];
     $password = $_POST['password'];
 
-    if(!empty($user_name) $$ !empty($password) && !is_numeric($user_name))
+    if(!empty($user_name) && !empty($password) && !is_numeric($user_name))
     {
 
     }else{
         echo "Please enter some valid information!"
     }
 
-  }
+  }*/
 ?>
 <!doctype html>
 <html lang="en">
