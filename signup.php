@@ -1,30 +1,10 @@
 <?php
 //voeg de connection code toe aan deze code
-session_abort();
-include 'functions.php';
+
 include 'connection.php';
+include 'functions.php';
 
 
-if (isset($_POST['IDCode'])) {
-
-  $code = $_POST['IDCode'];
-
-  $_SESSION['code'] = $code;
-  echo $_SESSION['code'];
-  $Querry = "select * FROM `leerkracht codes` where Code = ".$code." LIMIT 1; ";
-  $res = mysqli_query($conn, $Querry);
-
-  if ($res && mysqli_num_rows($res) > 0) {
-      
-      $row = mysqli_fetch_array($res);
-      
-      //echo  $row['Code'];
-      header("Location: Ipads.php");
-      
-  }
-
-}
-   
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,30 +12,31 @@ if (isset($_POST['IDCode'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="./assets/css/RegLogin.css">
     <title>Login</title>
 </head>
 <body>
-<!-- css toevoegen  --> 
-<link rel="stylesheet" href="./assets/css/RegLogin.css">
 
 <!-- login pagina -->
 <div class="container" id="container">
 	<div class="form-container sign-up-container">
-		<form action="#">
+		<form method="POST">
 			<h1>Create Account</h1>
 			<span>or use your email for registration</span>
-			<input type="text" placeholder="Name" />
-			<input type="email" placeholder="Email" />
-			<input type="password" placeholder="Password" />
+			<input type="text" placeholder="Jhon Doe" name="name" required/>
+			<input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"  placeholder="test@voorbeeld.be" name="mail" required/>
+			<input type="tel" placeholder="123-456-7890" name="Tele" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required/>
+			<input type="password" placeholder="choose a password" name="pass" required/>
+			<input type="password" placeholder="repeat password" name="rPass" required/>
 			<button>Sign Up</button>
 		</form>
 	</div>
 	<div class="form-container sign-in-container">
-		<form action="#">
+		<form method="POST">
 			<h1>Sign in</h1>
 			<span>or use your account</span>
-			<input type="email" placeholder="Email" />
-			<input type="password" placeholder="Password" />
+			<input type="email" placeholder="E-mail adres" name="Email" required/>
+			<input type="password" placeholder="Password" name="LoginPass"required/>
 			<a href="#">Forgot your password?</a>
 			<button>Sign In</button>
 		</form>
@@ -76,15 +57,17 @@ if (isset($_POST['IDCode'])) {
 	</div>
 </div>
 
-<footer>
-	<p>
-		Created with <i class="fa fa-heart"></i> by
-		<a target="_blank" href="https://florin-pop.com">Florin Pop</a>
-		- Read how I created this and how you can join the challenge
-		<a target="_blank" href="https://www.florin-pop.com/blog/2019/03/double-slider-sign-in-up-form/">here</a>.
-	</p>
-</footer> 
-
 </body>
+
+
 <script src="./assets/js/RegLogin.js"></script>
 </html>
+
+<?php
+if (isset($_POST['name']) && isset($_POST['mail']) && isset($_POST['Tele'])) {
+	if ($_POST['pass'] == $_POST['rPass']) {
+		Register($_POST['name'], $_POST['mail'], $_POST['Tele'], $_POST['pass'], $conn);	
+	}
+}
+
+?>
