@@ -15,6 +15,7 @@ include("functions.php");
     <title>Banking met GEC</title>
     <!-- Template CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
+
   </head>
   <body>
 
@@ -22,6 +23,8 @@ include("functions.php");
 <header>
 <?php include 'menu.php' ?>
 </header>
+<!--/header-->
+
 <!--/header-->
 <!-- main-slider -->
 <section class="w3l-main-slider" id="home">
@@ -48,7 +51,7 @@ include("functions.php");
                     </div>
                 </li>
             </div>
-            <!-- <div class="item">
+            <div class="item">
                 <li>
                     <div class="slider-info  banner-view banner-top1 bg bg2">
                         <div class="banner-info">
@@ -128,7 +131,7 @@ include("functions.php");
                         </div>
                     </div>
                 </li>
-            </div> -->
+            </div> 
         </div>
     </div>
 </section>

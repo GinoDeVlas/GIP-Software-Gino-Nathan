@@ -1,3 +1,4 @@
+
 <?php
 session_start();
 
@@ -16,7 +17,7 @@ include("functions.php");
     <title>Banking met GEC</title>
 
     <!-- Template CSS -->
-    <link rel="stylesheet" href="assets/css/style-starter.css">
+    <link rel="stylesheet" href="assets/css/style.css">
   </head>
   <body>
 <!--header-->
@@ -704,7 +705,6 @@ include("functions.php");
 <!--//MENU-JS-->
 
 <script src="assets/js/bootstrap.min.js"></script><!-- //bootstrap js -->
-<script src="../databaseconnect.js"></script> <!-- //database connectie-->
 </body>
 
 </html>

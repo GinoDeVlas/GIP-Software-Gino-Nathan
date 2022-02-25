@@ -4,7 +4,7 @@
   <head>
     <meta charset="UTF-8">
     <title> Dashboard overview | Banking met GAC </title>
-    <link rel="stylesheet" href="dash/css/dashboard.css">
+    <link rel="stylesheet" href="./assets/css/dashboard.css">
     <!-- Boxicons CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
