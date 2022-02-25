@@ -1,10 +1,7 @@
 <?php
 //voeg de connection code toe aan deze code
-
 include 'connection.php';
 include 'functions.php';
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
