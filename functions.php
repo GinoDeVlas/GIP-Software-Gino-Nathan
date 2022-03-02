@@ -1,22 +1,28 @@
 <?php
+session_start();
 include 'connection.php';
 function check_login($con)
 {
-    if(isset($_SESSION['IDKlantenummer']))
+    if(isset($_SESSION['id']))
     {
-        $id = $_SESSION['IDKlantenummer'];
-        $query = "Select * From tblklantengegevens where IDKlantenummer = '$id' limit 1";
+        $id = $_SESSION['id'];
+        $query = "select * FROM `tblklantengegevens` where IDKlantenummer = ".$id." LIMIT 1; ";
         $result = mysqli_query($con,$query);
-        if($result && mysqli_num_rows($result) > 0)
+        $count =mysqli_num_rows($result);
+        if($count > 0)
         {
             $user_data = mysqli_fetch_assoc($result);
             return $user_data;
+        }else {
+            header("Location: index.php");
+
         }
     }else {
     //redirect naar login
-    header("Location: RegLogin.php");
+    header("Location: index.php");
     die;
-    }  
+    }
+
 }
 
 function AantlalRijen($database, $con)
@@ -27,19 +33,31 @@ function AantlalRijen($database, $con)
         return $rowcount; 
     }
 }
-function Tets($database, $con)
-{
-    AantlalRijen($database, $con);
-}
 
 function Register($name, $mail, $Tel, $pass, $con){
     $id = hexdec(crc32(AantlalRijen("tblklantengegevens", $con) + 1));
-    echo AantlalRijen("tblklantengegevens", $con). "<br>";
-    echo crc32(AantlalRijen("tblklantengegevens", $con) + 1) . "<br>";
-    echo $id. "<br>";
     $Passw = "GEC" . $id . $pass;
     $password = password_hash($Passw, PASSWORD_DEFAULT);
     $stmst = $con->prepare("insert INTO tblklantengegevens (IDKlantenummer, Klantennaam, Email, Telefoon, Wachtwoord) VALUES ('".$id."', '". $name."', '". $mail."', '". $Tel."', '".$password."');");
     $stmst->execute();
+    $_SESSION['id'] = $id;
+}
+
+function login($mail, $pass, $con)
+{
+    $query = "select * FROM `tblklantengegevens` where Email  = '" .$mail. "' LIMIT 1; ";
+    $result = mysqli_query($con,$query);
+    $count =mysqli_num_rows($result);
+    if($count > 0)
+    {
+        $info = mysqli_fetch_array($result);
+        $id = $info['IDKlantenummer'];
+        $passhash = $info['Wachtwoord'];
+        $Passw = "GEC" . $id . $pass;
+        if (password_verify($Passw, $passhash)) {
+            $_SESSION['id'] = $id;
+            header("Location: dashboard.php");
+        }
+    }
 }
 ?>

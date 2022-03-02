@@ -32,7 +32,7 @@ include 'functions.php';
 		<form method="POST">
 			<h1>Sign in</h1>
 			<span>or use your account</span>
-			<input type="email" placeholder="E-mail adres" name="Email" required/>
+			<input type="email" placeholder="E-mail adres" name="LoginEmail" required/>
 			<input type="password" placeholder="Password" name="LoginPass"required/>
 			<a href="#">Forgot your password?</a>
 			<button>Sign In</button>
@@ -66,5 +66,7 @@ if (isset($_POST['name']) && isset($_POST['mail']) && isset($_POST['Tele'])) {
 		Register($_POST['name'], $_POST['mail'], $_POST['Tele'], $_POST['pass'], $conn);	
 	}
 }
-
+if (isset($_POST['LoginEmail']) && isset($_POST['LoginPass']) ) {
+	login($_POST['LoginEmail'], $_POST['LoginPass'], $conn);
+}
 ?>
