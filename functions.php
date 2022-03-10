@@ -41,6 +41,8 @@ function Register($name, $mail, $Tel, $pass, $con){
     $stmst = $con->prepare("insert INTO tblklantengegevens (IDKlantenummer, Klantennaam, Email, Telefoon, Wachtwoord) VALUES ('".$id."', '". $name."', '". $mail."', '". $Tel."', '".$password."');");
     $stmst->execute();
     $_SESSION['id'] = $id;
+    $stmst = $con->prepare("insert INTO tblmyklant (IDKlantenummer) VALUES ('".$id."');");
+    $stmst->execute();
 }
 
 function login($mail, $pass, $con)

@@ -102,14 +102,19 @@ $user_data = check_login($conn);
 
         // 24-hour format of an hour without leading zeros (0 through 23)
         $Hour = date('G');
-      // HIER MOET ER NOG DE VARIABLE KOMEN VAN DE NAAM VAN DE ACCOUNT MAKER IN PLAATS VAN NATHAN
+        $id =  $_SESSION['id'];
+        $query = "select * FROM `tblklantengegevens` where IDKlantenummer = ". $id ." LIMIT 1; ";
+        $result = mysqli_query($conn, $query);
+        $row = mysqli_fetch_array($result);
+
       if ( $Hour >= 5 && $Hour <= 11 ) {
-    echo "Goede morgen Nathan";
+    echo "Goede morgen " . $row['Klantennaam'];
       } else if ( $Hour >= 12 && $Hour <= 18 ) {
-    echo "Goede middag Nathan";
+    echo "Goede middag " . $row['Klantennaam'];
       } else if ( $Hour >= 19 || $Hour <= 4 ) {
-    echo "Goede avond Nathan";
-    }
+    echo "Goede avond " . $row['Klantennaam'];
+  }
+  
       ?>
         <span class="dashboard"></span>
       </div>
@@ -125,7 +130,7 @@ $user_data = check_login($conn);
         <div class="box">
           <div class="right-side">
              <!-- GINO plaats hier de naam van de ingelogde gebruiker -->
-            <div class="box-topic">Demoor Nathan</div>
+            <div class="box-topic"> <?php echo $row['Klantennaam']; ?> </div>
             <!-- GINO steek hier de variable voor totaal bedrag van geld -->
             <div class="number">$879,62 EUR</div>
             <div class="indicator">
