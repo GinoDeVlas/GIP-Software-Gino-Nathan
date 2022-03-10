@@ -5,6 +5,11 @@
 include("connection.php");
 include("functions.php");
 $user_data = check_login($conn);
+
+$id = $_SESSION['id'];
+$query = "select * FROM `tblklantengegevens` where IDKlantenummer = ".$id." LIMIT 1; ";
+$result = mysqli_query($conn,$query);
+$row = mysqli_fetch_array($result);
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -205,7 +210,7 @@ $user_data = check_login($conn);
           </ul>
           </div>
           <div class="button">
-            <a href="#">See All</a>
+            <a href="./Dashboard/transactions.php">See All</a>
           </div>
         </div>
         <div class="top-sales box">
