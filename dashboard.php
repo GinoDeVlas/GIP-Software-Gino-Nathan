@@ -129,13 +129,15 @@ $user_data = check_login($conn);
       <div class="overview-boxes">
         <div class="box">
           <div class="right-side">
-             <!-- GINO plaats hier de naam van de ingelogde gebruiker -->
             <div class="box-topic"> <?php echo $row['Klantennaam']; ?> </div>
-            <!-- GINO steek hier de variable voor totaal bedrag van geld -->
-            <div class="number">$879,62 EUR</div>
+            <?php
+              $query = "select * FROM `tblrekening` where IDKlantenummer = ". $id ." LIMIT 1; ";
+              $result = mysqli_query($conn, $query);
+              $row = mysqli_fetch_array($result);
+            ?>
+            <div class="number"> <?php echo $row['saldo']; ?> EUR</div>
             <div class="indicator">
-              <!-- GINO plaats hier het rekeningnummer van de ingelogde gebruiker -->
-            <span class="textspecial">BE12 3456 7891 2345</span>
+            <span class="textspecial"> <?php echo $row['IDRekeningnummer']; ?> </span>
             </div>
           </div>
         </div>

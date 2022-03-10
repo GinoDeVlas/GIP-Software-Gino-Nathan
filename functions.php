@@ -41,8 +41,11 @@ function Register($name, $mail, $Tel, $pass, $con){
     $stmst = $con->prepare("insert INTO tblklantengegevens (IDKlantenummer, Klantennaam, Email, Telefoon, Wachtwoord) VALUES ('".$id."', '". $name."', '". $mail."', '". $Tel."', '".$password."');");
     $stmst->execute();
     $_SESSION['id'] = $id;
-    $stmst = $con->prepare("insert INTO tblmyklant (IDKlantenummer) VALUES ('".$id."');");
+    $rekeningnummer = "BE69 " . chunk_split(hexdec(crc32($name)), 4, ' ');
+    $stmst = $con->prepare("insert INTO tblmyklant (IDKlantenummer, IDRekekingnummer) VALUES ('".$id."' , '". $rekeningnummer."');");
     $stmst->execute();
+    $stmsts= $con->prepare("insert INTO tblrekening (IDKlantenummer, IDRekeningnummer, saldo) VALUES ('".$id."' , '". $rekeningnummer."' , 0);");
+    $stmsts->execute();
 }
 
 function login($mail, $pass, $con)
