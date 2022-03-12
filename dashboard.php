@@ -84,7 +84,7 @@ $user_data = check_login($conn);
           </a>
         </li>
         <li class="log_out">
-        <a href="./logout.php">
+        <a href="./index.php">
             <i class='bx bx-log-out'></i>
             <span class="links_name">Log out</span>
           </a>
