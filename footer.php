@@ -7,20 +7,18 @@
         <div class="col-lg-4 col-md-6 footer-list-29 footer-1 pr-lg-5">
           <div class="footer-logo mb-4">
             <a class="navbar-brand" href="index.php">
-              <span class="fa fa-cc-visa"></span>GAC</a>
+              <span class="fa fa-cc-visa"></span> GAC</a>
           </div>
-          <p>It is the leading financial establishment providing high-quality international banking services. Our
-            success
-            is attributed to our loyal customers. We provide reliable services for you.</p>
+          <p>Wij zorgen voor een beveiligde en gemakkelijke ervaring voor uw banking op onze website.</p>
         </div>
         <div class="col-lg-2 col-md-6 col-sm-5 col-5 footer-list-29 footer-2 mt-md-0 mt-5">
 
 
         <ul>
-            <h6 class="footer-title-29">Quick Links</h6>
-            <li><a href="about.php">About Us</a></li>
+            <h6 class="footer-title-29">Links</h6>
+            <li><a href="about.php">Over ons</a></li>
             <li><a href="services.php">Services</a></li>
-            <li><a href="contact.php">Contact us</a></li>
+            <li><a href="contact.php">Contacteer ons</a></li>
           </ul>
         </div>
         <div class="col-lg-3 col-md-6 col-sm-7 col-7 footer-list-29 footer-3 mt-lg-0 mt-5">
@@ -33,11 +31,11 @@
         <div class="col-lg-3 col-md-6 footer-list-29 footer-4 mt-lg-0 mt-5">
           <h6 class="footer-title-29">Recente updates</h6>
           <div class="post1">
-            <a href="#url" class="post-title">Log in systeem en registratie systeem</a>
+            <p class="post-title">Log in systeem en registratie systeem</p>
             <p class="small">Januari 06, 2022</p>
           </div>
           <div class="post1 mt-4">
-            <a href="#url" class="post-title">Hoofdpagina compleet</a>
+            <p class="post-title">Hoofdpagina compleet</p>
             <p class="small">Januari 13, 2022</p>
           </div>
         </div>
