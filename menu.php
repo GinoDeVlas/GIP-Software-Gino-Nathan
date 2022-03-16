@@ -15,7 +15,7 @@
   <div class="container">
       <nav class="navbar navbar-expand-lg stroke px-0">
           <h1> <a class="navbar-brand" href="index.php">
-                  <span class="fa fa-cc-visa"></span>GAC
+                  <span class="fa fa-cc-visa"></span> GAC
               </a></h1>
           <!-- if logo is image enable this   
   <a class="navbar-brand" href="#index.html">
