@@ -24,7 +24,7 @@
         <div class="col-lg-3 col-md-6 col-sm-7 col-7 footer-list-29 footer-3 mt-lg-0 mt-5">
           <h6 class="footer-title-29">Contact info</h6>
           <p class="mb-3"> GAC, 343 Schoenstraat, Grakker, BE.</p>
-          <p class="mb-2"> <span class="fa fa-phone"></span> <a href="tel:+1(21) 234 4567">+(32)467 25 02 80 </a></p>
+          <p class="mb-2"> <span class="fa fa-phone"></span> <a href="tel:+1(21) 234 4567">(+32)9 225 89 07 </a></p>
           <p class="mb-2"><span class="fa fa-envelope-o"></span> <a href="mailto:info@mail.com">info@GECbanking.com</a></p>
           <p><span class="fa fa-support"></span> <a href="mailto:info@support.com">info@GECsupport.com</a></p>
         </div>

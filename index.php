@@ -36,10 +36,11 @@ include("functions.php");
                             <div class="container">
                                 <div class="row">
                                     <div class="col-lg-6 banner-info-bg">
-                                        <h5>Open een rekening</h5>
+                                        <h5>Open vandaag nog een rekening</h5>
                                         <p class="mt-md-4 mt-3"> Hier kunt u zich registreren en een rekening openen op uw naam</p>
-                                        <a class="btn btn-style btn-primary mt-sm-5 mt-4 mr-2" href="Signup.php">Registreren</a>
-                                    </div>
+                                        <a class="btn btn-style btn-primary mt-sm-5 mt-4 mr-2" href="./signup.php"> open een rekening</a>
+                                        <a class="btn btn-style btn-outline-light mt-sm-5 mt-4 mr-2" href="./signup.php">
+                                            aanmelden</a></div>
                                     <div class="col-lg-5 col-md-8 img offset-lg-1 mt-lg-0 mt-4">
                                         <img src="assets/images/card1.png" alt="img"
                                             class="img-fluid radius-image-curve" />
@@ -62,10 +63,9 @@ include("functions.php");
                                             high-quality and reliable banking services. We provide reliable services for
                                             you
                                         </p>
-                                        <a class="btn btn-style btn-primary mt-sm-5 mt-4 mr-2" href="#book"> Book a
-                                            card</a>
-                                        <a class="btn btn-style btn-outline-light mt-sm-5 mt-4 mr-2" href="about.html">
-                                            Read More</a>
+                                        <a class="btn btn-style btn-primary mt-sm-5 mt-4 mr-2" href="./signup.php"> open een rekening</a>
+                                        <a class="btn btn-style btn-outline-light mt-sm-5 mt-4 mr-2" href="./signup.php">
+                                            aanmelden</a>
                                     </div>
                                     <div class="col-lg-5 col-md-8 img offset-lg-1 mt-lg-0 mt-4">
                                         <img src="assets/images/card2.png" alt="img"
@@ -89,11 +89,9 @@ include("functions.php");
                                             high-quality and reliable banking services. We provide reliable services for
                                             you
                                         </p>
-                                        <a class="btn btn-style btn-primary mt-sm-5 mt-4 mr-2" href="#book"> Book a
-                                            card</a>
-                                        <a class="btn btn-style btn-outline-light mt-sm-5 mt-4 mr-2" href="about.html">
-                                            Read More</a>
-                                    </div>
+                                        <a class="btn btn-style btn-primary mt-sm-5 mt-4 mr-2" href="./signup.php"> open een rekening</a>
+                                        <a class="btn btn-style btn-outline-light mt-sm-5 mt-4 mr-2" href="./signup.php">
+                                            aanmelden</a></div>
                                     <div class="col-lg-5 col-md-8 img offset-lg-1 mt-lg-0 mt-4">
                                         <img src="assets/images/card3.png" alt="img"
                                             class="img-fluid radius-image-curve" />
@@ -116,11 +114,9 @@ include("functions.php");
                                             high-quality and reliable banking services. We provide reliable services for
                                             you
                                         </p>
-                                        <a class="btn btn-style btn-primary mt-sm-5 mt-4 mr-2" href="#book"> Book a
-                                            card</a>
-                                        <a class="btn btn-style btn-outline-light mt-sm-5 mt-4 mr-2" href="about.html">
-                                            Read More</a>
-                                    </div>
+                                        <a class="btn btn-style btn-primary mt-sm-5 mt-4 mr-2" href="./signup.php"> open een rekening</a>
+                                        <a class="btn btn-style btn-outline-light mt-sm-5 mt-4 mr-2" href="./signup.php">
+                                            aanmelden</a></div>
                                     <div class="col-lg-5 col-md-8 img offset-lg-1 mt-lg-0 mt-4">
                                         <img src="assets/images/card4.png" alt="img"
                                             class="img-fluid radius-image-curve" />
