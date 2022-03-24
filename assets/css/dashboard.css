@@ -440,3 +440,14 @@ nav .profile-details i{
   text-decoration: none;
   transition: all 0.3s ease;
   }
+
+.transactielink{
+  font-size: 20px;
+  font-weight: 500;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  text-decoration: none;
+}

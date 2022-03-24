@@ -126,6 +126,31 @@ $user_data = check_login($conn);
     </nav>
 
     <div class="home-content">
+    <div class="overview-boxes">
+        <div class="box">
+          <div class="right-side">
+            <div class="box-topic"> Mijn Rekeningsnummer</div>
+            <?php
+              $query = "select * FROM `tblrekening` where IDKlantenummer = ". $id ." LIMIT 1; ";
+              $result = mysqli_query($conn, $query);
+              $row = mysqli_fetch_array($result);
+            ?>
+            <div class="indicator">
+            <span class="textspecial"> <?php echo $row['IDRekeningnummer']; ?> </span>
+            </div>
+          </div>
+        </div>
+        <div class="box">
+          <a class="transactielink" href="">
+          <div class="right-side">
+            <div class="box-topic">Nieuwe overschrijving</div>
+            <div class="indicator">
+            <span class="textspecial">  </span>
+            </div>
+          </div></a>
+        </div>
+      </div>
+
       <div class="sales-boxes">
         <div class="transactions box">
           <div class="title">Recente transacties</div>
