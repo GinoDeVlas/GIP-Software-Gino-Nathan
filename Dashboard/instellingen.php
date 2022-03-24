@@ -66,7 +66,73 @@
         </li>
       </ul>
   </div>
-  
+  <section class="home-section">
+    <nav>
+      <div class="sidebar-button">
+        <i class='bx bx-menu sidebarBtn'></i>  
+<span class="dashboard"></span>
+      </div>
+    </nav>
+    <div class="home-content">
+      <div class="sales-boxes">
+        <div class="transactions box">
+          <div class="title">Instellingen</div>
+          <div class="sales-details">
+            <ul class="details">
+              <!-- Hier moet er een script komen voor alle overschrijven te printen -->
+              <li class="topic">Account</li>
+              <li>Email:</li>
+              <li><input type="text" name="txtmail" value="variable@example.be"></li>
+              <li>Naam:</li>
+              <li><input type="text" name="txtusr" value="variable"></li>
+              <li>Wachtwoord:</li>
+              <li><input type="password" name="txtww" value=""></li>
+              <li>Bevestig Wachtwoord:</li>
+              <li><input type="password" name="txtww" value=""></li>
+              <input type="submit" name="btncancel" value="Annuleer"> <input type="submit" name="btnbevestig" value="Bevestig">
+            </ul>
+            <ul class="details">
+            <!-- Hier moet er een script komen voor alle overschrijven te printen -->
+            <li class="topic">Naam</li>
+            <li><a href="#">Alex Doe</a></li>
+            <li><a href="#">David Mart</a></li>
+            <li><a href="#">Roe Parter</a></li>
+            <li><a href="#">Diana Penty</a></li>
+            <li><a href="#">Martin Paw</a></li>
+            <li><a href="#">Doe Alex</a></li>
+            <li><a href="#">Aiana Lexa</a></li>
+            <li><a href="#">Rexel Mags</a></li>
+             <li><a href="#">Tiana Loths</a></li>
+          </ul>
+          <ul class="details">
+            <li class="topic">bedrag</li>
+            <li><a href="#">$204.98</a></li>
+            <li><a href="#">$24.55</a></li>
+            <li><a href="#">$25.88</a></li>
+            <li><a href="#">$170.66</a></li>
+            <li><a href="#">$56.56</a></li>
+            <li><a href="#">$44.95</a></li>
+            <li><a href="#">$67.33</a></li>
+             <li><a href="#">$23.53</a></li>
+             <li><a href="#">$46.52</a></li>
+          </ul>
+          <ul class="details">
+            <li class="topic">comunicatie</li>
+            <li><a href="#">$204.98</a></li>
+            <li><a href="#">$24.55</a></li>
+            <li><a href="#">$25.88</a></li>
+            <li><a href="#">$170.66</a></li>
+            <li><a href="#">$56.56</a></li>
+            <li><a href="#">$44.95</a></li>
+            <li><a href="#">$67.33</a></li>
+             <li><a href="#">$23.53</a></li>
+             <li><a href="#">$46.52</a></li>
+          </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <script>
    let sidebar = document.querySelector(".sidebar");

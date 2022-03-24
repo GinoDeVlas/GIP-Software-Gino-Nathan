@@ -100,13 +100,7 @@ $user_data = check_login($conn);
 
 <span class="dashboard"></span>
       </div>
-      <div class="profile-details">
-        <img src="#" alt="">
-        <span class="admin_name">Prem Shahi</span>
-        <i class='bx bx-chevron-down' ></i>
-      </div>
     </nav>
-
     <div class="home-content">
     <div class="overview-boxes">
         <div class="box">
