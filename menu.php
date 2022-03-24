@@ -33,7 +33,7 @@
                   <li class="nav-item @@home__active">
                       <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
                   </li>
-                  <li class="nav-item active">
+                  <li class="nav-item ">
                       <a class="nav-link" href="about.php">Over</a>
                   </li>
                   <li class="nav-item @@services__active">
@@ -42,6 +42,10 @@
                   <li class="nav-item @@contact__active">
                       <a class="nav-link" href="contact.php">Contact</a>
                   </li>
+                  <li class="nav-item active">
+                      <a class="nav-link" href="signup.php">Open een rekening / aanmelden</a>
+                  </li>
+                  
                   <!--/search-right-->
                   <div class="search mr-3">
                       <input class="search_box" type="checkbox" id="search_box">

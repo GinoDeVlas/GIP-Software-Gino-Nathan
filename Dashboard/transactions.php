@@ -1,4 +1,10 @@
-<!-- GINO MOET HIER NOG IETS SCHRIJVE I.V.M DE VEILIGHEID PHP -->
+<?php
+
+
+include("../connection.php");
+include("../functions.php");
+$user_data = check_login($conn);
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -84,7 +90,103 @@
         </li>
       </ul>
   </div>
+  <section class="home-section">
+    <nav>
+      <div class="sidebar-button">
+        <i class='bx bx-menu sidebarBtn'></i>
+        <!-- Script voor de welkom message (bv:goeie avond) -->
+<?php
+        // I'm India so my timezone is Asia/Calcutta
+        date_default_timezone_set('Europe/Brussels');
+
+        // 24-hour format of an hour without leading zeros (0 through 23)
+        $Hour = date('G');
+        $id =  $_SESSION['id'];
+        $query = "select * FROM `tblklantengegevens` where IDKlantenummer = ". $id ." LIMIT 1; ";
+        $result = mysqli_query($conn, $query);
+        $row = mysqli_fetch_array($result);
+
+      if ( $Hour >= 5 && $Hour <= 11 ) {
+    echo "Goede morgen " . $row['Klantennaam'];
+      } else if ( $Hour >= 12 && $Hour <= 18 ) {
+    echo "Goede middag " . $row['Klantennaam'];
+      } else if ( $Hour >= 19 || $Hour <= 4 ) {
+    echo "Goede avond " . $row['Klantennaam'];
+  }
   
+?>
+
+<span class="dashboard"></span>
+      </div>
+      <div class="profile-details">
+        <img src="#" alt="">
+        <span class="admin_name">Prem Shahi</span>
+        <i class='bx bx-chevron-down' ></i>
+      </div>
+    </nav>
+
+    <div class="home-content">
+      <div class="sales-boxes">
+        <div class="transactions box">
+          <div class="title">Recente transacties</div>
+          <div class="sales-details">
+            <ul class="details">
+              <!-- Hier moet er een script komen voor alle overschrijven te printen -->
+              <li class="topic">Datum</li>
+              <li><a href="#">02 Jan 2021</a></li>
+              <li><a href="#">02 Jan 2021</a></li>
+              <li><a href="#">02 Jan 2021</a></li>
+              <li><a href="#">02 Jan 2021</a></li>
+              <li><a href="#">02 Jan 2021</a></li>
+              <li><a href="#">02 Jan 2021</a></li>
+              <li><a href="#">02 Jan 2021</a></li>
+              <li><a href="#">02 Jan 2021</a></li>
+              <li><a href="#">02 Jan 2021</a></li>
+            </ul>
+            <ul class="details">
+            <!-- Hier moet er een script komen voor alle overschrijven te printen -->
+            <li class="topic">Naam</li>
+            <li><a href="#">Alex Doe</a></li>
+            <li><a href="#">David Mart</a></li>
+            <li><a href="#">Roe Parter</a></li>
+            <li><a href="#">Diana Penty</a></li>
+            <li><a href="#">Martin Paw</a></li>
+            <li><a href="#">Doe Alex</a></li>
+            <li><a href="#">Aiana Lexa</a></li>
+            <li><a href="#">Rexel Mags</a></li>
+             <li><a href="#">Tiana Loths</a></li>
+          </ul>
+          <ul class="details">
+            <li class="topic">bedrag</li>
+            <li><a href="#">$204.98</a></li>
+            <li><a href="#">$24.55</a></li>
+            <li><a href="#">$25.88</a></li>
+            <li><a href="#">$170.66</a></li>
+            <li><a href="#">$56.56</a></li>
+            <li><a href="#">$44.95</a></li>
+            <li><a href="#">$67.33</a></li>
+             <li><a href="#">$23.53</a></li>
+             <li><a href="#">$46.52</a></li>
+          </ul>
+          <ul class="details">
+            <li class="topic">comunicatie</li>
+            <li><a href="#">$204.98</a></li>
+            <li><a href="#">$24.55</a></li>
+            <li><a href="#">$25.88</a></li>
+            <li><a href="#">$170.66</a></li>
+            <li><a href="#">$56.56</a></li>
+            <li><a href="#">$44.95</a></li>
+            <li><a href="#">$67.33</a></li>
+             <li><a href="#">$23.53</a></li>
+             <li><a href="#">$46.52</a></li>
+          </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
 
   <script>
    let sidebar = document.querySelector(".sidebar");

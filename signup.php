@@ -22,7 +22,7 @@ include 'functions.php';
 			<span>or use your email for registration</span>
 			<input type="text" placeholder="Jhon Doe" name="name" required/>
 			<input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"  placeholder="test@voorbeeld.be" name="mail" required/>
-			<input type="tel" placeholder="123-456-7890" name="Tele" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required/>
+			<input type="tel" placeholder="0123 45 67 89" name="Tele" pattern="[0-9]{4} [0-9]{2} [0-9]{2} [0-9]{2}" required/>
 			<input type="password" placeholder="choose a password" name="pass" required/>
 			<input type="password" placeholder="repeat password" name="rPass" required/>
 			<button>Sign Up</button>

@@ -418,3 +418,25 @@ nav .profile-details i{
     display: none;
   }
 }
+
+.transactions{
+  width: 100%;
+  background: #fff;
+  padding: 20px 30px;
+  margin: 0 20px;
+  border-radius: 12px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  }
+
+  .transactions .box .button a{
+    color: #fff;
+  background: #0A2558;
+  padding: 4px 12px;
+  font-size: 15px;
+  font-weight: 400;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  }
