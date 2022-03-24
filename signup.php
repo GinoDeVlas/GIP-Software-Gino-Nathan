@@ -20,7 +20,8 @@ include 'functions.php';
 		<form method="POST">
 			<h1>Create Account</h1>
 			<span>or use your email for registration</span>
-			<input type="text" placeholder="Jhon Doe" name="name" required/>
+			<input type="text" placeholder="Jhon" name="first" required/>
+			<input type="text" placeholder="Doe" name="last" required/>
 			<input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"  placeholder="test@voorbeeld.be" name="mail" required/>
 			<input type="tel" placeholder="0123 45 67 89" name="Tele" pattern="[0-9]{4} [0-9]{2} [0-9]{2} [0-9]{2}" required/>
 			<input type="password" placeholder="choose a password" name="pass" required/>
