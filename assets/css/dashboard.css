@@ -264,7 +264,7 @@ nav .profile-details i{
 
 /* left box */
 .home-content .sales-boxes .recent-sales{
-  width: 65%;
+  width: 100%;
   background: #fff;
   padding: 20px 30px;
   margin: 0 20px;
@@ -273,7 +273,7 @@ nav .profile-details i{
 }
 .home-content .sales-boxes .sales-details{
   display: flex;
-  align-items: center;
+  align-items: baseline;
   justify-content: space-between;
 }
 .sales-boxes .box .title{
