@@ -315,6 +315,22 @@ nav .profile-details i{
   background:  #0d3073;
 }
 
+.instbutton{
+  color: #fff;
+  background: #0A2558;
+  padding: 4px 12px;
+  font-size: 20px;
+  font-weight: 400;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border-radius: 8px;
+  margin: 0 10px;
+}
+.instbutton:hover{
+  background: #0d3073;
+}
+
 /* Right box */
 .home-content .sales-boxes .top-sales{
   width: 35%;

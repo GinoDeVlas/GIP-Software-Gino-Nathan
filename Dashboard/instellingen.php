@@ -99,7 +99,7 @@
             <li>Email:</li>
             <li><input type="text" name="txtmail" value="variable@example.be"></li>
             <li><br></li>
-            <input type="submit" name="btncancel" value="Annuleer"> <input type="submit" name="btnbevestig" value="Bevestig">
+            <input class="instbutton" type="submit" name="btncancel" value="Annuleer"><input class="instbutton" type="submit" name="btnbevestig" value="Bevestig">
           </ul>
           </div>
         </div>
