@@ -99,7 +99,7 @@ $user_data = check_login($conn);
 ?>
 
 <span class="dashboard"></span>
-      </div>
+  </div>
     </nav>
     <div class="home-content">
     <div class="overview-boxes">
@@ -117,7 +117,7 @@ $user_data = check_login($conn);
           </div>
         </div>
         <div class="box">
-          <a class="transactielink" href="">
+          <a class="transactielink" href="./overschrijven.php">
           <div class="right-side">
             <div class="box-topic">Nieuwe overschrijving</div>
             <div class="indicator">
