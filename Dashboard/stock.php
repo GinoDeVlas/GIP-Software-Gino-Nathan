@@ -16,70 +16,52 @@
       <span class="logo_name"> GAC</span>
     </div>
       <ul class="nav-links">
-        <li>
-          <a href="../dashboard.php" >
+      <li>
+          <a href="../dashboard.php">
             <i class='bx bx-grid-alt' ></i>
-            <span class="links_name">Dashboard</span>
+            <span class="links_name">Mijn Rekeningen</span>
           </a>
         </li>
         <li>
-          <a href="../Dashboard/transactions.php">
+          <a href="./transacties.php" >
             <i class='bx bx-box' ></i>
-            <span class="links_name">Transactions</span>
+            <span class="links_name">Transacties</span>
           </a>
         </li>
         <li>
-          <a href="../Dashboard/orderList.php">
+          <a href="./overschrijven.php">
             <i class='bx bx-list-ul' ></i>
-            <span class="links_name">Order list</span>
+            <span class="links_name">Overschrijven</span>
           </a>
         </li>
         <li>
-          <a href="../Dashboard/analytics.php" >
+          <a href="./leningen.php">
             <i class='bx bx-pie-chart-alt-2' ></i>
-            <span class="links_name">Analytics</span>
+            <span class="links_name">Leningen</span>
           </a>
         </li>
         <li>
-          <a href="../Dashboard/stocks.php">
+          <a href="./stock.php" class="active">
             <i class='bx bx-coin-stack' ></i>
             <span class="links_name">Stock</span>
           </a>
         </li>
         <li>
-          <a href="../Dashboard/stocks.php">
+          <a href="./beleggen.php">
             <i class='bx bx-book-alt' ></i>
-            <span class="links_name">Stock</span>
+            <span class="links_name">Beleggen</span>
           </a>
         </li>
         <li>
-          <a href="../Dashboard/team.php">
-            <i class='bx bx-user' ></i>
-            <span class="links_name">Team</span>
-          </a>
-        </li>
-        <li>
-          <a href="../Dashboard/messages.php">
-            <i class='bx bx-message' ></i>
-            <span class="links_name">Messages</span>
-          </a>
-        </li>
-        <li>
-          <a href="../Dashboard/favorites.php" class="active">
-            <i class='bx bx-heart' ></i>
-            <span class="links_name">Favrorites</span>
-          </a>
-        </li>
-        <li>
-          <a href="../Dashboard/settings.php">
+          <a href="./instellingen.php">
             <i class='bx bx-cog' ></i>
-            <span class="links_name">Setting</span>
+            <span class="links_name">Instellingen</span>
           </a>
         </li>
         <li class="log_out">
-          <a href="./signup.php">
+        <a href="./logout.php">
             <i class='bx bx-log-out'></i>
-            <span class="links_name">Log out</span>
+            <span class="links_name">Uitloggen</span>
           </a>
         </li>
       </ul>
