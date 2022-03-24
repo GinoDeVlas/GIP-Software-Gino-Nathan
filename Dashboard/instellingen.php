@@ -1,4 +1,10 @@
-<!-- GINO MOET HIER NOG IETS SCHRIJVE I.V.M DE VEILIGHEID PHP -->
+<?php
+
+
+include("../connection.php");
+include("../functions.php");
+$user_data = check_login($conn);
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -59,7 +65,7 @@
           </a>
         </li>
         <li class="log_out">
-        <a href="../index.php">
+        <a href="../logout.php">
             <i class='bx bx-log-out'></i>
             <span class="links_name">Uitloggen</span>
           </a>

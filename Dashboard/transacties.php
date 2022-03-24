@@ -65,7 +65,7 @@ $user_data = check_login($conn);
           </a>
         </li>
         <li class="log_out">
-        <a href="./logout.php">
+        <a href="../logout.php">
             <i class='bx bx-log-out'></i>
             <span class="links_name">Uitloggen</span>
           </a>
@@ -132,54 +132,49 @@ $user_data = check_login($conn);
           <div class="title">Recente transacties</div>
           <div class="sales-details">
             <ul class="details">
-              <!-- Hier moet er een script komen voor alle overschrijven te printen -->
-              <li class="topic">Datum</li>
-              <li><a href="#">02 Jan 2021</a></li>
-              <li><a href="#">02 Jan 2021</a></li>
-              <li><a href="#">02 Jan 2021</a></li>
-              <li><a href="#">02 Jan 2021</a></li>
-              <li><a href="#">02 Jan 2021</a></li>
-              <li><a href="#">02 Jan 2021</a></li>
-              <li><a href="#">02 Jan 2021</a></li>
-              <li><a href="#">02 Jan 2021</a></li>
-              <li><a href="#">02 Jan 2021</a></li>
+            <li class="topic">Datum</li>
+              <?php
+                $query = "select * FROM `tbloverschrijving` where IDKlantenummer = ". $id ." OR Ontvanger = ". $id ." ORDER BY `Datum` ASC";
+                $result = mysqli_query($conn, $query);
+                while ($row = mysqli_fetch_array($result)) {
+                  echo "<li><a>" . $row['Datum'] . "</a></li>";
+                } 
+              ?>
             </ul>
             <ul class="details">
             <!-- Hier moet er een script komen voor alle overschrijven te printen -->
-            <li class="topic">Naam</li>
-            <li><a href="#">Alex Doe</a></li>
-            <li><a href="#">David Mart</a></li>
-            <li><a href="#">Roe Parter</a></li>
-            <li><a href="#">Diana Penty</a></li>
-            <li><a href="#">Martin Paw</a></li>
-            <li><a href="#">Doe Alex</a></li>
-            <li><a href="#">Aiana Lexa</a></li>
-            <li><a href="#">Rexel Mags</a></li>
-             <li><a href="#">Tiana Loths</a></li>
+            <li class="topic">Naam ontvanger</li>
+            <?php
+                $query = "select * FROM `tbloverschrijving` where IDKlantenummer = ". $id ." OR Ontvanger = ". $id ." ORDER BY `Datum` ASC";
+                $result = mysqli_query($conn, $query);
+                while ($row = mysqli_fetch_array($result)) {
+                  $ontvangerid = $row['Ontvanger'];
+                  $queryy = "select * FROM `tblklantengegevens` where IDKlantenummer = ". $ontvangerid. " LIMIT 1; ";
+                  $resultt = mysqli_query($conn, $queryy);
+                  $rij = mysqli_fetch_array($resultt);
+                  echo "<li><a>" . $rij['Klantennaam'] . "</a></li>";
+                } 
+              ?>
           </ul>
           <ul class="details">
-            <li class="topic">bedrag</li>
-            <li><a href="#">$204.98</a></li>
-            <li><a href="#">$24.55</a></li>
-            <li><a href="#">$25.88</a></li>
-            <li><a href="#">$170.66</a></li>
-            <li><a href="#">$56.56</a></li>
-            <li><a href="#">$44.95</a></li>
-            <li><a href="#">$67.33</a></li>
-             <li><a href="#">$23.53</a></li>
-             <li><a href="#">$46.52</a></li>
+            <li class="topic">Bedrag</li>
+            <?php
+                $query = "select * FROM `tbloverschrijving` where IDKlantenummer = ". $id ." OR Ontvanger = ". $id ." ORDER BY `Datum` ASC";
+                $result = mysqli_query($conn, $query);
+                while ($row = mysqli_fetch_array($result)) {
+                  echo "<li><a> € " . $row['Hoeveelheid'] . "</a></li>";
+                } 
+              ?>
           </ul>
           <ul class="details">
-            <li class="topic">comunicatie</li>
-            <li><a href="#">$204.98</a></li>
-            <li><a href="#">$24.55</a></li>
-            <li><a href="#">$25.88</a></li>
-            <li><a href="#">$170.66</a></li>
-            <li><a href="#">$56.56</a></li>
-            <li><a href="#">$44.95</a></li>
-            <li><a href="#">$67.33</a></li>
-             <li><a href="#">$23.53</a></li>
-             <li><a href="#">$46.52</a></li>
+            <li class="topic">Communicatie</li>
+            <?php
+                $query = "select * FROM `tbloverschrijving` where IDKlantenummer = ". $id ." OR Ontvanger = ". $id ." ORDER BY `Datum` ASC";
+                $result = mysqli_query($conn, $query);
+                while ($row = mysqli_fetch_array($result)) {
+                  echo "<li><a>" . $row['Comunicatie'] . "</a></li>";
+                } 
+              ?>
           </ul>
           </div>
         </div>

@@ -122,7 +122,7 @@ $user_data = check_login($conn);
           <div class="right-side">
             <div class="box-topic">Inkomen <?php echo date('M'); ?> </div>
             <!-- GINO schrijf hier de variable voor het inkomen van de ingelogde gebruiker-->
-            <div class="number">$400,86 EUR</div>
+            <div class="number"><?php OntvangenDezeMaand($conn) ?> EUR</div>
             <div class="indicator">
               <span class="text">Een overzicht van je inkomen voor deze maand</span>
             </div>
@@ -132,7 +132,7 @@ $user_data = check_login($conn);
           <div class="right-side">
             <div class="box-topic">Uitgaves <?php echo date('M'); ?> </div>
              <!-- GINO plaats hier het uitgaven per maand van de ingelogde gebruiker -->
-            <div class="number">$300,64 EUR</div>
+            <div class="number"><?php UitgaveDezeMaand($conn) ?> EUR</div>
             <div class="indicator">
               <span class="text">Een overzicht van je uitgaves voor deze maand</span>
             </div>
