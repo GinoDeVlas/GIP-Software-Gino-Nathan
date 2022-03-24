@@ -75,26 +75,34 @@ function Verrichting($bedrag, $rekeningnummer, $communicatie, $con)
         $receiverid = $data['IDKlantenummer'];
     }
     $id = $_SESSION['id'];
-    $stmst = $con->prepare("insert INTO `tbloverschrijving` (IDKlantenummer, Ontvanger, Hoeveelheid, Datum, Comunicatie) VALUES ('".$id."' , '". $receiverid."', '".$bedrag."', '". date("d/m/Y") ."', '".$communicatie."');");
-    $stmst->execute();
-    //bedrag toevoegen bij de ontvanger
-    $query = "select * FROM `tblrekening` where `IDRekeningnummer`  = '" . $rekeningnummer . "' LIMIT 1; ";
-    $result = mysqli_query($con,$query);
-    while ($data = mysqli_fetch_array($result)) {
-        $beginsaldo = $data['saldo'];
+    if (isset($receiverid)) {
+        if ($id == $receiverid) {
+            echo "fout";
+        }else {
+    
+            $stmst = $con->prepare("insert INTO `tbloverschrijving` (IDKlantenummer, Ontvanger, Hoeveelheid, Datum, Comunicatie) VALUES ('".$id."' , '". $receiverid."', '".$bedrag."', '". date("d/m/Y") ."', '".$communicatie."');");
+            $stmst->execute();
+            //bedrag toevoegen bij de ontvanger
+            $query = "select * FROM `tblrekening` where `IDRekeningnummer`  = '" . $rekeningnummer . "' LIMIT 1; ";
+            $result = mysqli_query($con,$query);
+            while ($data = mysqli_fetch_array($result)) {
+                $beginsaldo = $data['saldo'];
+            }
+            $eindsaldo = $beginsaldo + $bedrag;
+            $stmst = $con->prepare("update `tblrekening` SET `saldo` = $eindsaldo where IDKlantenummer = $receiverid;");
+            $stmst->execute();
+            //bedrag van de verzender zijn saldo halen
+            $query = "select * FROM `tblrekening` where `IDKlantenummer`  = '" . $id  . "' LIMIT 1; ";
+            $result = mysqli_query($con,$query);
+            while ($data = mysqli_fetch_array($result)) {
+                $beginsaldo = $data['saldo'];
+            }
+            $eindsaldo = $beginsaldo - $bedrag;
+            $stmst = $con->prepare("update `tblrekening` SET `saldo` = $eindsaldo where IDKlantenummer = $id;");
+            $stmst->execute();
+        }   
     }
-    $eindsaldo = $beginsaldo + $bedrag;
-    $stmst = $con->prepare("update `tblrekening` SET `saldo` = $eindsaldo where IDKlantenummer = $receiverid;");
-    $stmst->execute();
-    //bedrag van de verzender zijn saldo halen
-    $query = "select * FROM `tblrekening` where `IDKlantenummer`  = '" . $id  . "' LIMIT 1; ";
-    $result = mysqli_query($con,$query);
-    while ($data = mysqli_fetch_array($result)) {
-        $beginsaldo = $data['saldo'];
-    }
-    $eindsaldo = $beginsaldo - $bedrag;
-    $stmst = $con->prepare("update `tblrekening` SET `saldo` = $eindsaldo where IDKlantenummer = $id;");
-    $stmst->execute();
+    
 }
 
 

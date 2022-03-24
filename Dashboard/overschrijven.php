@@ -1,4 +1,29 @@
-<!-- GINO MOET HIER NOG IETS SCHRIJVE I.V.M DE VEILIGHEID PHP -->
+<?php
+
+
+include("../connection.php");
+include("../functions.php");
+$user_data = check_login($conn);
+$fout = "*";
+  if (isset($_POST['ontvanger']) && isset($_POST['Bedrag']) && isset($_POST['Communicatie'])) {
+    $ontvanger = $_POST['ontvanger'];
+    $Bedrag = $_POST['Bedrag'];
+    $communicatie = $_POST['Communicatie'];
+    Verrichting($Bedrag, $ontvanger, $communicatie, $conn);
+  
+      $query = "select * FROM `tblmyklant` where IDRekekingnummer  = '" . $ontvanger . "' LIMIT 1; ";
+      $result = mysqli_query($conn,$query);
+      while ($data = mysqli_fetch_array($result)) {
+          $receiverid = $data['IDKlantenummer'];
+      }
+      $id = $_SESSION['id'];
+      if (isset($receiverid)) {
+          if ($id == $receiverid) {
+              $fout = "Je kan geen geld naar jezelf sturen";
+          }
+        }
+      }
+?> 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -66,7 +91,80 @@
         </li>
       </ul>
   </div>
+  <section class="home-section">
+    <nav>
+      <div class="sidebar-button">
+        <i class='bx bx-menu sidebarBtn'></i>
+        <!-- Script voor de welkom message (bv:goeie avond) -->
+        <?php
+        // I'm India so my timezone is Asia/Calcutta
+        date_default_timezone_set('Europe/Brussels');
+
+        // 24-hour format of an hour without leading zeros (0 through 23)
+        $Hour = date('G');
+        $id =  $_SESSION['id'];
+        $query = "select * FROM `tblklantengegevens` where IDKlantenummer = ". $id ." LIMIT 1; ";
+        $result = mysqli_query($conn, $query);
+        $row = mysqli_fetch_array($result);
+
+      if ( $Hour >= 5 && $Hour <= 11 ) {
+    echo "Goede morgen " . $row['Klantennaam'];
+      } else if ( $Hour >= 12 && $Hour <= 18 ) {
+    echo "Goede middag " . $row['Klantennaam'];
+      } else if ( $Hour >= 19 || $Hour <= 4 ) {
+    echo "Goede avond " . $row['Klantennaam'];
+  }
   
+      ?>
+<span class="dashboard"></span>
+  </div>
+    </nav>
+    <div class="home-content">
+    <div class="overview-boxes">
+        <div class="box">
+          <div class="right-side">
+            <div class="box-topic"> Mijn Rekeningsnummer</div>
+            <?php
+              $query = "select * FROM `tblrekening` where IDKlantenummer = ". $id ." LIMIT 1; ";
+              $result = mysqli_query($conn, $query);
+              $row = mysqli_fetch_array($result);
+            ?>
+            <div class="indicator">
+            <span class="textspecial"> <?php echo $row['IDRekeningnummer']; ?> </span>
+            </div>
+          </div>
+        </div>
+        <div class="box">
+          <div class="right-side">
+          <div class="box-topic"> Saldo: </div>
+            <div class="box-topic"><?php echo $row['saldo']; ?> euro</div>
+            <div class="indicator">
+            <span class="textspecial">  </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sales-boxes">
+        <div class="transactions box">
+          <div class="title">Nieuwe overschrijving</div> <br>
+          <div style="margin: auto;">
+          <form method="POST" >
+            <input type="text" name="ontvanger" placeholder="Rekeningsnummer ontvanger" size="60vw" style='font-size: 15pt' required> <?php echo $fout  ?><br><br>
+            <input type="text" name="Bedrag" placeholder="Bedrag" size="60%" style='font-size: 15pt' required><br><br>
+            <textarea id="w3review" name="Communicatie" rows="4" cols="59" size="60%" placeholder="Communicatie" style='font-size: 15pt'> communicatie </textarea>
+            <div class="button">
+            <button type="submit" class="overschrijvingbutton">verzend</button>
+
+          </div>
+          </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+ 
 
   <script>
    let sidebar = document.querySelector(".sidebar");
