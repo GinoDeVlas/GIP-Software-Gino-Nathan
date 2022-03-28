@@ -78,7 +78,7 @@
                         <textarea name="w3lMessage" id="w3lMessage" placeholder="Uw bericht" required=""></textarea>
                     </div>
                     <div class="text-right">
-                        <button type="submit" class="btn btn-style btn-primary">VERZENDEN</button>
+                        <button type="submit" class="btn btn-style btn-primary">Verzenden</button>
                     </div>
                 </form>
             </div>

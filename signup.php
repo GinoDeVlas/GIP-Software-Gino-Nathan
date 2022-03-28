@@ -23,7 +23,8 @@ include 'functions.php';
 			<input type="text" placeholder="Jhon" name="first" required/>
 			<input type="text" placeholder="Doe" name="last" required/>
 			<input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"  placeholder="test@voorbeeld.be" name="mail" required/>
-			<input type="tel" placeholder="0123 45 67 89" name="Tele" pattern="[0-9]{4} [0-9]{2} [0-9]{2} [0-9]{2}" required/>
+			<!-- <input type="tel" placeholder="0123 45 67 89" name= "Tele" pattern="[0-9]{4} [0-9]{2} [0-9]{2} [0-9]{2}" required/>-->
+			<input type="tel" placeholder="123-456-7890" name="Tele" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required/>
 			<input type="password" placeholder="choose a password" name="pass" required/>
 			<input type="password" placeholder="repeat password" name="rPass" required/>
 			<button>Sign Up</button>
@@ -62,9 +63,10 @@ include 'functions.php';
 </html>
 
 <?php
-if (isset($_POST['name']) && isset($_POST['mail']) && isset($_POST['Tele'])) {
+if (isset($_POST['first']) && isset($_POST['mail']) && isset($_POST['Tele'])) {
 	if ($_POST['pass'] == $_POST['rPass']) {
-		Register($_POST['name'], $_POST['mail'], $_POST['Tele'], $_POST['pass'], $conn);	
+		$name = $_POST['first'] . " " . $_POST['last'];
+		Register($name, $_POST['mail'], $_POST['Tele'], $_POST['pass'], $conn);	
 	}
 }
 if (isset($_POST['LoginEmail']) && isset($_POST['LoginPass']) ) {
