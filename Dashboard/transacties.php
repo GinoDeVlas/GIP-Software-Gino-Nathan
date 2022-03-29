@@ -89,11 +89,11 @@ $user_data = check_login($conn);
         $row = mysqli_fetch_array($result);
 
       if ( $Hour >= 5 && $Hour <= 11 ) {
-    echo "Goede morgen " . $row['Klantennaam'];
+    echo "Goede morgen " . $row['Voornaam'] . " " . $row['Achternaam'];
       } else if ( $Hour >= 12 && $Hour <= 18 ) {
-    echo "Goede middag " . $row['Klantennaam'];
+    echo "Goede middag ". $row['Voornaam'] . " " . $row['Achternaam'];
       } else if ( $Hour >= 19 || $Hour <= 4 ) {
-    echo "Goede avond " . $row['Klantennaam'];
+    echo "Goede avond " . $row['Voornaam'] . " " . $row['Achternaam'];
   }
   
 ?>
@@ -105,7 +105,7 @@ $user_data = check_login($conn);
     <div class="overview-boxes">
         <div class="box">
           <div class="right-side">
-            <div class="box-topic"> Mijn Rekeningsnummer</div>
+            <div class="box-topic">Rekeningsnummer</div>
             <?php
               $query = "select * FROM `tblrekening` where IDKlantenummer = ". $id ." LIMIT 1; ";
               $result = mysqli_query($conn, $query);
@@ -152,7 +152,7 @@ $user_data = check_login($conn);
                   $queryy = "select * FROM `tblklantengegevens` where IDKlantenummer = ". $ontvangerid. " LIMIT 1; ";
                   $resultt = mysqli_query($conn, $queryy);
                   $rij = mysqli_fetch_array($resultt);
-                  echo "<li><a>" . $rij['Klantennaam'] . "</a></li>";
+                  echo "<li><a>" . $rij['Voornaam'] . " " . $rij['Achternaam'] . "</a></li>";
                 } 
               ?>
           </ul>

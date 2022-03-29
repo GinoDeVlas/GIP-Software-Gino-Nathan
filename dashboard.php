@@ -66,7 +66,7 @@ $user_data = check_login($conn);
           </a>
         </li>
         <li class="log_out">
-        <a href="./logout.php">
+        <a href="./Dashboard/logout.php">
             <i class='bx bx-log-out'></i>
             <span class="links_name">Uitloggen</span>
           </a>
@@ -90,11 +90,11 @@ $user_data = check_login($conn);
         $row = mysqli_fetch_array($result);
 
       if ( $Hour >= 5 && $Hour <= 11 ) {
-    echo "Goede morgen " . $row['Klantennaam'];
+    echo "Goede morgen " . $row['Voornaam'] . " " . $row['Achternaam'];
       } else if ( $Hour >= 12 && $Hour <= 18 ) {
-    echo "Goede middag " . $row['Klantennaam'];
+    echo "Goede middag ". $row['Voornaam'] . " " . $row['Achternaam'];
       } else if ( $Hour >= 19 || $Hour <= 4 ) {
-    echo "Goede avond " . $row['Klantennaam'];
+    echo "Goede avond " . $row['Voornaam'] . " " . $row['Achternaam'];
   }
   
       ?>
@@ -106,7 +106,7 @@ $user_data = check_login($conn);
       <div class="overview-boxes">
         <div class="box">
           <div class="right-side">
-            <div class="box-topic"> <?php echo $row['Klantennaam']; ?> </div>
+            <div class="box-topic"> <?php echo $row['Voornaam'] . " " . $row['Achternaam']; ?> </div>
             <?php
               $query = "select * FROM `tblrekening` where IDKlantenummer = ". $id ." LIMIT 1; ";
               $result = mysqli_query($conn, $query);

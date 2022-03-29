@@ -68,10 +68,35 @@ $user_data = check_login($conn);
         <a href="../logout.php">
             <i class='bx bx-log-out'></i>
             <span class="links_name">Uitloggen</span>
-          </a>
+            </a>
         </li>
       </ul>
   </div>
+  <section class="home-section">
+    <nav>
+      <div class="sidebar-button">
+        <i class='bx bx-menu sidebarBtn'></i>
+        <!-- Script voor de welkom message (bv:goeie avond) -->
+        <?php
+        // I'm India so my timezone is Asia/Calcutta
+        date_default_timezone_set('Europe/Brussels');
+
+        // 24-hour format of an hour without leading zeros (0 through 23)
+        $Hour = date('G');
+        $id =  $_SESSION['id'];
+        $query = "select * FROM `tblklantengegevens` where IDKlantenummer = ". $id ." LIMIT 1; ";
+        $result = mysqli_query($conn, $query);
+        $row = mysqli_fetch_array($result);
+
+      if ( $Hour >= 5 && $Hour <= 11 ) {
+    echo "Goede morgen " . $row['Voornaam'] . " " . $row['Achternaam'];
+      } else if ( $Hour >= 12 && $Hour <= 18 ) {
+    echo "Goede middag ". $row['Voornaam'] . " " . $row['Achternaam'];
+      } else if ( $Hour >= 19 || $Hour <= 4 ) {
+    echo "Goede avond " . $row['Voornaam'] . " " . $row['Achternaam'];
+  }
+  
+      ?>
   
 
   <script>

@@ -193,6 +193,7 @@ nav .profile-details i{
   padding: 15px 14px;
   border-radius: 12px;
   box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+  text-align: center;
 }
 .overview-boxes .box-topic{
   font-size: 20px;
@@ -227,6 +228,7 @@ nav .profile-details i{
 }
 .textspecial{
   font-size: 18px;
+  text-align: center;
 }
 .home-content .box .cart{
   display: inline-block;

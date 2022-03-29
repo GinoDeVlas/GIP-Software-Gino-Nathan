@@ -65,8 +65,8 @@ include 'functions.php';
 <?php
 if (isset($_POST['first']) && isset($_POST['mail']) && isset($_POST['Tele'])) {
 	if ($_POST['pass'] == $_POST['rPass']) {
-		$name = $_POST['first'] . " " . $_POST['last'];
-		Register($name, $_POST['mail'], $_POST['Tele'], $_POST['pass'], $conn);	
+		
+		Register(ucfirst($_POST['first']), ucfirst($_POST['last']), $_POST['mail'], $_POST['Tele'], $_POST['pass'], $conn);	
 	}
 }
 if (isset($_POST['LoginEmail']) && isset($_POST['LoginPass']) ) {

@@ -34,11 +34,11 @@ function AantlalRijen($database, $con)
     }
 }
 
-function Register($name, $mail, $Tel, $pass, $con){
+function Register($vname, $lname, $mail, $Tel, $pass, $con){
     $id = hexdec(crc32(AantlalRijen("tblklantengegevens", $con) + 1));
     $Passw = "GEC" . $id . $pass;
     $password = password_hash($Passw, PASSWORD_DEFAULT);
-    $stmst = $con->prepare("insert INTO tblklantengegevens (IDKlantenummer, Klantennaam, Email, Telefoon, Wachtwoord) VALUES ('".$id."', '". $name."', '". $mail."', '". $Tel."', '".$password."');");
+    $stmst = $con->prepare("insert INTO tblklantengegevens (IDKlantenummer, Voornaam, Achternaam, Email, Telefoon, Wachtwoord) VALUES ('".$id."', '". $vname."', '". $lname."', '". $mail."', '". $Tel."', '".$password."');");
     $stmst->execute();
     $_SESSION['id'] = $id;
     $rekeningnummer = "BE69 " . chunk_split(hexdec(crc32($name . $id)), 4, ' ');
