@@ -4,18 +4,15 @@
 include("../connection.php");
 include("../functions.php");
 $user_data = check_login($conn);
-$fout = $bedragfout = "*";
+
+$fout = "*";
+$bedragfout = "*";
+
   if (isset($_POST['ontvanger']) && isset($_POST['Bedrag']) && isset($_POST['Communicatie'])) {
     $ontvanger = $_POST['ontvanger'];
     $Bedrag = $_POST['Bedrag'];
-    $communicatie = $_POST['Communicatie'];
+    $communicatie = '"'.$_POST['Communicatie'].'"';
     if ($Bedrag > 0) {
-      Verrichting($Bedrag, $ontvanger, $communicatie, $conn);
-    }else {
-      $bedragfout = "Geen geldig bedrag";
-    }
-
-  
       $query = "select * FROM `tblmyklant` where IDRekekingnummer  = '" . $ontvanger . "' LIMIT 1; ";
       $result = mysqli_query($conn,$query);
       while ($data = mysqli_fetch_array($result)) {
@@ -25,9 +22,16 @@ $fout = $bedragfout = "*";
       if (isset($receiverid)) {
           if ($id == $receiverid) {
               $fout = "Geen geldig rekeningsnummer";
+          }else {
+            Verrichting($Bedrag, $ontvanger, $communicatie, $conn);
+
           }
         }
       }
+    else {
+      $bedragfout = "Geen geldig bedrag";
+    }}
+
 ?> 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -89,7 +93,7 @@ $fout = $bedragfout = "*";
           </a>
         </li>
         <li class="log_out">
-        <a href="../logout.php">
+        <a href="./logout.php">
             <i class='bx bx-log-out'></i>
             <span class="links_name">Uitloggen</span>
           </a>
@@ -157,7 +161,7 @@ $fout = $bedragfout = "*";
           <form method="POST" >
             <input type="text" name="ontvanger" placeholder="Rekeningsnummer ontvanger" size="60vw" style='font-size: 15pt' required> <?php echo $fout  ?><br><br>
             <input type="text" name="Bedrag" placeholder="Bedrag" size="60%" style='font-size: 15pt' required><?php echo $bedragfout  ?><br><br>
-            <textarea id="w3review" name="Communicatie" rows="4" cols="59" size="60%" placeholder="Communicatie" style='font-size: 15pt'> communicatie </textarea>
+            <textarea id="w3review" name="Communicatie" rows="4" cols="59" size="60%" placeholder="Communicatie" style='font-size: 15pt'></textarea>
             <div class="button">
             <button type="submit" class="overschrijvingbutton">verzend</button>
 

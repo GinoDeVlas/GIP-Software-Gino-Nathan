@@ -87,6 +87,7 @@ $user_data = check_login($conn);
         $query = "select * FROM `tblklantengegevens` where IDKlantenummer = ". $id ." LIMIT 1; ";
         $result = mysqli_query($conn, $query);
         $row = mysqli_fetch_array($result);
+        $voornaam = $row['Voornaam'];
 
       if ( $Hour >= 5 && $Hour <= 11 ) {
     echo "Goede morgen " . $row['Voornaam'] . " " . $row['Achternaam'];
@@ -105,25 +106,26 @@ $user_data = check_login($conn);
           <div class="title">Account</div>
           <div class="sales-details">
             <ul class="details">
+
               <li class="topic">Profiel</li>
               <li>Voornaam:</li>
-              <li><input type="text" name="txtvoor" value="variable"></li>
+              <li><input type="text" name="txtvoor" value="<?php echo $row['Voornaam'];?>"></li>
               <li>Achternaam:</li>
-              <li><input type="text" name="txtachter" value="variable"></li>
+              <li><input type="text" name="txtachter" value="<?php echo $row['Achternaam'];?>"></li>
             </ul>
             <ul class="details">
               <li class="topic"><br></li>
             <!-- Hier moet er een script komen voor alle overschrijven te printen -->
-              <li>Wachtwoord:</li>
+              <li>Nieuw wachtwoord:</li>
               <li><input type="password" name="txtww" value=""></li>
-              <li>Bevestig Wachtwoord:</li>
+              <li>Bevestig met huidig Wachtwoord:</li>
               <li><input type="password" name="txtww" value=""></li>
               
           </ul>
           <ul class="details">
             <li class="topic"><br></li>
             <li>Email:</li>
-            <li><input type="text" name="txtmail" value="variable@example.be"></li>
+            <li><input type="text" name="txtmail" value="<?php echo $row['Email'];?>"></li>
             <li><br></li>
             <input class="instbutton" type="submit" name="btncancel" value="Annuleer"><input class="instbutton" type="submit" name="btnbevestig" value="Bevestig">
           </ul>

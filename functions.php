@@ -167,21 +167,48 @@ function UitgaveDezeMaand($con)
 {
     $maand = date("M");
     $maandGetal = '/01';
-switch ($maand) {
-    case 'Jan':
-        $maandGetal = '/01';
-        break;
-    case 'Feb':
-        $maandGetal = '/02';
-        break;
-    case 'Mar':
-        $maandGetal = '/03';
-        break;
+    switch ($maand) {
+        case 'Jan':
+            $maandGetal = '/01';
+            break;
+        case 'Feb':
+            $maandGetal = '/02';
+            break;
+        case 'Mar':
+            $maandGetal = '/03';
+            break;
+        case 'Apr':
+            $maandGetal = '/04';
+            break;
+        case 'May':
+            $maandGetal = '/05';
+            break;
+        case 'JuN':
+            $maandGetal = '/06';
+              break;
+        case 'Jul':
+            $maandGetal = '/07';
+            break;
+        case 'Aug':
+            $maandGetal = '/08';
+            break;
+        case 'Sep':
+            $maandGetal = '/09';
+             break;
+        case 'Oct':
+            $maandGetal = '/10';
+            break;
+        case 'Nov':
+            $maandGetal = '/11';
+            break;
+        case 'Dec':
+            $maandGetal = '/12';
+            break;
     
-    default:
-        # code...
-        break;
-}
+            default:
+            # code...
+            break;
+    }  
 $id = $_SESSION['id'];
 $bedrag = 0;
 $query = "select * FROM `tbloverschrijving` where `IDKlantenummer`  = '" . $id . "'";

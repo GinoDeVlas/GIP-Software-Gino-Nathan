@@ -65,7 +65,7 @@ $user_data = check_login($conn);
           </a>
         </li>
         <li class="log_out">
-        <a href="../logout.php">
+        <a href="./logout.php">
             <i class='bx bx-log-out'></i>
             <span class="links_name">Uitloggen</span>
           </a>
@@ -152,7 +152,7 @@ $user_data = check_login($conn);
                   $queryy = "select * FROM `tblklantengegevens` where IDKlantenummer = ". $ontvangerid. " LIMIT 1; ";
                   $resultt = mysqli_query($conn, $queryy);
                   $rij = mysqli_fetch_array($resultt);
-                  echo "<li><a>" . $rij['Voornaam'] . " " . $rij['Achternaam'] . "</a></li>";
+                  echo "<li><a>" . ucfirst($rij['Voornaam']) . " " . ucfirst($rij['Achternaam']) . "</a></li>";
                 } 
               ?>
           </ul>
