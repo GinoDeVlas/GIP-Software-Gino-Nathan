@@ -93,7 +93,7 @@ $bedragfout = "*";
           </a>
         </li>
         <li class="log_out">
-        <a href="./logout.php">
+        <a href="../Dashboard/logout.php">
             <i class='bx bx-log-out'></i>
             <span class="links_name">Uitloggen</span>
           </a>
