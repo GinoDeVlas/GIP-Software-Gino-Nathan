@@ -1,9 +1,24 @@
 <?php
-
-
 include("../connection.php");
 include("../functions.php");
 $user_data = check_login($conn);
+
+$fout = "*";
+  if (isset($_POST["oudww"])) {
+
+    $query = "select * FROM `tblklantengegevens` where IDKlantenummer  = '" .$_SESSION['id']. "' LIMIT 1; ";
+    $result = mysqli_query($conn,$query);
+    $info = mysqli_fetch_array($result);
+    $id = $info['IDKlantenummer'];
+    $passhash = $info['Wachtwoord'];
+    $pass = $_POST["oudww"];
+    $Passw = "GEC" . $id . $pass;
+    if (password_verify($Passw, $passhash)) {
+      VeranderAlgemeneInstellingen($_POST["Vnaam"], $_POST["Anaam"], $_POST["Email"], $_POST["nieuwww"], $conn);
+    }else {
+      $fout = "Onjuist wachtwoord";
+    }
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -103,32 +118,29 @@ $user_data = check_login($conn);
     <div class="home-content">
       <div class="sales-boxes">
         <div class="transactions box">
-          <div class="title">Account</div>
+          <div class="title">Algemeen</div>
           <div class="sales-details">
             <ul class="details">
-
-              <li class="topic">Profiel</li>
+              <form action="" method="POST">
               <li>Voornaam:</li>
-              <li><input type="text" name="txtvoor" value="<?php echo $row['Voornaam'];?>"></li>
+              <li><input type="text" name="Vnaam" value="<?php echo $row['Voornaam'];?>"></li>
               <li>Achternaam:</li>
-              <li><input type="text" name="txtachter" value="<?php echo $row['Achternaam'];?>"></li>
+              <li><input type="text" name="Anaam" value="<?php echo $row['Achternaam'];?>"></li>
             </ul>
             <ul class="details">
-              <li class="topic"><br></li>
-            <!-- Hier moet er een script komen voor alle overschrijven te printen -->
               <li>Nieuw wachtwoord:</li>
-              <li><input type="password" name="txtww" value=""></li>
-              <li>Bevestig met huidig Wachtwoord:</li>
-              <li><input type="password" name="txtww" value=""></li>
+              <li><input type="password" name="nieuwww" value=""></li>
+              <li>Bevestig met huidig Wachtwoord:</li> 
+              <li><input type="password" name="oudww" value=""></li> <?php echo $fout; ?>
               
           </ul>
           <ul class="details">
-            <li class="topic"><br></li>
             <li>Email:</li>
-            <li><input type="text" name="txtmail" value="<?php echo $row['Email'];?>"></li>
+            <li><input type="text" name="Email" value="<?php echo $row['Email'];?>"></li>
             <li><br></li>
-            <input class="instbutton" type="submit" name="btncancel" value="Annuleer"><input class="instbutton" type="submit" name="btnbevestig" value="Bevestig">
-          </ul>
+            <!--button type van de annuleerknop moet veranderd worden -->
+            <input class="instbutton" type="submit"  name="btncancel" value="Annuleer"><input class="instbutton" type="submit" name="btnbevestig" value="Bevestig">
+          </ul></form>
           </div>
         </div>
       </div>

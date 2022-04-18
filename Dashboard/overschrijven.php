@@ -23,7 +23,10 @@ $bedragfout = "*";
           if ($id == $receiverid) {
               $fout = "Geen geldig rekeningsnummer";
           }else {
-            Verrichting($Bedrag, $ontvanger, $communicatie, $conn);
+            if (is_numeric($Bedrag)) {
+              Verrichting($Bedrag, $ontvanger, $communicatie, $conn);
+            }else {
+              $bedragfout = "Geen geldig bedrag";            }
 
           }
         }

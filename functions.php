@@ -221,6 +221,21 @@ echo $bedrag;
 }
 
 
+function VeranderAlgemeneInstellingen($Vnaam, $Anaam, $Email, $NewPass, $con)
+{
+    $id = $_SESSION['id'];
+    $stmst = $con->prepare("update `tblklantengegevens` SET `Voornaam` = '$Vnaam' WHERE `tblklantengegevens`.`IDKlantenummer` = $id;");
+    $stmst->execute();
+    $stmst = $con->prepare("update `tblklantengegevens` SET `Achternaam` = '$Anaam' WHERE `tblklantengegevens`.`IDKlantenummer` = $id;");
+    $stmst->execute();
+    $stmst = $con->prepare("update `tblklantengegevens` SET `Email` = '$Email' WHERE `tblklantengegevens`.`IDKlantenummer` = $id;");
+    $stmst->execute();
+    $Passw = "GEC" . $id . $NewPass;
+    $password = password_hash($Passw, PASSWORD_DEFAULT);
+    $stmst = $con->prepare("update `tblklantengegevens` SET `Wachtwoord` = '$password' WHERE `tblklantengegevens`.`IDKlantenummer` = $id;");
+    $stmst->execute();
+}
+
 
 
 ?>
