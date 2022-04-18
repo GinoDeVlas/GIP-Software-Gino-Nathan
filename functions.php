@@ -1,6 +1,7 @@
 <?php
 session_start();
 include 'connection.php';
+
 function check_login($con)
 {
     if(isset($_SESSION['id']))
@@ -35,17 +36,24 @@ function AantlalRijen($database, $con)
 }
 
 function Register($vname, $lname, $mail, $Tel, $pass, $con){
-    $id = hexdec(crc32(AantlalRijen("tblklantengegevens", $con) + 1));
-    $Passw = "GEC" . $id . $pass;
-    $password = password_hash($Passw, PASSWORD_DEFAULT);
-    $stmst = $con->prepare("insert INTO tblklantengegevens (IDKlantenummer, Voornaam, Achternaam, Email, Telefoon, Wachtwoord) VALUES ('".$id."', '". $vname."', '". $lname."', '". $mail."', '". $Tel."', '".$password."');");
-    $stmst->execute();
-    $_SESSION['id'] = $id;
-    $rekeningnummer = "BE69 " . chunk_split(hexdec(crc32($name . $id)), 4, ' ');
-    $stmst = $con->prepare("insert INTO tblmyklant (IDKlantenummer, IDRekekingnummer) VALUES ('".$id."' , '". $rekeningnummer."');");
-    $stmst->execute();
-    $stmsts= $con->prepare("insert INTO tblrekening (IDKlantenummer, IDRekeningnummer, saldo) VALUES ('".$id."' , '". $rekeningnummer."' , 0);");
-    $stmsts->execute();
+
+    //id creation
+        $id = hexdec(crc32(AantlalRijen("tblklantengegevens", $con) + 1));
+    //pass creation
+         $Passw = "GEC" . $id . $pass;
+        $password = password_hash($Passw, PASSWORD_DEFAULT);
+    //account creation in tblKlantengegevens
+        $stmst = $con->prepare("insert INTO tblklantengegevens (IDKlantenummer, Voornaam, Achternaam, Email, Telefoon, Wachtwoord) VALUES ('".$id."', '". $vname."', '". $lname."', '". $mail."', '". $Tel."', '".$password."');");
+        $stmst->execute();
+    //declaratie van session ID
+        $_SESSION['id'] = $id;
+    //rekeningsnummer creation
+        $name = $vname . " " . $lname;
+        $rekeningnummer = "BE69 " . chunk_split(hexdec(crc32($name . $id)), 4, ' ');
+        $stmst = $con->prepare("insert INTO tblmyklant (IDKlantenummer, IDRekekingnummer) VALUES ('".$id."' , '". $rekeningnummer."');");
+        $stmst->execute();
+        $stmsts= $con->prepare("insert INTO tblrekening (IDKlantenummer, IDRekeningnummer, saldo) VALUES ('".$id."' , '". $rekeningnummer."' , 0);");
+        $stmsts->execute();
 }
 
 function login($mail, $pass, $con)
@@ -62,7 +70,32 @@ function login($mail, $pass, $con)
         if (password_verify($Passw, $passhash)) {
             $_SESSION['id'] = $id;
             header("Location: dashboard.php");
+        }else {
+            echo '<script type="text/javascript">
+        $(document).ready(function() {
+        swal({
+            title: "fout!",
+            text: "Ongeldig Wachtwoord!!",
+            icon: "error",
+            button: "Ok",
+            timer: 200000
+            });
+        });
+</script>' ;
+
         }
+    }else {
+        echo '<script type="text/javascript">
+        $(document).ready(function() {
+        swal({
+            title: "fout!",
+            text: "Er bestaat geen account met dit E-mail adres!!",
+            icon: "error",
+            button: "Ok",
+            timer: 200000
+            });
+        });
+</script>' ;
     }
 }
 

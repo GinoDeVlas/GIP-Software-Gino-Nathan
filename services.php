@@ -18,7 +18,7 @@
 <section class="w3l-breadcrumb">
     <div class="container">
         <ul class="breadcrumbs-custom-path">
-            <li><a href="index.html">Home</a></li>
+            <li><a href="index.php">Home</a></li>
             <li class="active"><span class="fa fa-arrow-right mx-2" aria-hidden="true"></span> Services</li>
         </ul>
     </div>
@@ -174,7 +174,7 @@
             <h3 class="mt-4">Call us : <a href="tel:+1 123 456 789">+1 123 456 789</a> </h3>
             <p class="mt-4">Lorem ipsum dolor sit amet elit. Rep ellat saepe, dolorum expedita
                 incidunt iure iusto? Saepe  pariatur, quas optio ipsum culpa harum velit!</p>
-            <a href="contact.html" class="btn btn-style btn-primary mt-sm-5 mt-4 mr-2">Contact Us</a>
+            <a href="contact.php" class="btn btn-style btn-primary mt-sm-5 mt-4 mr-2">Contact Us</a>
         </div>
     </div>
 </div>

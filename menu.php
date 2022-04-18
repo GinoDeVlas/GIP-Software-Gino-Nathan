@@ -43,7 +43,7 @@
                       <a class="nav-link" href="contact.php">Contact</a>
                   </li>
                   <li class="nav-item active">
-                      <a class="nav-link" href="signup.php">Open een rekening / aanmelden</a>
+                      <a class="nav-link" href="signup.php">Aanmelden</a>
                   </li>
                   
                   <!--/search-right-->

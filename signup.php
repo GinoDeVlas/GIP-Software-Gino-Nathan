@@ -10,6 +10,10 @@ include 'functions.php';
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="./assets/css/RegLogin.css">
+	<!-- alert css -->
+	 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
     <title>Login</title>
 </head>
 <body>
@@ -65,8 +69,21 @@ include 'functions.php';
 <?php
 if (isset($_POST['first']) && isset($_POST['mail']) && isset($_POST['Tele'])) {
 	if ($_POST['pass'] == $_POST['rPass']) {
-		
+
 		Register(ucfirst($_POST['first']), ucfirst($_POST['last']), $_POST['mail'], $_POST['Tele'], $_POST['pass'], $conn);	
+?>	
+<script type="text/javascript">
+    $(document).ready(function() {
+        swal({
+            title: "Registratie succesvol!",
+            text: "Log nu in om naar je account te gaan!!",
+            icon: "success",
+            button: "Ok",
+            timer: 200000
+        });
+    });
+</script>
+<?php
 	}
 }
 if (isset($_POST['LoginEmail']) && isset($_POST['LoginPass']) ) {
