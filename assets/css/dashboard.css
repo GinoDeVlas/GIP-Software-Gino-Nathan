@@ -319,11 +319,12 @@ nav .profile-details i{
 
 .instbutton{
   color: #fff;
-  background: #0A2558;
+  background: #614da7;
   padding: 4px 12px;
   font-size: 20px;
   font-weight: 400;
   border-radius: 4px;
+  outline: auto;
   text-decoration: none;
   transition: all 0.3s ease;
   border-radius: 8px;
@@ -472,9 +473,8 @@ nav .profile-details i{
 }
 
 .overschrijvingbutton{
-  background: #0d3073;
   color: #fff;
-  background: #0A2558;
+  background: #7b59d0;
   padding: 4px 12px;
   font-size: 20px;
   font-weight: 400;
@@ -487,4 +487,20 @@ nav .profile-details i{
   font-family: 'Poppins', sans-serif;
   border-radius: 8px;
 
+}
+/* boxes */
+.sales-details input[type=text]{
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 8px;
+  box-sizing: border-box;
+  border: 2px solid grey;
+  
+}
+.sales-details input[type=password]{
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 10px;
+  box-sizing: border-box;
+  border: 2px solid grey;
 }

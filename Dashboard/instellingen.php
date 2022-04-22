@@ -118,18 +118,18 @@ $fout = "*";
     <div class="home-content">
       <div class="sales-boxes">
         <div class="transactions box">
-          <div class="title">Algemeen</div>
+          <div class="title">Account</div>
           <div class="sales-details">
             <ul class="details">
               <form action="" method="POST">
               <li>Voornaam:</li>
               <li><input type="text" name="Vnaam" value="<?php echo $row['Voornaam'];?>"></li>
               <li>Achternaam:</li>
-              <li><input type="text" name="Anaam" value="<?php echo $row['Achternaam'];?>"></li>
+              <li><input  type="text" name="Anaam" value="<?php echo $row['Achternaam'];?>"></li>
             </ul>
             <ul class="details">
               <li>Nieuw wachtwoord:</li>
-              <li><input type="password" name="nieuwww" value=""></li>
+              <li><input  type="password" name="nieuwww" value=""></li>
               <li>Bevestig met huidig Wachtwoord:</li> 
               <li><input type="password" name="oudww" value=""></li> <?php echo $fout; ?>
               
