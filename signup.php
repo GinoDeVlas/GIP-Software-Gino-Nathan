@@ -2,6 +2,7 @@
 //voeg de connection code toe aan deze code
 include 'connection.php';
 include 'functions.php';
+$error = NULL;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -59,7 +60,9 @@ include 'functions.php';
 		</div>
 	</div>
 </div>
-
+<center>
+	<?php $error; ?>
+</center>
 </body>
 
 

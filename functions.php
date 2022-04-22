@@ -37,18 +37,28 @@ function AantlalRijen($database, $con)
 
 function Register($vname, $lname, $mail, $Tel, $pass, $con){
 
+    $name = $vname . " " . $lname;
     //id creation
         $id = hexdec(crc32(AantlalRijen("tblklantengegevens", $con) + 1));
     //pass creation
          $Passw = "GEC" . $id . $pass;
         $password = password_hash($Passw, PASSWORD_DEFAULT);
+    //Token creation
+        $Token = md5(time() . $name);
     //account creation in tblKlantengegevens
-        $stmst = $con->prepare("insert INTO tblklantengegevens (IDKlantenummer, Voornaam, Achternaam, Email, Telefoon, Wachtwoord) VALUES ('".$id."', '". $vname."', '". $lname."', '". $mail."', '". $Tel."', '".$password."');");
+        $stmst = $con->prepare("insert INTO tblklantengegevens (IDKlantenummer, Voornaam, Achternaam, Email, Telefoon, Wachtwoord, Token) VALUES ('".$id."', '". $vname."', '". $lname."', '". $mail."', '". $Tel."', '".$password."', '".$Token."');");
         $stmst->execute();
+
+    //Verrificatie mail versturen
+        $To = $mail;
+        $Subject = "Email Verification";
+        $Message = "<a href='http://localhost/GIP-Software-Gino-Nathan/verify.php?Token=$Token'>Register account</a>";
+        $Headers = "From: ginotest1qqqqq@gmail.com";
+        mail($To, $Subject, $Message, $Headers);
+
     //declaratie van session ID
         $_SESSION['id'] = $id;
-    //rekeningsnummer creation
-        $name = $vname . " " . $lname;
+    //rekeningsnummer creation    
         $rekeningnummer = "BE69 " . chunk_split(hexdec(crc32($name . $id)), 4, ' ');
         $stmst = $con->prepare("insert INTO tblmyklant (IDKlantenummer, IDRekekingnummer) VALUES ('".$id."' , '". $rekeningnummer."');");
         $stmst->execute();
