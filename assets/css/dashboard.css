@@ -320,15 +320,14 @@ nav .profile-details i{
 .instbutton{
   color: #fff;
   background: #614da7;
-  padding: 4px 12px;
+  padding: 12px 12px;
   font-size: 20px;
   font-weight: 400;
-  border-radius: 4px;
-  outline: auto;
+  border-radius: 8px;
   text-decoration: none;
   transition: all 0.3s ease;
-  border-radius: 8px;
   margin: 0 10px;
+  border: 0;
 }
 .instbutton:hover{
   background: #0d3073;
@@ -474,33 +473,50 @@ nav .profile-details i{
 
 .overschrijvingbutton{
   color: #fff;
-  background: #7b59d0;
-  padding: 4px 12px;
+  background: #614da7;
+  padding: 12px 12px;
   font-size: 20px;
   font-weight: 400;
-  border-radius: 4px;
+  border-radius: 8px;
   text-decoration: none;
   transition: all 0.3s ease;
-  margin: 0;
-  padding: 15px 32px;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-  border-radius: 8px;
-
+  margin: 0 10px;
+  border: 0;
 }
 /* boxes */
 .sales-details input[type=text]{
   padding: 12px;
-  margin: 10px 0;
-  border-radius: 8px;
+  font-size: larger;
+  margin: 6px 0;
+  border-radius: 3px;
   box-sizing: border-box;
-  border: 2px solid grey;
-  
+  border: 1px solid rgb(224, 216, 216);
+  position: relative;
+  box-shadow: 0 10px 30px -20px #000;
+  overflow: hidden;
+  width: fit-content;
 }
 .sales-details input[type=password]{
   padding: 12px;
-  margin: 10px 0;
-  border-radius: 10px;
+  font-size: larger;
+  margin: 6px 0;
+  border-radius: 3px;
   box-sizing: border-box;
-  border: 2px solid grey;
+  border: 1px solid rgb(224, 216, 216);
+  position: relative;
+  box-shadow: 0 10px 30px -20px #000;
+  overflow: hidden;
+  width: fit-content;
+}
+.sales-details textarea{
+  padding: 12px;
+  font-size: larger;
+  margin: 6px 0;
+  border-radius: 3px;
+  box-sizing: border-box;
+  border: 1px solid rgb(224, 216, 216);
+  position: relative;
+  box-shadow: 0 10px 30px -20px #000;
+  overflow: hidden;
+  width: fit-content;
 }
