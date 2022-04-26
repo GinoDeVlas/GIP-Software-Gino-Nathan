@@ -9,7 +9,12 @@
             <a class="navbar-brand" href="index.php">
               <span class="fa fa-cc-visa"></span> GAC</a>
           </div>
-          <p>Wij zorgen voor een beveiligde en gemakkelijke ervaring voor uw banking op onze website.</p>
+          
+
+
+
+          <p>Geeft onze website geen antwoord op uw vraag? Of krijgt u graag meer informatie over één van onze producten? Neem dan meteen contact met ons op via één van deze kanalen. We kijken er al naar uit om u te helpen.
+</p>
         </div>
         <div class="col-lg-2 col-md-6 col-sm-5 col-5 footer-list-29 footer-2 mt-md-0 mt-5">
 

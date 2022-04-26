@@ -1,13 +1,14 @@
 <?php
 session_start();
 include 'connection.php';
+include 'sendmail.php';
 
 function check_login($con)
 {
     if(isset($_SESSION['id']))
     {
         $id = $_SESSION['id'];
-        $query = "select * FROM `tblklantengegevens` where IDKlantenummer = ".$id." LIMIT 1; ";
+        $query = "select * FROM `tblklantengegevens` where IDKlantenummer = '".$id."' AND Confirmatie = '1' LIMIT 1  ";
         $result = mysqli_query($con,$query);
         $count =mysqli_num_rows($result);
         if($count > 0)
@@ -45,17 +46,12 @@ function Register($vname, $lname, $mail, $Tel, $pass, $con){
         $password = password_hash($Passw, PASSWORD_DEFAULT);
     //Token creation
         $Token = md5(time() . $name);
+    //Verrificatie mail versturen
+        $message = "Test";
+        sendMail($name, $mail, $message);
     //account creation in tblKlantengegevens
         $stmst = $con->prepare("insert INTO tblklantengegevens (IDKlantenummer, Voornaam, Achternaam, Email, Telefoon, Wachtwoord, Token) VALUES ('".$id."', '". $vname."', '". $lname."', '". $mail."', '". $Tel."', '".$password."', '".$Token."');");
         $stmst->execute();
-
-    //Verrificatie mail versturen
-        $To = $mail;
-        $Subject = "Email Verification";
-        $Message = "<a href='http://localhost/GIP-Software-Gino-Nathan/verify.php?Token=$Token'>Register account</a>";
-        $Headers = "From: ginotest1qqqqq@gmail.com";
-        mail($To, $Subject, $Message, $Headers);
-
     //declaratie van session ID
         $_SESSION['id'] = $id;
     //rekeningsnummer creation    

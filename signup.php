@@ -2,6 +2,7 @@
 //voeg de connection code toe aan deze code
 include 'connection.php';
 include 'functions.php';
+
 $error = NULL;
 ?>
 <!DOCTYPE html>
@@ -50,7 +51,7 @@ $error = NULL;
 			<div class="overlay-panel overlay-left">
 				<h1>Welcome Back!</h1>
 				<p>To keep connected with us please login with your personal info</p>
-				<button class="ghost" id="signIn">Sign In</button>
+				<button class="ghost" name="signIn" id="signIn">Sign In</button>
 			</div>
 			<div class="overlay-panel overlay-right">
 				<h1>Hello, Friend!</h1>
