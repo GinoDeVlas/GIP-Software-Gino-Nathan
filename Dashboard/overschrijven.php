@@ -161,7 +161,7 @@ $bedragfout = "*";
         <div class="transactions box">
           <div class="title">Nieuwe overschrijving</div> <br>
         <div class="sales-details">       
-          <div style="margin: auto;">
+          <div style="margin: 0vw 0vw 0px 1vw;">
           <form method="POST" >
             <input type="text" name="ontvanger" placeholder="Rekeningsnummer ontvanger" size="60vw" style='font-size: 15pt'  required> <?php echo $fout  ?><br><br>
             <input type="text" name="Bedrag" placeholder="Bedrag" size="60%" style='font-size: 15pt'  required> <?php echo $bedragfout ?><br><br>

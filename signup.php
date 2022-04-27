@@ -73,8 +73,12 @@ $error = NULL;
 <?php
 if (isset($_POST['first']) && isset($_POST['mail']) && isset($_POST['Tele'])) {
 	if ($_POST['pass'] == $_POST['rPass']) {
-
-		Register(ucfirst($_POST['first']), ucfirst($_POST['last']), $_POST['mail'], $_POST['Tele'], $_POST['pass'], $conn);	
+		    //id creation
+			$id = hexdec(crc32(AantlalRijen("tblklantengegevens", $conn) + 1));
+			//pass creation
+				 $Passw = "GEC" . $id . $_POST['pass'];
+				$password = password_hash($Passw, PASSWORD_DEFAULT);
+		Register($id, ucfirst($_POST['first']), ucfirst($_POST['last']), $_POST['mail'], $_POST['Tele'], $password, $conn);	
 ?>	
 <script type="text/javascript">
     $(document).ready(function() {

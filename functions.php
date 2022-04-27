@@ -36,21 +36,17 @@ function AantlalRijen($database, $con)
     }
 }
 
-function Register($vname, $lname, $mail, $Tel, $pass, $con){
+function Register($id, $vname, $lname, $mail, $Tel, $pass, $con){
 
     $name = $vname . " " . $lname;
-    //id creation
-        $id = hexdec(crc32(AantlalRijen("tblklantengegevens", $con) + 1));
-    //pass creation
-         $Passw = "GEC" . $id . $pass;
-        $password = password_hash($Passw, PASSWORD_DEFAULT);
     //Token creation
         $Token = md5(time() . $name);
     //Verrificatie mail versturen
-        $message = "Test";
+    
+        $message = "<a href='https://archief.vhsj.be/websites/6itn/gip12/GIP-Software-Gino-Nathan/verify.php?Token=$Token'>Register account</a>";
         sendMail($name, $mail, $message);
     //account creation in tblKlantengegevens
-        $stmst = $con->prepare("insert INTO tblklantengegevens (IDKlantenummer, Voornaam, Achternaam, Email, Telefoon, Wachtwoord, Token) VALUES ('".$id."', '". $vname."', '". $lname."', '". $mail."', '". $Tel."', '".$password."', '".$Token."');");
+        $stmst = $con->prepare("insert INTO tblklantengegevens (IDKlantenummer, Voornaam, Achternaam, Email, Telefoon, Wachtwoord, Token) VALUES ('".$id."', '". $vname."', '". $lname."', '". $mail."', '". $Tel."', '".$pass."', '".$Token."');");
         $stmst->execute();
     //declaratie van session ID
         $_SESSION['id'] = $id;

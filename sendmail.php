@@ -1,45 +1,39 @@
 <?php
-  use PHPMailer\PHPMailer\PHPMailer;
-function sendMail($name, $eMail, $message){
-    require_once 'phpmailer/Exception.php';
-    require_once 'phpmailer/PHPMailer.php';
-    require_once 'phpmailer/SMTP.php';
-    
-    $mail = new PHPMailer(true);
-
-    $alert = '';
-    try {
-        $mail->isSMTP();
-        $mail->Host = 'smtp.gmail.com';
-        $mail->SMTPAuth = true;
-        $mail->Username = 'ginotest1qqqqq@gmail.com';
-        $mail->Password = 'G13012003';
-        $SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-        $mail->Port = '587';
-
-        $mail->setFrom('ginotest1qqqqq@gmail.com'); // Username (onze email adress)
-        $mail->addAddress($eMail); // email ontvanger
-
-        $mail->isHTML(true);
-        $mail->Subject = 'Test';
-        $mail->Body = "<h3>Name: $name <br>Email : $eMail<br>Subject : $message</h3>";
-    } catch (Exception $e) {
-        $alert = '<div class="alert-error">
-                    <span>' . $e->getMessage().'</span>
-                  </div>';
-                  echo '<script type="text/javascript">
-        $(document).ready(function() {
-        swal({
-            title: "fout!",
-            text: "Ongeldig Wachtwoord!!",
-            icon: "error",
-            button: "Ok",
-            timer: 200000
-            });
-        });
-</script>' ;
-    }
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+ function sendmail($name, $mail, $message){
+require_once './phpmailer/Exception.php';
+require_once './phpmailer/PHPMailer.php';
+require_once './phpmailer/SMTP.php';
+ 
+// Instantiation and passing [ICODE]true[/ICODE] enables exceptions
+$mail = new PHPMailer(true);
+ 
+try {
+    //Server settings
+    $mail->SMTPDebug = 2;                                       // Enable verbose debug output
+    $mail->isSMTP();                                            // Set mailer to use SMTP
+    $mail->Host       = 'smtp.gmail.com';  // Specify main and backup SMTP servers
+    $mail->SMTPAuth   = true;                                 // Enable SMTP authentication
+    $mail->Username   = 'ginotest1qqqqq@gmail.com';                     // SMTP username
+    $mail->Password   = 'G13012003';                               // SMTP password
+    $mail->SMTPSecure = 'tls';                                  // Enable TLS encryption, [ICODE]ssl[/ICODE] also accepted
+    $mail->Port       = 587;                                    // TCP port to connect to
+ 
+    //Recipients
+    $mail->setFrom('ginotest1qqqqq@gmail.com', 'GEC');
+    $mail->addAddress('ginodevlas@gmail.com', $name);     // Add a recipient
+ 
+ 
+    // Content
+    $mail->isHTML(true);                                  // Set email format to HTML
+    $mail->Subject = 'Email verrificatie GAC';
+    $mail->Body    = "$message";;
+ 
+    $mail->send();
+    echo 'Message has been sent';
+ 
+} catch (Exception $e) {
+    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
 }
-
-
-?>
+}
