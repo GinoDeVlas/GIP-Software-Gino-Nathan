@@ -40,7 +40,7 @@ include("functions.php");
                                         <p class="mt-md-4 mt-3"> Hier kunt u zich registreren en een rekening openen op uw naam</p>
                                         <a class="btn btn-style btn-primary mt-sm-5 mt-4 mr-2" href="./signup.php"> Open een rekening</a>
                                         <a class="btn btn-style btn-outline-light mt-sm-5 mt-4 mr-2" href="./signup.php">Aanmelden</a>
-                                    </div>
+                                        </div>
                                     <div class="col-lg-5 col-md-8 img offset-lg-1 mt-lg-0 mt-4">
                                         <img src="assets/images/card1.png" alt="img"
                                             class="img-fluid radius-image-curve" />

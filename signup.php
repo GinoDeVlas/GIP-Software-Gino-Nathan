@@ -51,7 +51,7 @@ $error = NULL;
 			<div class="overlay-panel overlay-left">
 				<h1>Welcome Back!</h1>
 				<p>To keep connected with us please login with your personal info</p>
-				<button class="ghost" name="signIn" id="signIn">Sign In</button>
+				<button class="ghost" id="signIn">Sign In</button>
 			</div>
 			<div class="overlay-panel overlay-right">
 				<h1>Hello, Friend!</h1>
@@ -71,6 +71,9 @@ $error = NULL;
 </html>
 
 <?php
+if (isset($_POST['LoginEmail']) && isset($_POST['LoginPass']) ) {
+	login($_POST['LoginEmail'], $_POST['LoginPass'], $conn);
+}
 if (isset($_POST['first']) && isset($_POST['mail']) && isset($_POST['Tele'])) {
 	if ($_POST['pass'] == $_POST['rPass']) {
 		    //id creation
@@ -93,8 +96,5 @@ if (isset($_POST['first']) && isset($_POST['mail']) && isset($_POST['Tele'])) {
 </script>
 <?php
 	}
-}
-if (isset($_POST['LoginEmail']) && isset($_POST['LoginPass']) ) {
-	login($_POST['LoginEmail'], $_POST['LoginPass'], $conn);
 }
 ?>
