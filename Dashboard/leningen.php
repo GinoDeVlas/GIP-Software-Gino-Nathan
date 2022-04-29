@@ -110,12 +110,14 @@ $user_data = check_login($conn);
               <table>
                 <tr>
                   <td>Hoeveel wilt u lenen?</td>
-                  <td></td>
+                  <td><?php echo str_repeat('&nbsp;', 6) ?></td>
                   <td><input type="text" placeholder="EUR"></td>
+                </tr>
+                <tr>
+                  <td>U kunt tot 5000 euro lenen bij ons. Bekijk onderstaande details voor meer informatie</td>
                 </tr>
               </table>
               </li>
-              <li>Leen tot 5000 euro bij ons. Krijg direct je rentevoet te zien en andere zaken.</li>
           </div>
         </div>
       </div>
