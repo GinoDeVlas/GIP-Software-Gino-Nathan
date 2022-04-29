@@ -1,7 +1,7 @@
 <?php
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
- function sendmail($name, $mail, $message){
+ function sendmail($name, $email, $message){
 require_once './phpmailer/Exception.php';
 require_once './phpmailer/PHPMailer.php';
 require_once './phpmailer/SMTP.php';
@@ -22,14 +22,15 @@ try {
  
     //Recipients
     $mail->setFrom('ginotest1qqqqq@gmail.com', 'GEC');
-    $mail->addAddress($mail , $name);     // Add a recipient
+    $mail->addAddress($email , $name);     // Add a recipient
  
  
     // Content
     $mail->isHTML(true);                                  // Set email format to HTML
     $mail->Subject = 'Email verrificatie GAC';
     $mail->Body    = "$message";;
- 
+    $mail->SMTPDebug = false;
+    
     $mail->send();
     echo 'Message has been sent';
  

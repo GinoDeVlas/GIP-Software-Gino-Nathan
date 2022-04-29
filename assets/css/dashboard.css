@@ -397,7 +397,7 @@ nav .profile-details i{
     flex-direction: column;
   }
   .home-content .sales-boxes .box{
-    width: 100%;
+    width: 75vw;
     overflow-x: scroll;
     margin-bottom: 30px;
   }
@@ -493,7 +493,7 @@ nav .profile-details i{
   position: relative;
   box-shadow: 0 10px 30px -20px #000;
   overflow: hidden;
-  width: 60vw;
+  width: fit-content;
 }
 .sales-details input[type=password]{
   padding: 12px;
