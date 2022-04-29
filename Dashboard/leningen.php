@@ -97,8 +97,30 @@ $user_data = check_login($conn);
   }
   
       ?>
+  <span class="dashboard"></span>
+      </div>
+    </nav>
+    <div class="home-content">
+      <div class="sales-boxes">
+        <div class="transactions box">
+          <div class="title"><b>Leen</b></div>
+          <div class="sales-details">
+            <ul class="details">
+              <form action="" method="POST">
+              <table>
+                <tr>
+                  <td>Hoeveel wilt u lenen?</td>
+                  <td></td>
+                  <td><input type="text" placeholder="EUR"></td>
+                </tr>
+              </table>
+              </li>
+              <li>Leen tot 5000 euro bij ons. Krijg direct je rentevoet te zien en andere zaken.</li>
+          </div>
+        </div>
+      </div>
+  </section>
   
-
   <script>
    let sidebar = document.querySelector(".sidebar");
 let sidebarBtn = document.querySelector(".sidebarBtn");

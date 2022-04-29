@@ -118,7 +118,7 @@ $fout = "*";
     <div class="home-content">
       <div class="sales-boxes">
         <div class="transactions box">
-          <div class="title">Account</div>
+          <div class="title"><b>Account</b></div>
           <div class="sales-details">
             <ul class="details">
               <form action="" method="POST">
@@ -151,8 +151,9 @@ $fout = "*";
           <div class="sales-details">
             <ul class="details">
               <!-- Hier moet er een script komen voor alle overschrijven te printen -->
-              <li class="topic">Beveiliging</li>
-              <li></li>
+              <li class="topic"><b>Two-Step Verfication</b></li>
+              <li><h4><b>Two-Step Verification</b></h4></li>
+              <li><input type="text" name="2fa" value="Enable"></li>
             </ul>
             <ul class="details">
             <!-- Hier moet er een script komen voor alle overschrijven te printen -->
