@@ -60,7 +60,7 @@ function Register($id, $vname, $lname, $mail, $Tel, $pass, $con){
 
 function login($mail, $pass, $con)
 {
-    $query = "select * FROM `tblklantengegevens` where Email  = '" .$mail. "' LIMIT 1; ";
+    $query = "select * FROM `tblklantengegevens` where Email = '" .$mail. "' AND Confirmatie = 1 LIMIT 1;";
     $result = mysqli_query($con,$query);
     $count =mysqli_num_rows($result);
     if($count > 0)
