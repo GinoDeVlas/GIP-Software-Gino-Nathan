@@ -97,7 +97,66 @@ $user_data = check_login($conn);
   }
   
       ?>
-  
+<span class="dashboard"></span>
+      </div>
+    </nav>
+    <div class="home-content">
+      <div class="sales-boxes">
+        <div class="transactions box">
+          <div class="title">Leen bij ons</div>
+          <div class="sales-details">
+            <ul class="details">
+              <li>Ga een lening aan bij onze bank</li>
+              <li>Kies bij uw lening de looptijd en krijg een overzicht met alle relevante informatie.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    <div class="home-content" style="padding-top: 10px;">
+      <div class="sales-boxes">
+        <div class="transactions box">
+          <div class="title">Hoeveel wil je lenen?</div>
+          <div class="sales-details">
+            <ul class="details">
+              <form action="" method="POST">
+              <li>Totaal kredietbedrag:</li>
+              <!-- Maak hier een functie voor alleen nummer en erros show wanneer niet getal is! -->
+              <li><input type="text" style="width:50%;text-align:right" name="Krediet" placeholder="EUR"></li>
+              <li>Looptijd in jaren</li>
+              <br>
+              <li>
+              <div class="range-wrap">
+                <div class="range-value" id="rangeV"></div>
+                <input id="range" type="range" min="5" max="25" value="15" step="1">
+                  <p style="float:left;color:grey">5 jaar</p>
+                  <p style="float:right;color:grey">25 jaar</p>
+                  </div>
+                <script>
+              const  range = document.getElementById('range'),
+  rangeV = document.getElementById('rangeV'),
+  setValue = ()=>{
+    const  newValue = Number( (range.value - range.min) * 100 / (range.max - range.min) ),
+      newPosition = 10 - (newValue * 0.2);
+    rangeV.innerHTML = `<span>${range.value}</span>`;
+    rangeV.style.left = `calc(${newValue}% + (${newPosition}px))`;
+  };
+document.addEventListener("DOMContentLoaded", setValue);
+range.addEventListener('input', setValue);
+                </script>
+              </li>
+            </ul>
+            <ul class="details">
+            <li>TEST</li>
+            <li>TEST</li>
+              
+          </ul>
+          <ul class="details">
+            <li>Random text</li>
+          </ul></form>
+          </div>
+        </div>
+      </div>
+      <br></br>
 
   <script>
    let sidebar = document.querySelector(".sidebar");
