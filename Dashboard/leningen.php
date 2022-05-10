@@ -89,11 +89,11 @@ $user_data = check_login($conn);
         $row = mysqli_fetch_array($result);
 
       if ( $Hour >= 5 && $Hour <= 11 ) {
-    echo "Goede morgen " . $row['Voornaam'] . " " . $row['Achternaam'];
+    echo "Goede morgen " . $row['Voornaam'];
       } else if ( $Hour >= 12 && $Hour <= 18 ) {
-    echo "Goede middag ". $row['Voornaam'] . " " . $row['Achternaam'];
+    echo "Goede middag ". $row['Voornaam'];
       } else if ( $Hour >= 19 || $Hour <= 4 ) {
-    echo "Goede avond " . $row['Voornaam'] . " " . $row['Achternaam'];
+    echo "Goede avond " . $row['Voornaam'];
   }
   
       ?>
@@ -123,7 +123,6 @@ $user_data = check_login($conn);
               <!-- Maak hier een functie voor alleen nummer en erros show wanneer niet getal is! -->
               <li><input type="text" style="width:50%;text-align:right" name="Krediet" placeholder="EUR"></li>
               <li>Looptijd in jaren</li>
-              <br>
               <li>
               <div class="range-wrap">
                 <div class="range-value" id="rangeV"></div>
@@ -137,26 +136,35 @@ $user_data = check_login($conn);
   setValue = ()=>{
     const  newValue = Number( (range.value - range.min) * 100 / (range.max - range.min) ),
       newPosition = 10 - (newValue * 0.2);
-    rangeV.innerHTML = `<span>${range.value}</span>`;
+      
+    rangeV.innerHTML = `<span>${range.value}&nbsp;jaar</span>`;
     rangeV.style.left = `calc(${newValue}% + (${newPosition}px))`;
   };
 document.addEventListener("DOMContentLoaded", setValue);
 range.addEventListener('input', setValue);
                 </script>
               </li>
+              <br>
+              <li>Button</li>
+              <li><br></li>
+              <div class="bedragmaandelijks">
+              <li>Uw kostprijs van deze lening is</li>
+              <!-- Plaats hier php variable voor berekening aantal geld per maand -->
+              <li style="font-size:30px;"><img style="max-width:60px;left:125px;position:relative;" src="../assets/images/cash.png" align="left" alt=""> <b>469,97 EUR</b></li>
+              <li>Maandelijkse terugbetaling</li>
+              </div>
+              <li>Rentevoet = <b> 2,62%</b></li>
+              <!-- Variable php komt hier voor rentevoet -->
+              <li>JKP = <b> 3,68%</b> </li> 
+              <li>Totale kredietbedrag = <b> 50 000,00 EUR</b></li>
+              <li>Totale kredietlast = <b>65 865,21 EUR</b></li>
             </ul>
-            <ul class="details">
-            <li>TEST</li>
-            <li>TEST</li>
-              
-          </ul>
-          <ul class="details">
-            <li>Random text</li>
-          </ul></form>
+            </form>
           </div>
         </div>
       </div>
-      <br></br>
+    </div>
+    <br></br>
 
   <script>
    let sidebar = document.querySelector(".sidebar");

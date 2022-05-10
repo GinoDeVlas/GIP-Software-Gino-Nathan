@@ -89,11 +89,11 @@ $user_data = check_login($conn);
         $row = mysqli_fetch_array($result);
 
       if ( $Hour >= 5 && $Hour <= 11 ) {
-    echo "Goede morgen " . $row['Voornaam'] . " " . $row['Achternaam'];
+    echo "Goede morgen " . $row['Voornaam'];
       } else if ( $Hour >= 12 && $Hour <= 18 ) {
-    echo "Goede middag ". $row['Voornaam'] . " " . $row['Achternaam'];
+    echo "Goede middag ". $row['Voornaam'];
       } else if ( $Hour >= 19 || $Hour <= 4 ) {
-    echo "Goede avond " . $row['Voornaam'] . " " . $row['Achternaam'];
+    echo "Goede avond " . $row['Voornaam'];
   }
   
 ?>
@@ -128,7 +128,7 @@ $user_data = check_login($conn);
       </div>
 
       <div class="sales-boxes">
-        <div class="transactions box">
+        <div class="transactions box" style="width:100%">
           <div class="title">Recente transacties</div>
           <div class="sales-details">
             <ul class="details">
