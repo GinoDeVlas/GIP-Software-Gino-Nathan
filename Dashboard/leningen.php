@@ -145,7 +145,7 @@ range.addEventListener('input', setValue);
                 </script>
               </li>
               <br>
-              <li>Button</li>
+              <li><input class="instbutton" style="position: relative;padding-inline:149px;" type="submit" name="btnlening" value="Start je aanvraag"></li>
               <li><br></li>
               <div class="bedragmaandelijks">
               <li>Uw kostprijs van deze lening is</li>
