@@ -141,7 +141,7 @@ $user_data = check_login($conn);
       </div>
 
       <div class="sales-boxes">
-        <div class="transactions box">
+        <div class="transactions box" style="width:100%;">
           <div class="title">Recente transacties</div>
           <div class="sales-details">
             <ul class="details">
