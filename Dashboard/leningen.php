@@ -118,37 +118,86 @@ $user_data = check_login($conn);
           <div class="title">Hoeveel wil je lenen?</div>
           <div class="sales-details">
             <ul class="details">
-              <form action="" method="POST">
+              <form action="" method="get">
               <li>Totaal kredietbedrag:</li>
               <!-- Maak hier een functie voor alleen nummer en erros show wanneer niet getal is! -->
-              <li><input type="text" style="width:50%;text-align:right" name="Krediet" placeholder="EUR"></li>
+              <li><input type="number" min="500" style="width:50%;text-align:right" name="Krediet" placeholder="EUR" required></li>
+              <li>Aantal maanden uitstel:</li>
+              <li><input type="number" min="0" max="10" style="width:50%;text-align:right" name="uitstel" placeholder="EUR" value="0" required></li>
               <li>Looptijd in jaren</li>
               <li>
               <div class="range-wrap">
                 <div class="range-value" id="rangeV"></div>
-                <input id="range" type="range" min="5" max="25" value="15" step="1">
+                <input id="range" type="range" name="range" min="5" max="25" value="15" step="1">
                   <p style="float:left;color:grey">5 jaar</p>
                   <p style="float:right;color:grey">25 jaar</p>
                   </div>
                 <script>
-              const  range = document.getElementById('range'),
-  rangeV = document.getElementById('rangeV'),
-  setValue = ()=>{
-    const  newValue = Number( (range.value - range.min) * 100 / (range.max - range.min) ),
-      newPosition = 10 - (newValue * 0.2);
-      
-    rangeV.innerHTML = `<span>${range.value}&nbsp;jaar</span>`;
-    rangeV.style.left = `calc(${newValue}% + (${newPosition}px))`;
-  };
-document.addEventListener("DOMContentLoaded", setValue);
-range.addEventListener('input', setValue);
+                const  range = document.getElementById('range'),
+                rangeV = document.getElementById('rangeV'),
+                setValue = ()=>{
+                  const  newValue = Number( (range.value - range.min) * 100 / (range.max - range.min) ),
+                    newPosition = 10 - (newValue * 0.2);
+                    
+                  rangeV.innerHTML = `<span>${range.value}&nbsp;jaar</span>`;
+                  rangeV.style.left = `calc(${newValue}% + (${newPosition}px))`;
+                };
+              document.addEventListener("DOMContentLoaded", setValue);
+              range.addEventListener('input', setValue);
+                </script>
+              </li>
+              <br>
+              <li><input class="instbutton" style="position: relative;padding-inline:149px;" type="submit" name="btnlening" value="Simuleer je lening"></li>
+              <li><br></li>
+              <div class="bedragmaandelijks">
+              <li>Uw maandelijk termijnbedrag</li>
+              <!-- Plaats hier php variable voor berekening aantal geld per maand -->
+              <li style="font-size:30px;"><img style="max-width:60px;left:125px;position:relative;" src="../assets/images/cash.png" align="left" alt=""> <b>469,97 EUR</b></li>
+              <li>Maandelijkse terugbetaling</li>
+              </div>
+              <li>Vast Rentevoet = <b> 2%</b> per jaar</li>
+              <li>totale interesten  = <b> 50 000,00 EUR</b></li>
+              <li>totaal terug aan de bank = <b>65 865,21 EUR</b></li>
+              <li><input class="instbutton" style="position: relative;padding-inline:149px;" type="submit" name="btnlening" value="Start je aanvraag"></li>
+            </ul>
+            </form>
+          </div>
+        </div>
+        <div class="transactions box">
+          <div class="title">Hoeveel wil je lenen?</div>
+          <div class="sales-details">
+            <ul class="details">
+              <form action="" method="get">
+              <li>Totaal kredietbedrag:</li>
+              <!-- Maak hier een functie voor alleen nummer en erros show wanneer niet getal is! -->
+              <li><input type="number" min="500" style="width:50%;text-align:right" name="Krediet" placeholder="EUR" required></li>
+              <li>Looptijd in jaren</li>
+              <li>
+              <div class="range-wrap">
+                <div class="range-value" id="rangeV"></div>
+                <input id="range" type="range" name="range" min="5" max="25" value="15" step="1">
+                  <p style="float:left;color:grey">5 jaar</p>
+                  <p style="float:right;color:grey">25 jaar</p>
+                  </div>
+                <script>
+                const  range = document.getElementById('range'),
+                rangeV = document.getElementById('rangeV'),
+                setValue = ()=>{
+                  const  newValue = Number( (range.value - range.min) * 100 / (range.max - range.min) ),
+                    newPosition = 10 - (newValue * 0.2);
+                    
+                  rangeV.innerHTML = `<span>${range.value}&nbsp;jaar</span>`;
+                  rangeV.style.left = `calc(${newValue}% + (${newPosition}px))`;
+                };
+              document.addEventListener("DOMContentLoaded", setValue);
+              range.addEventListener('input', setValue);
                 </script>
               </li>
               <br>
               <li><input class="instbutton" style="position: relative;padding-inline:149px;" type="submit" name="btnlening" value="Start je aanvraag"></li>
               <li><br></li>
               <div class="bedragmaandelijks">
-              <li>Uw kostprijs van deze lening is</li>
+              <li>Uw maandelijk termijnbedrag</li>
               <!-- Plaats hier php variable voor berekening aantal geld per maand -->
               <li style="font-size:30px;"><img style="max-width:60px;left:125px;position:relative;" src="../assets/images/cash.png" align="left" alt=""> <b>469,97 EUR</b></li>
               <li>Maandelijkse terugbetaling</li>
@@ -165,6 +214,7 @@ range.addEventListener('input', setValue);
       </div>
     </div>
     <br></br>
+    
 
   <script>
    let sidebar = document.querySelector(".sidebar");

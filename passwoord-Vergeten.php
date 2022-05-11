@@ -9,7 +9,9 @@ include 'functions.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="test.css">
+    <link rel="stylesheet" href="./assets/css/resetpass.css">
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 </head>
 <body>
@@ -24,7 +26,7 @@ include 'functions.php';
     $userEmail = ""; //first we leave email field blank
     ?>
       <div class="field">
-        <input type="text" class="email" name="email" placeholder="Email Address" required value="<?php echo $userEmail ?>">
+        <input type="text" class="email" name="email" placeholder="Email Address" required value="<?php $userEmail ?>">
       </div>
       <div class="field btn">
         <div class="layer"></div>
@@ -48,8 +50,22 @@ include 'functions.php';
 
         $passToken = md5(time() . "GAC");
         $message = "<a href='https://archief.vhsj.be/websites/6itn/gip12/GIP-Software-Gino-Nathan/Reset-Password.php?Token=$passToken'>Reset password</a>";
+        $message = "<a href='http://localhost/GIP-Software-Gino-Nathan/Reset-Password.php?Token=$passToken'>Reset password</a>";
         sendMail("Reset password", $mail, $message, "GAC Password Reset");
         $stmst = $conn->prepare("update `tblklantengegevens` SET `PassResetToken` = '" .$passToken."' where Email = '" .$mail. "';");
         $stmst->execute();
+        echo '<script type="text/javascript">
+        $(document).ready(function() {
+        swal({
+            title: "Paswoord reset mail is verstuurd!",
+            text: "Check je mailbox!!",
+            icon: "success",
+            button: "Ok",
+            timer: 200000
+            });
+        });
+</script>';
+        header('Refresh: 3; URL=http://localhost/GIP-Software-Gino-Nathan/signup.php');
+
 }}
 ?>

@@ -636,6 +636,18 @@ input[type=range]:focus::-ms-fill-upper {
   overflow: hidden;
   width: fit-content;
 }
+.sales-details input[type=number]{
+  padding: 12px;
+  font-size: larger;
+  margin: 6px 0;
+  border-radius: 3px;
+  box-sizing: border-box;
+  border: 1px solid rgb(224, 216, 216);
+  position: relative;
+  box-shadow: 0 10px 30px -20px #000;
+  overflow: hidden;
+  width: fit-content;
+}
 .sales-details textarea{
   padding: 12px;
   font-size: larger;

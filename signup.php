@@ -1,6 +1,5 @@
 <?php
 //voeg de connection code toe aan deze code
-include 'connection.php';
 include 'functions.php';
 
 $error = NULL;
@@ -42,7 +41,7 @@ $error = NULL;
 			<span>or use your account</span>
 			<input type="email" placeholder="E-mail adres" name="LoginEmail" required/>
 			<input type="password" placeholder="Password" name="LoginPass"required/>
-			<a href="#">Forgot your password?</a>
+			<a href="passwoord-Vergeten.php">Forgot your password?</a>
 			<button>Sign In</button>
 		</form>
 	</div>
@@ -93,6 +92,14 @@ if (isset($_POST['first']) && isset($_POST['mail']) && isset($_POST['Tele'])) {
             timer: 200000
         });
     });
+
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
 </script>
 <?php
 	}

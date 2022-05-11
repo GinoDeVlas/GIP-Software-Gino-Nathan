@@ -44,7 +44,7 @@ function Register($id, $vname, $lname, $mail, $Tel, $pass, $con){
     //Verrificatie mail versturen
     
         $message = "<a href='https://archief.vhsj.be/websites/6itn/gip12/GIP-Software-Gino-Nathan/verify.php?Token=$Token'>Register account</a>";
-        sendMail($name, $mail, $message);
+        sendMail($name, $mail, $message, "Email verrificatie GAC");
     //account creation in tblKlantengegevens
         $stmst = $con->prepare("insert INTO tblklantengegevens (IDKlantenummer, Voornaam, Achternaam, Email, Telefoon, Wachtwoord, Token) VALUES ('".$id."', '". $vname."', '". $lname."', '". $mail."', '". $Tel."', '".$pass."', '".$Token."');");
         $stmst->execute();
@@ -272,5 +272,8 @@ function VeranderAlgemeneInstellingen($Vnaam, $Anaam, $Email, $NewPass, $con)
 }
 
 
-
+function berkenTermijnBedrag($beginbedrag, $looptijd, $uitstel)
+{
+    $A0 = $beginbedrag;
+}
 ?>
