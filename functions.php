@@ -275,5 +275,24 @@ function VeranderAlgemeneInstellingen($Vnaam, $Anaam, $Email, $NewPass, $con)
 function berkenTermijnBedrag($beginbedrag, $looptijd, $uitstel)
 {
     $A0 = $beginbedrag;
+    $n = $looptijd * 12;
+    $us = $uitstel;
+    $i = 0.001652;
+    $u = 1.001652;
+    if ($us >0) {
+        $a = ($A0 * $i * (pow($u,$n)))/((pow($u,$n))-1); 
+    }else {
+        $nuitstel = $n - $us;
+        $a = ($A0 * $i * (pow($u,$n)))/
+        (pow($u, $nuitstel) - 1); 
+    }
+    return round($a,2);
+}
+
+function berekenEindbedrag($a, $n)
+{
+    $nn = $n * 12;
+    $An = ($a * (pow(1.001652,$nn)-1)) / 0.001652;
+    return round($An,2);
 }
 ?>

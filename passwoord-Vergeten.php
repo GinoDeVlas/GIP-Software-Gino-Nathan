@@ -50,7 +50,6 @@ include 'functions.php';
 
         $passToken = md5(time() . "GAC");
         $message = "<a href='https://archief.vhsj.be/websites/6itn/gip12/GIP-Software-Gino-Nathan/Reset-Password.php?Token=$passToken'>Reset password</a>";
-        $message = "<a href='http://localhost/GIP-Software-Gino-Nathan/Reset-Password.php?Token=$passToken'>Reset password</a>";
         sendMail("Reset password", $mail, $message, "GAC Password Reset");
         $stmst = $conn->prepare("update `tblklantengegevens` SET `PassResetToken` = '" .$passToken."' where Email = '" .$mail. "';");
         $stmst->execute();
@@ -65,7 +64,10 @@ include 'functions.php';
             });
         });
 </script>';
-        header('Refresh: 3; URL=http://localhost/GIP-Software-Gino-Nathan/signup.php');
-
+        echo "<script>
+        setTimeout(function () {    
+            window.location.href = 'https://archief.vhsj.be/websites/6itn/gip12/GIP-Software-Gino-Nathan/signup.php'; 
+        },3000); // 5 seconds
+        </script>";
 }}
 ?>

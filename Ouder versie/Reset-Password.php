@@ -71,11 +71,7 @@ if (isset($_GET['Token']) OR isset($_POST['Token'])) {
     $passToken = md5(time() . "GAC");
     $stmst = $conn->prepare("update `tblklantengegevens` SET `PassResetToken` = '" .$passToken."' where Email = '" .$row['Email']. "';");
     $stmst->execute();
-    echo "<script>
-    setTimeout(function () {    
-        window.location.href = 'https://archief.vhsj.be/websites/6itn/gip12/GIP-Software-Gino-Nathan/signup.php'; 
-    },3000); // 5 seconds
-    </script>";
+    header('Refresh: 3; URL=https://archief.vhsj.be/websites/6itn/gip12/GIP-Software-Gino-Nathan/signup.php');
           }
         }
 
@@ -91,11 +87,7 @@ if (isset($_GET['Token']) OR isset($_POST['Token'])) {
             });
         });
 </script>' ;
-echo "<script>
-setTimeout(function () {    
-    window.location.href = 'https://archief.vhsj.be/websites/6itn/gip12/GIP-Software-Gino-Nathan/signup.php'; 
-},3000); // 5 seconds
-</script>";
+header('Refresh: 4; URL=https://archief.vhsj.be/websites/6itn/gip12/GIP-Software-Gino-Nathan/signup.php');
     }
 }else {
   echo '<script type="text/javascript">
@@ -109,11 +101,7 @@ setTimeout(function () {
       });
   });
 </script>' ;
-echo "<script>
-setTimeout(function () {    
-    window.location.href = 'https://archief.vhsj.be/websites/6itn/gip12/GIP-Software-Gino-Nathan/signup.php'; 
-},3000); // 5 seconds
-</script>";
+header('Refresh: 4; URL=https://archief.vhsj.be/websites/6itn/gip12/GIP-Software-Gino-Nathan/signup.php');
 
 }
 

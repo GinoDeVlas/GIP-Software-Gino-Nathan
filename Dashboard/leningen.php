@@ -4,6 +4,9 @@
 include("../connection.php");
 include("../functions.php");
 $user_data = check_login($conn);
+$termijnbedrag = $interesten = $verschuldigd = "0,00 EUR";
+$blur = 10;
+$blur2 =10;
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -118,7 +121,7 @@ $user_data = check_login($conn);
           <div class="title">Hoeveel wil je lenen?</div>
           <div class="sales-details">
             <ul class="details">
-              <form action="" method="get">
+              <form action="" method="POST">
               <li>Totaal kredietbedrag:</li>
               <!-- Maak hier een functie voor alleen nummer en erros show wanneer niet getal is! -->
               <li><input type="number" min="500" style="width:50%;text-align:right" name="Krediet" placeholder="EUR" required></li>
@@ -149,21 +152,59 @@ $user_data = check_login($conn);
               <br>
               <li><input class="instbutton" style="position: relative;padding-inline:149px;" type="submit" name="btnlening" value="Simuleer je lening"></li>
               <li><br></li>
-              <div class="bedragmaandelijks">
-              <li>Uw maandelijk termijnbedrag</li>
-              <!-- Plaats hier php variable voor berekening aantal geld per maand -->
-              <li style="font-size:30px;"><img style="max-width:60px;left:125px;position:relative;" src="../assets/images/cash.png" align="left" alt=""> <b>469,97 EUR</b></li>
-              <li>Maandelijkse terugbetaling</li>
-              </div>
-              <li>Vast Rentevoet = <b> 2%</b> per jaar</li>
-              <li>totale interesten  = <b> 50 000,00 EUR</b></li>
-              <li>totaal terug aan de bank = <b>65 865,21 EUR</b></li>
-              <li><input class="instbutton" style="position: relative;padding-inline:149px;" type="submit" name="btnlening" value="Start je aanvraag"></li>
+              <?php
+              
+              if (isset($_POST['btnlening'])) {
+                $Leenbedrag = $_POST['Krediet'];
+                $uitstel = $_POST['uitstel'];
+                $looptijd = $_POST['range'];
+                $nn = $looptijd *12;
+                $termijnbedrag = berkenTermijnBedrag($Leenbedrag, $looptijd, $uitstel);
+                $einbedrag = berekenEindbedrag($termijnbedrag,$looptijd);
+                $interest = ($termijnbedrag * $nn-$Leenbedrag);
+                echo "<div class='bedragmaandelijks'>";
+                echo "<li>Uw maandelijk termijnbedrag</li>";
+                echo "<!-- Plaats hier php variable voor berekening aantal geld per maand -->";
+                echo "<li style='font-size:30px;'><img style='max-width:60px;left:125px;position:relative;' src='../assets/images/cash.png' align='left' alt=''> <b>$termijnbedrag EUR</b></li>";
+                echo "<li>Maandelijkse terugbetaling</li>";
+                echo "</div>";
+                echo "<li>Vast Rentevoet = <b> 2%</b> per jaar</li>";
+                echo "<li>totale interesten  = <b>  $interest EUR</b></li>";
+                echo "<li>totaal terug aan de bank = <b>$einbedrag EUR</b></li>";
+                echo "<li><input class='instbutton' style='position: relative;padding-inline:149px;'' type='submit' name='btnlening' value='Start je aanvraag'></li>";
+              }else {
+                echo "<div style='position: relative;'>";
+                echo "<div style='text-align: center;position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);z-index: 99;max-width: 34rem;text-align: center;'>Simuleer eerst je Lening</div>";
+                echo "<div style='filter: blur(10px);'>";
+                echo "<div class='bedragmaandelijks'>";
+                echo "<li>Uw maandelijk termijnbedrag</li>";
+                echo "<!-- Plaats hier php variable voor berekening aantal geld per maand -->";
+                echo "<li style='font-size:30px;'><img style='max-width:60px;left:125px;position:relative;' src='../assets/images/cash.png' align='left' alt=''> <b>$termijnbedrag</b></li>";
+                echo "<li>Maandelijkse terugbetaling</li>";
+                echo "</div>";
+                echo "<li>Vast Rentevoet = <b> 2%</b> per jaar</li>";
+                echo "<li>totale interesten  = <b> $interesten </b></li>";
+                echo "<li>totaal terug aan de bank = <b>$verschuldigd </b></li>";
+                echo "<li><input class='instbutton' style='position: relative;padding-inline:149px;'' type='submit' name='btnlening' value='Start je aanvraag'></li>";
+                echo "</div>";
+                echo "</div>";
+              }
+              ?>  
+
+
             </ul>
             </form>
           </div>
         </div>
-        <div class="transactions box">
+
+
+
+
+
+
+
+
+        <?php echo "<div class='transactions box' style='filter: blur(".$blur."px);'>"; ?>
           <div class="title">Hoeveel wil je lenen?</div>
           <div class="sales-details">
             <ul class="details">
