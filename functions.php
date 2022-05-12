@@ -283,12 +283,13 @@ function berkenTermijnBedrag($beginbedrag, $looptijd, $uitstel)
     $us = $uitstel;
     $i = 0.001652;
     $u = 1.001652;
-    if ($us >0) {
-        $a = ($A0 * $i * (pow($u,$n)))/((pow($u,$n))-1); 
+    if ($us == 0) {
+        $a = ($A0 * $i * (pow($u,$n)))/
+        ( (pow($u,$n)) - 1 );
     }else {
         $nuitstel = $n - $us;
         $a = ($A0 * $i * (pow($u,$n)))/
-        (pow($u, $nuitstel) - 1); 
+        ( (pow($u, $nuitstel) - 1)) ;
     }
     return round($a,2);
 }
@@ -296,9 +297,58 @@ function berkenTermijnBedrag($beginbedrag, $looptijd, $uitstel)
 function berekenEindbedrag($a, $n)
 {
     $nn = $n * 12;
-    $An = ($a * (pow(1.001652,$nn)-1)) / 0.001652;
-    return round($An,2);
 
+$tot = $a * $nn ;
+return $tot;
+}
 
+function Leningstarten($ID, $termijnbedrag, $looptijd, $A,$con){
+    $stmst = $con->prepare("insert INTO `tblLeningen` (`IDKlantennummer`, `Termijnbedrag`, `Looptijd`, `Geleend bedrag`, Leendatum) VALUES ('".$ID."' , '". $termijnbedrag."', '".$looptijd."', '".$A."', '".date("Y-m-d H:i:s")."');");
+    $stmst->execute();
+    $query = "select * FROM `tblrekening` where `IDKlantenummer`  = '" . $ID . "' LIMIT 1; ";
+    $result = mysqli_query($con,$query);
+    while ($data = mysqli_fetch_array($result)) {
+        $beginsaldo = $data['saldo'];
+    }
+    $eindsaldo = $beginsaldo + $A;
+    $stmst = $con->prepare("update `tblrekening` SET `saldo` = $eindsaldo where IDKlantenummer = $ID;");
+    $stmst->execute();
+    $communicatie = "GAC Lening van " . $eindsaldo;
+    $stmst = $con->prepare("insert INTO `tbloverschrijving` (IDKlantenummer, Ontvanger, Hoeveelheid, Datum, Comunicatie) VALUES ('".$ID."' , '". $ID."', '".$eindsaldo."', '". date("d/m/Y") ."', '".$communicatie."');");
+    $stmst->execute();
+}
+
+function maandenverschil($begindatum, $conn)
+{
+$date1 = $begindatum;
+$date2 = date("Y-m-d H:i:s");  
+
+$ts1 = strtotime($date1);
+$ts2 = strtotime($date2);
+
+$year1 = date('Y', $ts1);
+$year2 = date('Y', $ts2);
+
+$month1 = date('m', $ts1);
+$month2 = date('m', $ts2);
+
+$diff = (($year2 - $year1) * 12) + ($month2 - $month1);
+return $diff;
+}
+
+function Leningstop($bedrag, $con){
+    $id = $_SESSION['id'];
+    $query = "select * FROM `tblrekening` where `IDKlantenummer`  = '" . $id . "' LIMIT 1; ";
+    $result = mysqli_query($con,$query);
+    $data = mysqli_fetch_array($result);
+    $beginsaldo = $data['saldo'];
+    $eindsaldo = $beginsaldo - $bedrag;
+    $stmst = $con->prepare("update `tblrekening` SET `saldo` = $eindsaldo where IDKlantenummer = $id;");
+    $stmst->execute();
+    $communicatie = "GAC afbetaling lening van " . $eindsaldo;
+    $stmst = $con->prepare("insert INTO `tbloverschrijving` (IDKlantenummer, Ontvanger, Hoeveelheid, Datum, Comunicatie) VALUES ('".$id."' , '". $id."', '".$eindsaldo."', '". date("d/m/Y") ."', '".$communicatie."');");
+    $stmst->execute();
+    $stmst = $con->prepare("delete FROM tblLeningen WHERE IDKlantennummer = '".$id."';");
+    $stmst->execute();
 }
 ?>

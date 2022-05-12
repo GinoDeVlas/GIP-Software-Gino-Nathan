@@ -26,7 +26,11 @@ if (isset($_GET['Token'])) {
             echo $conn->error;
         }
         //redirect to dashboard
-        header("Location: ./dashboard.php");
+        echo "<script>
+        setTimeout(function () {    
+            window.location.href = 'https://archief.vhsj.be/websites/6itn/gip12/GIP-Software-Gino-Nathan/signup.php'; 
+        },2000); // 5 seconds
+        </script>";
     }else {
         echo '<script type="text/javascript">
         $(document).ready(function() {
@@ -39,6 +43,11 @@ if (isset($_GET['Token'])) {
             });
         });
     </script>';
+    echo "<script>
+    setTimeout(function () {    
+        window.location.href = 'https://archief.vhsj.be/websites/6itn/gip12/GIP-Software-Gino-Nathan/signup.php'; 
+    },2000); // 5 seconds
+    </script>";
     }
 }else {
     echo '<script type="text/javascript">
@@ -52,6 +61,11 @@ if (isset($_GET['Token'])) {
         });
     });
 </script>';
+echo "<script>
+setTimeout(function () {    
+    window.location.href = 'https://archief.vhsj.be/websites/6itn/gip12/GIP-Software-Gino-Nathan/signup.php'; 
+},2000); // 5 seconds
+</script>";
 
 
 }
