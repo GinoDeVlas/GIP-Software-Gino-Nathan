@@ -96,7 +96,72 @@ $user_data = check_login($conn);
   }
   
       ?>
-  
+<span class="dashboard"></span>
+      </div>
+    </nav>
+    <div class="home-content">
+      <div class="overview-boxes">
+        <div class="box">
+          <div class="right-side">
+            <div class="box-topic">Rekeningsnummer</div>
+            <?php
+              $query = "select * FROM `tblrekening` where IDKlantenummer = ". $id ." LIMIT 1; ";
+              $result = mysqli_query($conn, $query);
+              $row = mysqli_fetch_array($result);
+            ?>
+            <div class="indicator">
+            <span class="textspecial"> <?php echo $row['IDRekeningnummer']; ?> </span>
+            </div>
+          </div>
+        </div>
+        <div class="box">
+          <div class="right-side">
+          <div class="box-topic"> Saldo: </div>
+            <div class="box-topic"><?php echo $row['saldo']; ?> euro</div>
+            <div class="indicator">
+            <span class="textspecial"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="sales-boxes">
+        <div class="transactions box" style="width: 100%;">
+          <div class="title">Jaarlijks beleggen</div>
+          <div class="sales-details">
+            <ul class="details">
+              <li>Wilt u jaarlijks een vast bedrag beleggen? Dat kan al vanaf 500 euro per jaar.</li>
+              <li>De belegging gaat op lang termijn tonen hoeveel je rendement hebt. U krijgt jaarlijks een gemiddeld rendement van 10%.</li>
+              <li><input class="instbutton" style="position: relative;padding-inline:20px;" type="submit" name="btnlening" value="Start met beleggen"></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    <div class="home-content" style="padding-top: 10px;">
+      <div class="sales-boxes">
+        <div class="transactions box">
+          <!-- Zet hier if statement voor als ge wilt beleggen door op volgende button de duwen -->
+          <div class="title">Uw actieve belegging</div>
+          <div class="sales-details">
+            <ul class="details">
+              <form action="" method="POST">
+              <li>U heeft een actieve belegging van</li>
+              <div class="bedragmaandelijks">
+              <li>Uw maandelijk termijnbedrag</li>
+              <!-- Plaats hier php variable voor berekening aantal geld per maand -->
+              <li style="font-size:30px;"><img style="max-width:60px;left:125px;position:relative;" src="../assets/images/cash.png" align="left" alt=""> <b>469,97 EUR</b></li>
+              <li>Maandelijkse terugbetaling</li>
+              </div>
+              <li>Vast Rentevoet = <b> 2%</b> per jaar</li>
+              <li>totale interesten  = <b> 50 000,00 EUR</b></li>
+              <li>totaal terug aan de bank = <b>65 865,21 EUR</b></li>
+              <div class="range-wrap">
+              <li></li>
+            </ul>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
 
   <script>
    let sidebar = document.querySelector(".sidebar");
