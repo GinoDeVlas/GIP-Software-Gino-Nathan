@@ -71,7 +71,11 @@ function login($mail, $pass, $con)
         $Passw = "GEC" . $id . $pass;
         if (password_verify($Passw, $passhash)) {
             $_SESSION['id'] = $id;
-            header("Location: dashboard.php");
+              echo "<script>
+    setTimeout(function () {    
+        window.location.href = 'http://localhost/GIP-Software-Gino-Nathan/dashboard.php'; 
+    },0); // 5 seconds
+    </script>";
         }else {
             echo '<script type="text/javascript">
         $(document).ready(function() {
@@ -294,5 +298,7 @@ function berekenEindbedrag($a, $n)
     $nn = $n * 12;
     $An = ($a * (pow(1.001652,$nn)-1)) / 0.001652;
     return round($An,2);
+
+
 }
 ?>

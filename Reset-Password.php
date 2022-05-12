@@ -53,8 +53,9 @@ if (isset($_GET['Token']) OR isset($_POST['Token'])) {
 
             $row = mysqli_fetch_array($result);
             $id = $row['IDKlantenummer'];
-            $Passw = "GEC" . $id . $_POST['pass'];
-				    $password = password_hash($Passw, PASSWORD_DEFAULT);
+            $pass = $_POST['pass'];
+            $Passw = "GEC" . $id . $pass;
+		    $password = password_hash($Passw, PASSWORD_DEFAULT);
             $stmst = $conn->prepare("update `tblklantengegevens` SET Wachtwoord = '" .$password."' where PassResetToken = '" .$Token. "';");
             if($stmst->execute()){
             echo '<script type="text/javascript">
