@@ -126,7 +126,7 @@ $user_data = check_login($conn);
       </div>
       <div class="sales-boxes">
         <div class="transactions box" style="width: 100%;">
-          <div class="title">Jaarlijks beleggen</div>
+          <div class="title">Beleggen?</div>
           <div class="sales-details">
             <ul class="details">
               <li>Wilt u jaarlijks een vast bedrag beleggen? Dat kan al vanaf 500 euro per jaar.</li>
@@ -137,23 +137,33 @@ $user_data = check_login($conn);
         </div>
       </div>
     <div class="home-content" style="padding-top: 10px;">
-      <div class="sales-boxes">
-        <div class="transactions box">
+      <div class="sales-boxes" style="justify-content:normal;">
+      <div class="transactions box" >
+          <!-- Zet hier if statement voor als ge wilt beleggen door op volgende button de duwen -->
+          <div class="title">Beleggen</div>
+          <div class="sales-details">
+            <ul class="details">
+              <form action="" method="POST">
+              <li>Stel je beleggingsopdracht in:</li>
+              <li><input type="number" min="500" style="width:50%;text-align:right" name="Krediet" placeholder="EUR" required></li>
+              <li><input class="instbutton" style="position: relative;padding-inline:30px;" type="submit" name="btnlening" value="Begin"></li>
+              <li>Bovenstaande bedrag wordt van uw rekening gerekend.</li>
+            </ul>
+            </form>
+          </div>
+        </div>
+        <div class="transactions box" style="height:fit-content;">
           <!-- Zet hier if statement voor als ge wilt beleggen door op volgende button de duwen -->
           <div class="title">Uw actieve belegging</div>
           <div class="sales-details">
             <ul class="details">
               <form action="" method="POST">
-              <li>U heeft een actieve belegging van</li>
+              <li font="">U heeft een actieve belegging van</li>
               <div class="bedragmaandelijks">
-              <li>Uw maandelijk termijnbedrag</li>
               <!-- Plaats hier php variable voor berekening aantal geld per maand -->
-              <li style="font-size:30px;"><img style="max-width:60px;left:125px;position:relative;" src="../assets/images/cash.png" align="left" alt=""> <b>469,97 EUR</b></li>
-              <li>Maandelijkse terugbetaling</li>
+              <li style="font-size:30px;"><img style="max-width:60px;left:110px;position:relative;" src="../assets/images/cash.png" align="left" alt=""> <b>469,97 EUR</b></li>
               </div>
-              <li>Vast Rentevoet = <b> 2%</b> per jaar</li>
-              <li>totale interesten  = <b> 50 000,00 EUR</b></li>
-              <li>totaal terug aan de bank = <b>65 865,21 EUR</b></li>
+              <li>Text</li>
               <div class="range-wrap">
               <li></li>
             </ul>
