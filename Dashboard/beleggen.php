@@ -129,8 +129,8 @@ $user_data = check_login($conn);
           <div class="title">Beleggen?</div>
           <div class="sales-details">
             <ul class="details">
-              <li>Wilt u jaarlijks een vast bedrag beleggen? Dat kan al vanaf 500 euro per jaar.</li>
-              <li>De belegging gaat op lang termijn tonen hoeveel je rendement hebt. U krijgt jaarlijks een gemiddeld rendement van 10%.</li>
+              <li>Wilt u beleggen met GAC, dat kan vanaf 500 euro waarbij u een gemiddeld rendement krijgt van 5% per jaar.</li>
+              <li>De belegging gaat op lang termijn tonen hoeveel je rendement hebt.</li>
               <li><input class="instbutton" style="position: relative;padding-inline:20px;" type="submit" name="btnlening" value="Start met beleggen"></li>
             </ul>
           </div>
