@@ -1076,7 +1076,6 @@ class PHPMailer
     protected function addOrEnqueueAnAddress($kind, $address, $name)
     {
         $pos = false;
-        echo $address;
         if ($address !== null) {
             $address = trim(strval($address));
             $pos = strrpos($address, '@');

@@ -73,7 +73,7 @@ function login($mail, $pass, $con)
             $_SESSION['id'] = $id;
               echo "<script>
     setTimeout(function () {    
-        window.location.href = 'http://localhost/GIP-Software-Gino-Nathan/dashboard.php'; 
+        window.location.href = 'https://archief.vhsj.be/websites/6itn/gip12/GIP-Software-Gino-Nathan/dashboard.php'; 
     },0); // 5 seconds
     </script>";
         }else {
@@ -350,5 +350,10 @@ function Leningstop($bedrag, $con){
     $stmst->execute();
     $stmst = $con->prepare("delete FROM tblLeningen WHERE IDKlantennummer = '".$id."';");
     $stmst->execute();
+    echo "<script>
+    setTimeout(function () {    
+        window.location.href = 'https://archief.vhsj.be/websites/6itn/gip12/GIP-Software-Gino-Nathan/Dashboard/leningen.php'; 
+    },0); // 5 seconds
+    </script>";
 }
 ?>

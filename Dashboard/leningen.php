@@ -192,7 +192,7 @@ if (isset($_POST['leningstop'])) {
     <div class="home-content" style="padding-top: 10px;">
       <div class="sales-boxes">
           <?php
-           
+          echo $ltextT;
           echo "<div class='transactions box' style='".$Lstyle."'>"; ?>
           <div class="title">Hoeveel wil je lenen?</div>
           <div class="sales-details">
@@ -259,11 +259,13 @@ if (isset($_POST['leningstop'])) {
                 echo "</div>";
                 echo "</div>";
               }
+              
               ?>  
 
             </ul>
             </form>
           </div>
+        </div>
         </div>
         <?php
 
@@ -280,6 +282,7 @@ if (isset($_POST['leningstop'])) {
         }else {
           $aantalmaanden = $termijnbedrag = $nogverschuldigd = 0;
         }
+        echo "<div>";
         echo $textT;
         echo "<div class='transactions box' style='".$Rstyle."'>";?>
               
@@ -301,14 +304,16 @@ if (isset($_POST['leningstop'])) {
               <li><input class="instbutton" style="position: relative;padding-inline:149px;" type="submit" name="leningstop" value="Lening stop zetten"></li>
             </ul>
             </form>
+            <?php echo $TextB; ?>
           </div>
-          <?php echo $TextB; ?>
+          
         </div>
       </div>
     </div>
+    </div>
     <br></br>
 
-    ?>
+
     
 
   <script>
