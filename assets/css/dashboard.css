@@ -187,7 +187,7 @@ nav .profile-details i{
   display: flex;
   text-align: center;
   justify-content: center;
-  width: calc(100% / 4 - 15px);
+  width: 25vw;
   background: #fff;
   padding: 15px 14px;
   border-radius: 12px;
@@ -284,6 +284,11 @@ nav .profile-details i{
 }
 .sales-boxes .sales-details li.topic{
   font-size: 20px;
+  font-weight: 500;
+  align-items: start;
+}
+.sales-boxes .sales-details li.topics{
+  font-size: 15px;
   font-weight: 500;
   align-items: start;
 }
