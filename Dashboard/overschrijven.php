@@ -78,12 +78,6 @@ $bedragfout = "*";
           </a>
         </li>
         <li>
-          <a href="./stock.php">
-            <i class='bx bx-coin-stack' ></i>
-            <span class="links_name">Stock</span>
-          </a>
-        </li>
-        <li>
           <a href="./beleggen.php">
             <i class='bx bx-book-alt' ></i>
             <span class="links_name">Beleggen</span>

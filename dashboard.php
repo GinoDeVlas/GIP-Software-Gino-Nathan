@@ -48,12 +48,6 @@ $user_data = check_login($conn);
           </a>
         </li>
         <li>
-          <a href="./Dashboard/stock.php">
-            <i class='bx bx-coin-stack' ></i>
-            <span class="links_name">Stock</span>
-          </a>
-        </li>
-        <li>
           <a href="./Dashboard/beleggen.php">
             <i class='bx bx-book-alt' ></i>
             <span class="links_name">Beleggen</span>

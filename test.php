@@ -1,55 +1,13 @@
 <?php
-//voeg de connection code toe aan deze code
-include 'functions.php';
-
+//A random Code for the request to the API
+$random_code = rand(1000,9999);
+//Random Code can be anything static, or you can generate it through //built-in random functions//The below url accepts AppName, AppInfo & SecretCode
+$cURLConnection = curl_init("https://www.authenticatorapi.com/pair.aspx?AppName=GAC&AppInfo=Onlinebanking&SecretCode=$random_code");//Setting Options for the cURL Request
+curl_setopt($cURLConnection, CURLOPT_RETURNTRANSFER, true);//Execute the Request
+$apiResponse = curl_exec($cURLConnection);//Close
+curl_close($cURLConnection);//Displaying the QR Code
+echo $apiResponse;
+echo $random_code;
 ?>
-<!DOCTYPE html>
-<!-- Created By CodingNepal - www.codingnepalweb.com -->
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="test.css">
 
-</head>
-<body>
-  <input type="checkbox" id="toggle">
-  <div class="wrapper">
-    <div class="content">
-      <header>Paswoord vergeten?</header>
-      <p>Vul hier onder je E-Mail adress in en we zullen je een password reset mail versturen.</p>
-    </div>
-    <form action="" method="POST">
-    <?php 
-    $userEmail = ""; //first we leave email field blank
-    ?>
-      <div class="field">
-        <input type="text" class="email" name="email" placeholder="Email Address" required value="<?php echo $userEmail ?>">
-      </div>
-      <div class="field btn">
-        <div class="layer"></div>
-        <button type="submit" name="subscribe">reset paswoord</button>
-      </div>
-    </form>
-  </div>
-</body>
-</html>
 
-<?php
-
-    if (isset($_POST['email'])) {
-        
-        $mail = $_POST['email'];
-        $query = "select * FROM `tblklantengegevens` where Email = '" .$mail."' LIMIT 1  ";
-        $result = mysqli_query($conn,$query);
-        $count =mysqli_num_rows($result);
-        if($count > 0)
-        {
-
-        $passToken = md5(time() . "GAC");
-        $message = "<a href='https://archief.vhsj.be/websites/6itn/gip12/GIP-Software-Gino-Nathan/Reset-Password.php?Token=$passToken'>Reset password</a>";
-        sendMail("Reset password", $mail, $message, "GAC Password Reset");
-        $stmst = $conn->prepare("update `tblklantengegevens` SET `PassResetToken` = '" .$passToken."' where Email = '" .$mail. "';");
-        $stmst->execute();
-}}
-?>

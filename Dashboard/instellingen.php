@@ -62,12 +62,6 @@ $fout = "*";
           </a>
         </li>
         <li>
-          <a href="./stock.php">
-            <i class='bx bx-coin-stack' ></i>
-            <span class="links_name">Stock</span>
-          </a>
-        </li>
-        <li>
           <a href="./beleggen.php">
             <i class='bx bx-book-alt' ></i>
             <span class="links_name">Beleggen</span>
@@ -126,33 +120,24 @@ $fout = "*";
               <li><input type="text" name="Vnaam" value="<?php echo $row['Voornaam'];?>"></li>
               <li>Achternaam:</li>
               <li><input  type="text" name="Anaam" value="<?php echo $row['Achternaam'];?>"></li>
+              <li><input class="instbutton" type="submit" name="btnbevestig" style="padding-inline: 138px;" value="Verander"></li>
             </ul>
             <ul class="details">
               <li>Nieuw wachtwoord:</li>
               <li><input  type="password" name="nieuwww" value=""></li>
               <li>Bevestig met huidig Wachtwoord:</li> 
               <li><input type="password" name="oudww" value=""></li> <?php echo $fout; ?>
-              
           </ul>
-          <ul class="details">
-            <li>Email:</li>
-            <li><input type="text" name="Email" value="<?php echo $row['Email'];?>"></li>
-            <li><br></li>
-            <!--button type van de annuleerknop moet veranderd worden -->
-            <input class="instbutton" type="submit"  name="btncancel" value="Annuleer"><input class="instbutton" type="submit" name="btnbevestig" value="Bevestig">
-          </ul></form>
           </div>
         </div>
       </div>
       <br></br>
       <div class="sales-boxes">
         <div class="transactions box">
-          <div class="title"></div>
+          <div class="title">Beveiliging</div>
           <div class="sales-details">
             <ul class="details">
-              <!-- Hier moet er een script komen voor alle overschrijven te printen -->
-              <li class="topic">Beveiliging</li>
-              <li></li>
+              <li>In construction</li>
             </ul>
             <ul class="details">
             <!-- Hier moet er een script komen voor alle overschrijven te printen -->
@@ -177,174 +162,15 @@ $fout = "*";
           <div class="sales-details">
             <ul class="details">
               <!-- Hier moet er een script komen voor alle overschrijven te printen -->
-              <li class="topic">Account</li>
-              <li>Email:</li>
-              <li><input type="text" name="txtmail" value="variable@example.be"></li>
-              <li>Naam:</li>
-              <li><input type="text" name="txtusr" value="variable"></li>
-              <li>Wachtwoord:</li>
-              <li><input type="password" name="txtww" value=""></li>
-              <li>Bevestig Wachtwoord:</li>
-              <li><input type="password" name="txtww" value=""></li>
-              <input type="submit" name="btncancel" value="Annuleer"> <input type="submit" name="btnbevestig" value="Bevestig">
-            </ul>
-            <ul class="details">
-            <!-- Hier moet er een script komen voor alle overschrijven te printen -->
-            <li class="topic">Naam</li>
-            <li><a href="#">Alex Doe</a></li>
-            <li><a href="#">David Mart</a></li>
-            <li><a href="#">Roe Parter</a></li>
-            <li><a href="#">Diana Penty</a></li>
-            <li><a href="#">Martin Paw</a></li>
-            <li><a href="#">Doe Alex</a></li>
-            <li><a href="#">Aiana Lexa</a></li>
-            <li><a href="#">Rexel Mags</a></li>
-             <li><a href="#">Tiana Loths</a></li>
-          </ul>
-          <ul class="details">
-            <li class="topic">bedrag</li>
-            <li><a href="#">$204.98</a></li>
-            <li><a href="#">$24.55</a></li>
-            <li><a href="#">$25.88</a></li>
-            <li><a href="#">$170.66</a></li>
-            <li><a href="#">$56.56</a></li>
-            <li><a href="#">$44.95</a></li>
-            <li><a href="#">$67.33</a></li>
-             <li><a href="#">$23.53</a></li>
-             <li><a href="#">$46.52</a></li>
-          </ul>
-          <ul class="details">
-            <li class="topic">comunicatie</li>
-            <li><a href="#">$204.98</a></li>
-            <li><a href="#">$24.55</a></li>
-            <li><a href="#">$25.88</a></li>
-            <li><a href="#">$170.66</a></li>
-            <li><a href="#">$56.56</a></li>
-            <li><a href="#">$44.95</a></li>
-            <li><a href="#">$67.33</a></li>
-             <li><a href="#">$23.53</a></li>
-             <li><a href="#">$46.52</a></li>
-          </ul>
-          </div>
-        </div>
-      </div>
-      <br></br>
-      <div class="sales-boxes">
-        <div class="transactions box">
-          <div class="title"></div>
-          <div class="sales-details">
-            <ul class="details">
-              <!-- Hier moet er een script komen voor alle overschrijven te printen -->
-              <li class="topic">Account</li>
-              <li>Email:</li>
-              <li><input type="text" name="txtmail" value="variable@example.be"></li>
-              <li>Naam:</li>
-              <li><input type="text" name="txtusr" value="variable"></li>
-              <li>Wachtwoord:</li>
-              <li><input type="password" name="txtww" value=""></li>
-              <li>Bevestig Wachtwoord:</li>
-              <li><input type="password" name="txtww" value=""></li>
-              <input type="submit" name="btncancel" value="Annuleer"> <input type="submit" name="btnbevestig" value="Bevestig">
-            </ul>
-            <ul class="details">
-            <!-- Hier moet er een script komen voor alle overschrijven te printen -->
-            <li class="topic">Naam</li>
-            <li><a href="#">Alex Doe</a></li>
-            <li><a href="#">David Mart</a></li>
-            <li><a href="#">Roe Parter</a></li>
-            <li><a href="#">Diana Penty</a></li>
-            <li><a href="#">Martin Paw</a></li>
-            <li><a href="#">Doe Alex</a></li>
-            <li><a href="#">Aiana Lexa</a></li>
-            <li><a href="#">Rexel Mags</a></li>
-             <li><a href="#">Tiana Loths</a></li>
-          </ul>
-          <ul class="details">
-            <li class="topic">bedrag</li>
-            <li><a href="#">$204.98</a></li>
-            <li><a href="#">$24.55</a></li>
-            <li><a href="#">$25.88</a></li>
-            <li><a href="#">$170.66</a></li>
-            <li><a href="#">$56.56</a></li>
-            <li><a href="#">$44.95</a></li>
-            <li><a href="#">$67.33</a></li>
-             <li><a href="#">$23.53</a></li>
-             <li><a href="#">$46.52</a></li>
-          </ul>
-          <ul class="details">
-            <li class="topic">comunicatie</li>
-            <li><a href="#">$204.98</a></li>
-            <li><a href="#">$24.55</a></li>
-            <li><a href="#">$25.88</a></li>
-            <li><a href="#">$170.66</a></li>
-            <li><a href="#">$56.56</a></li>
-            <li><a href="#">$44.95</a></li>
-            <li><a href="#">$67.33</a></li>
-             <li><a href="#">$23.53</a></li>
-             <li><a href="#">$46.52</a></li>
-          </ul>
-          </div>
-        </div>
-      </div>
-      <br></br>
-      <div class="sales-boxes">
-        <div class="transactions box">
-          <div class="title"></div>
-          <div class="sales-details">
-            <ul class="details">
-              <!-- Hier moet er een script komen voor alle overschrijven te printen -->
-              <li class="topic">Account</li>
-              <li>Email:</li>
-              <li><input type="text" name="txtmail" value="variable@example.be"></li>
-              <li>Naam:</li>
-              <li><input type="text" name="txtusr" value="variable"></li>
-              <li>Wachtwoord:</li>
-              <li><input type="password" name="txtww" value=""></li>
-              <li>Bevestig Wachtwoord:</li>
-              <li><input type="password" name="txtww" value=""></li>
-              <input type="submit" name="btncancel" value="Annuleer"> <input type="submit" name="btnbevestig" value="Bevestig">
-            </ul>
-            <ul class="details">
-            <!-- Hier moet er een script komen voor alle overschrijven te printen -->
-            <li class="topic">Naam</li>
-            <li><a href="#">Alex Doe</a></li>
-            <li><a href="#">David Mart</a></li>
-            <li><a href="#">Roe Parter</a></li>
-            <li><a href="#">Diana Penty</a></li>
-            <li><a href="#">Martin Paw</a></li>
-            <li><a href="#">Doe Alex</a></li>
-            <li><a href="#">Aiana Lexa</a></li>
-            <li><a href="#">Rexel Mags</a></li>
-             <li><a href="#">Tiana Loths</a></li>
-          </ul>
-          <ul class="details">
-            <li class="topic">bedrag</li>
-            <li><a href="#">$204.98</a></li>
-            <li><a href="#">$24.55</a></li>
-            <li><a href="#">$25.88</a></li>
-            <li><a href="#">$170.66</a></li>
-            <li><a href="#">$56.56</a></li>
-            <li><a href="#">$44.95</a></li>
-            <li><a href="#">$67.33</a></li>
-             <li><a href="#">$23.53</a></li>
-             <li><a href="#">$46.52</a></li>
-          </ul>
-          <ul class="details">
-            <li class="topic">comunicatie</li>
-            <li><a href="#">$204.98</a></li>
-            <li><a href="#">$24.55</a></li>
-            <li><a href="#">$25.88</a></li>
-            <li><a href="#">$170.66</a></li>
-            <li><a href="#">$56.56</a></li>
-            <li><a href="#">$44.95</a></li>
-            <li><a href="#">$67.33</a></li>
-             <li><a href="#">$23.53</a></li>
-             <li><a href="#">$46.52</a></li>
-          </ul>
+              <li class="topic">Email verificatie</li>
+              <li>Verifieer hieronder uw e-mailadres.</li>
+              <li><input type="text" name="Email" value="<?php echo $row['Email'];?>">&nbsp;&nbsp;&nbsp;&nbsp;<input class="instbutton" type="submit" style="padding-inline: 25px;" name="btnverify" value="Verifieer"></li>
+            </ul></form>
           </div>
         </div>
       </div>
     </div>
+    <br></br>
   </section>
 
   <script>
