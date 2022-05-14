@@ -118,7 +118,6 @@ function Verrichting($bedrag, $rekeningnummer, $communicatie, $con)
         if ($id == $receiverid) {
             echo "fout";
         }else {
-    
             $stmst = $con->prepare("insert INTO `tbloverschrijving` (IDKlantenummer, Ontvanger, Hoeveelheid, Datum, Comunicatie) VALUES ('".$id."' , '". $receiverid."', '".$bedrag."', '". date("d/m/Y") ."', '".$communicatie."');");
             $stmst->execute();
             //bedrag toevoegen bij de ontvanger
