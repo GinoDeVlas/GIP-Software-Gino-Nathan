@@ -21,6 +21,7 @@ function ValiQR($pin){
         if ($apiRes == 'True') {
         //The PIN Code is correct, you can either display a success 
         echo "<br> Code is juist";
+        $_SESSION['2fa']=1;
       // message here or just grant access to the user
       }
       else {

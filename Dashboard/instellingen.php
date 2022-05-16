@@ -138,11 +138,18 @@ $fout = "*";
           <div class="title">Beveiliging</div>
           <div class="sales-details">
             <ul class="details">
+              <li id="stand0"><b><?php $actiefofnie ?></b></li>
               <li id="stand">Twee factor authenticatie (2FA) is een extra beveiliging die je aan je account toevoegd wanneer je inlogt.</li>
               <li><input class="instbutton" type="submit" style="padding-inline: 35px;" name="btnactivate2FA" value="Activeer 2FA" onclick="" > &nbsp;&nbsp; <input class="instbutton" type="submit" style="padding-inline: 35px;" name="btndeactivate2FA" value="Deactiveer 2FA" onclick="" ></li>
               <!-- Er moet hier nog iets kome of te check of de user 2FA als heeft ne keer geactiveerd of niet of het de eerste keer is -->
-              <?php if (isset($_POST["btnactivate2FA"])) {
-                    $_SESSION['2fa']=1;
+              <?php $_SESSION['2fa']=1; ?>
+              <?php if ($_SESSION['2fa']='1') {
+                  $actiefofnie="2FA is geactiveerd!";
+              }
+              elseif ($_SESSION['2fA']='0') {
+                  $actiefofnie="2FA is nog niet geactiveerd!";
+              }
+                    if (isset($_POST["btnactivate2FA"])) {
                     echo "<script> document.getElementById('stand').style.display='none'; </script>";
                     echo "<li id='stand1' class='topic'>De koppeling van 2FA met uw account</li>";
                     echo "<li id='stand1'>Volg onderstaande stappen om 2FA te koppelen met uw account.</li>";
@@ -162,7 +169,7 @@ $fout = "*";
                       echo "<script> document.getElementById('stand').style.display='none'; </script>";
                       echo "<li id='stand3' class='topic'>Valideer 2FA</li>";
                       echo "<li id='stand3'>Vul hier de code van zes cijfers in";
-                      echo "<li><input type='text' name='pin' min='4' max='6' placeholder='Pin' required></li>";
+                      echo "<li><input type='number' name='pin' min='000000' max='999999' placeholder='Pin' required></li>";
                       echo "<li id='stand3'> <input class='instbutton' type='submit' style='padding-inline: 15px;' name='submit-pin' value='Valideer'> &nbsp;&nbsp;  <input class='instbutton' type='submit' style='padding-inline: 15px;' name='btncancel2FAval' value='Annuleer'></li>";
                       if (isset($_POST['submit-pin'])) {
                         ValiQR($_POST['submit-pin']);
