@@ -1,7 +1,6 @@
 <?php
 include("../connection.php");
 include("../functions.php");
-include("../testfunctions.php");
 $user_data = check_login($conn);
 
 $fout = "*";
