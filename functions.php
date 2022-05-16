@@ -73,7 +73,7 @@ function login($mail, $pass, $con)
             $_SESSION['id'] = $id;
               echo "<script>
     setTimeout(function () {    
-        window.location.href = 'https://archief.vhsj.be/websites/6itn/gip12/GIP-Software-Gino-Nathan/dashboard.php'; 
+        window.location.href = '/GIP-Software-Gino-Nathan/Dashboard/index.php'; 
     },0); // 5 seconds
     </script>";
         }else {
