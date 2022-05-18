@@ -140,6 +140,7 @@ $fout = "*";
               <li id="stand0"><b><?php $actiefofnie ?></b></li>
               <li id="stand">Twee factor authenticatie (2FA) is een extra beveiliging die je aan je account toevoegd wanneer je inlogt.</li>
               <li><input class="instbutton" type="submit" style="padding-inline: 35px;" name="btnactivate2FA" value="Activeer 2FA" onclick="" > &nbsp;&nbsp; <input class="instbutton" type="submit" style="padding-inline: 35px;" name="btndeactivate2FA" value="Deactiveer 2FA" onclick="" ></li>
+              
               <!-- Er moet hier nog iets kome of te check of de user 2FA als heeft ne keer geactiveerd of niet of het de eerste keer is -->
               <?php $_SESSION['2fa']=1; ?>
               <?php if ($_SESSION['2fa']='1') {
@@ -152,7 +153,9 @@ $fout = "*";
                     echo "<script> document.getElementById('stand').style.display='none'; </script>";
                     echo "<li id='stand1' class='topic'>De koppeling van 2FA met uw account</li>";
                     echo "<li id='stand1'>Volg onderstaande stappen om 2FA te koppelen met uw account.</li>";
+                    echo "<div id='tl_overlay'>";
                     GenQR();
+                    echo "</div>";
                     echo "<li id='stand1'>1. Open uw Google Authenticator App. <br> 2. Druk op het '+' icoon in de rechter bovenhoek. <br> 3. En kies dan voor 'Scan Barcode'.</li>";
                     echo "<li id='stand1'> <br> <input class='instbutton' type='submit' style='padding-inline: 35px;' name='btnvalidate2FA' value='Valideer' onclick=''></li>";
                     }

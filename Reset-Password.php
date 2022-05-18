@@ -85,7 +85,7 @@ if (isset($_GET['Token']) OR isset($_POST['Token'])) {
         $(document).ready(function() {
         swal({
             title: "er is een probleem opgelopen!",
-            text: "ongeldige token!",
+            text: "Ongeldige token!",
             icon: "error",
             button: "Ok",
             timer: 200000
@@ -102,8 +102,8 @@ setTimeout(function () {
   echo '<script type="text/javascript">
   $(document).ready(function() {
   swal({
-      title: "er is een probleem opgelopen!",
-      text: "als dit blijft voorkomen contacteer dan een admin!!",
+      title: "Er is een probleem opgelopen!",
+      text: "Als dit blijft voorkomen contacteer dan een beheer!",
       icon: "error",
       button: "Ok",
       timer: 200000

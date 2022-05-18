@@ -18,19 +18,19 @@ include 'functions.php';
   <input type="checkbox" id="toggle">
   <div class="wrapper">
     <div class="content">
-      <header>Paswoord vergeten?</header>
-      <p>Vul hier onder je E-Mail adress in en we zullen je een password reset mail versturen.</p>
+      <header>Wachtwoord vergeten?</header>
+      <p>Vul hieronder je E-mailadres in en we zullen je een wachtwoord reset mail versturen.</p>
     </div>
     <form action="" method="POST">
     <?php 
     $userEmail = ""; //first we leave email field blank
     ?>
       <div class="field">
-        <input type="text" class="email" name="email" placeholder="Email Address" required value="<?php $userEmail ?>">
+        <input type="text" class="email" name="email" placeholder="E-mailadres" required value="<?php $userEmail ?>">
       </div>
       <div class="field btn">
         <div class="layer"></div>
-        <button type="submit" name="subscribe">reset paswoord</button>
+        <button type="submit" name="subscribe">Versturen</button>
       </div>
     </form>
   </div>
