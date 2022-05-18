@@ -1,7 +1,4 @@
-<!-- GINO MOET HIER NOG IETS SCHRIJVE I.V.M DE VEILIGHEID PHP -->
 <?php
-
-
 include("connection.php");
 include("functions.php");
 $user_data = check_login($conn);

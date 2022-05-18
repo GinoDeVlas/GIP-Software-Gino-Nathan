@@ -74,7 +74,7 @@ function login($mail, $pass, $con)
                 
                 echo "<script>
                 setTimeout(function () {    
-                    window.location.href = '/GIP-Software-Gino-Nathan/loginVerfy.php?id=$id'; 
+                    window.location.href = 'https://archief.vhsj.be/websites/6itn/gip12/GIP-Software-Gino-Nathan/loginVerfy.php?id=$id'; 
                 },0); // 5 seconds
                 </script>";
             }else {
@@ -82,7 +82,7 @@ function login($mail, $pass, $con)
                 GenQR();
                   echo "<script>
             setTimeout(function () {    
-            window.location.href = '/GIP-Software-Gino-Nathan/dashboard.php'; 
+            window.location.href = 'https://archief.vhsj.be/websites/6itn/gip12/GIP-Software-Gino-Nathan/dashboard.php'; 
             },0); // 5 seconds
             </script>";
             }
@@ -377,7 +377,7 @@ function GenQR(){
     curl_setopt($cURLConnection, CURLOPT_RETURNTRANSFER, true);//Execute the Request
     $apiResponse = curl_exec($cURLConnection);//Close
     curl_close($cURLConnection);//Displaying the QR Code
-    echo $apiResponse;
+    #echo $apiResponse;
 }
 
 function ValiQR($pin, $id,$con){

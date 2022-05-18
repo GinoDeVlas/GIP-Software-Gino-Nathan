@@ -141,7 +141,7 @@ $user_data = check_login($conn);
             </ul>
             <ul class="details">
             <!-- Hier moet er een script komen voor alle overschrijven te printen -->
-            <li class="topic">Naam ontvanger</li>
+            <li class="topic">Verzonden Door</li>
             <?php
                 $query = "select * FROM `tbloverschrijving` where IDKlantenummer = ". $id ." OR Ontvanger = ". $id ." ORDER BY `Datum`  DESC";
                 $result = mysqli_query($conn, $query);

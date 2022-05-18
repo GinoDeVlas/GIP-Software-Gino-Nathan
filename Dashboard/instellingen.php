@@ -215,19 +215,6 @@ $fout = "*";
         </div>
       </div></form>
       <br></br>
-      <div class="sales-boxes">
-        <div class="transactions box">
-          <div class="title"></div>
-          <div class="sales-details">
-            <ul class="details">
-              <!-- Hier moet er een script komen voor alle overschrijven te printen -->
-              <li class="topic">Email verificatie</li>
-              <li>Verifieer hieronder uw e-mailadres.</li>
-              <li><input type="text" name="Email" value="<?php echo $row['Email'];?>">&nbsp;&nbsp;&nbsp;&nbsp;<input class="instbutton" type="submit" style="padding-inline: 25px;" name="btnverify" value="Verifieer"></li>
-            </ul></form>
-          </div>
-        </div>
-      </div>
     </div>
     <br></br>
   </section>
@@ -302,5 +289,4 @@ if (isset($_POST['btndeactivate2FA'])) {
   </script>";
 }
 
-echo $_SESSION['2fa_str'];
 ?>
