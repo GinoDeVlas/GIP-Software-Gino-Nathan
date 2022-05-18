@@ -19,16 +19,15 @@
     <div class="container">
         <ul class="breadcrumbs-custom-path">
             <li><a href="index.php">Home</a></li>
-            <li class="active"><span class="fa fa-arrow-right mx-2" aria-hidden="true"></span> Contact Us</li>
+            <li class="active"><span class="fa fa-arrow-right mx-2" aria-hidden="true"></span>Contacteer ons</li>
         </ul>
     </div>
 </section>
 <div class="w3l-contact-info py-5" id="contact">
     <div class="container py-lg-5 py-md-4">
         <div class="title text-center">
-            <h3 class="title-big">neem contact met ons op</h3>
-            <p class="mt-2 mx-lg-5">Je zult merken dat je werkt in een echt partnerschap 
-                dat resulteert in een ongelooflijke ervaring en een eindproduct dat het beste is.</p>
+            <h3 class="title-big">Neem contact met ons op</h3>
+            <p class="mt-2 mx-lg-5">Heeft u vragen over onze service of wilt u meer informatie ? Contacteer ons dan meteen.</p>
         </div>
         <div class="row">
             <div class="col-lg-6">
@@ -38,21 +37,21 @@
                     <div class="single-contact-infos">
                         <div class="icon-box"> <span class="fa fa-map-marker"></span></div>
                         <div class="text-box">
-                            <h3 class="mb-1">Address info</h3>
+                            <h3 class="mb-1">Adres info</h3>
                             <p>SLCB, Steendam 27, 9000 Gent</p>
                         </div>
                     </div>
                     <div class="single-contact-infos">
                         <div class="icon-box"> <span class="fa fa-phone"></span></div>
                         <div class="text-box">
-                            <h3 class="mb-1">bel ons op</h3>
+                            <h3 class="mb-1">Bel ons</h3>
                             <p><a href="tel:+1(21) 234 4567">(+32)9 225 89 07</a></p>
                         </div>
                     </div>
                     <div class="single-contact-infos">
                         <div class="icon-box"> <span class="fa fa-envelope"></span></div>
                         <div class="text-box">
-                            <h3 class="mb-1">Email us</h3>
+                            <h3 class="mb-1">Email ons</h3>
                             <p> <a href="mailto:info@support.com">info@GECbanking.com</a></p>
                         </div>
                     </div>
@@ -68,14 +67,14 @@
             <div class="col-lg-6 form-inner-cont mt-lg-0 mt-sm-5 mt-4">
                 <form action="https://sendmail.w3layouts.com/submitForm" method="post" class="signin-form">
                     <div class="form-input">
-                        <input type="text" name="w3lName" id="w3lName" placeholder="uw naam">
+                        <input type="text" name="w3lName" id="w3lName" placeholder="Naam">
                     </div>
                     <div class="form-input">
-                        <input type="email" name="w3lSender" id="w3lSender" placeholder="uw email address"
+                        <input type="email" name="w3lSender" id="w3lSender" placeholder="e-mailadres"
                             required="">
                     </div>
                     <div class="form-input">
-                        <textarea name="w3lMessage" id="w3lMessage" placeholder="Uw bericht" required=""></textarea>
+                        <textarea name="w3lMessage" id="w3lMessage" placeholder="Bericht" required=""></textarea>
                     </div>
                     <div class="text-right">
                         <button type="submit" class="btn btn-style btn-primary">Verzenden</button>

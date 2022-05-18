@@ -9,11 +9,7 @@
             <a class="navbar-brand" href="index.php">
               <span class="fa fa-cc-visa"></span> GAC</a>
           </div>
-          
-
-
-
-          <p>Geeft onze website geen antwoord op uw vraag? Of krijgt u graag meer informatie over één van onze producten? Neem dan meteen contact met ons op via één van deze kanalen. We kijken er al naar uit om u te helpen.
+          <p>Geeft onze website geen antwoord op uw vraag ? Of krijgt u graag meer informatie over onze dienst ? Neem dan meteen contact op met ons, door ons een mail te sturen via de contact pagina. We kijken er al naar uit om u te helpen.
 </p>
         </div>
         <div class="col-lg-2 col-md-6 col-sm-5 col-5 footer-list-29 footer-2 mt-md-0 mt-5">
@@ -35,6 +31,11 @@
         </div>
         <div class="col-lg-3 col-md-6 footer-list-29 footer-4 mt-lg-0 mt-5">
           <h6 class="footer-title-29">Recente updates</h6>
+          <div class="post1">
+            <p class="post-title">2FA toevoeging</p>
+            <p class="small">Mei 16, 2022</p>
+            <br>
+          </div>
           <div class="post1">
             <p class="post-title">Log in systeem en registratie systeem</p>
             <p class="small">Januari 06, 2022</p>

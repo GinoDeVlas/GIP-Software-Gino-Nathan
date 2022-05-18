@@ -37,7 +37,7 @@ include("functions.php");
                                 <div class="row">
                                     <div class="col-lg-6 banner-info-bg">
                                         <h5>Open vandaag nog een rekening!</h5>
-                                        <p class="mt-md-4 mt-3"> Hier kunt u zich registreren en een rekening openen op uw naam</p>
+                                        <p class="mt-md-4 mt-3">Registreer u hieronder! U kunt zich registreren en een rekening openen op uw naam.</p>
                                         <a class="btn btn-style btn-primary mt-sm-5 mt-4 mr-2" href="./signup.php"> Open een rekening</a>
                                         <a class="btn btn-style btn-outline-light mt-sm-5 mt-4 mr-2" href="./signup.php">Aanmelden</a>
                                         </div>
@@ -58,10 +58,8 @@ include("functions.php");
                             <div class="container">
                                 <div class="row">
                                     <div class="col-lg-6 banner-info-bg">
-                                        <h5>#1 Choice for your banking needs </h5>
-                                        <p class="mt-md-4 mt-3">Our Card is the best option if you are looking for
-                                            high-quality and reliable banking services. We provide reliable services for
-                                            you
+                                        <h5>Gebruiksvriendelijk platform</h5>
+                                        <p class="mt-md-4 mt-3">Maak gebruik van ons gebruiksvriendelijke beheerpagina. Op deze pagina kunt u overzichtelijk alles zien in verband met uw rekening.
                                         </p>
                                         <a class="btn btn-style btn-primary mt-sm-5 mt-4 mr-2" href="./signup.php"> Open een rekening</a>
                                         <a class="btn btn-style btn-outline-light mt-sm-5 mt-4 mr-2" href="./signup.php">Aanmelden</a>
@@ -83,10 +81,8 @@ include("functions.php");
                             <div class="container">
                                 <div class="row">
                                     <div class="col-lg-6 banner-info-bg">
-                                        <h5>The Britest bank card in your wallet </h5>
-                                        <p class="mt-md-4 mt-3">Our Card is the best option if you are looking for
-                                            high-quality and reliable banking services. We provide reliable services for
-                                            you
+                                        <h5>Beste bank voor veilligheid</h5>
+                                        <p class="mt-md-4 mt-3">Onze bank biedt extra beveiligingsmethodes aan voor uw rekening. U kunt dit terug vinden in de instellingen pagina van uw dashboard.
                                         </p>
                                         <a class="btn btn-style btn-primary mt-sm-5 mt-4 mr-2" href="./signup.php"> Open een rekening</a>
                                         <a class="btn btn-style btn-outline-light mt-sm-5 mt-4 mr-2" href="./signup.php">Aanmelden</a>
@@ -108,10 +104,8 @@ include("functions.php");
                             <div class="container">
                                 <div class="row">
                                     <div class="col-lg-6 banner-info-bg">
-                                        <h5>#1 Choice for your banking needs </h5>
-                                        <p class="mt-md-4 mt-3">Our Card is the best option if you are looking for
-                                            high-quality and reliable banking services. We provide reliable services for
-                                            you
+                                        <h5>Banken met betrouwbaarheid</h5>
+                                        <p class="mt-md-4 mt-3">Onze website zorgt ervoor dat u betrouwbaar kunt bankieren.
                                         </p>
                                         <a class="btn btn-style btn-primary mt-sm-5 mt-4 mr-2" href="./signup.php"> Open een rekening</a>
                                         <a class="btn btn-style btn-outline-light mt-sm-5 mt-4 mr-2" href="./signup.php">Aanmelden</a>
@@ -146,7 +140,7 @@ include("functions.php");
                             <h5>Bankieren</h5>
                         </div>
                     </div>
-                    <p class="mt-4">Bij onze bank kunt u gemakkelijk overal online bankieren op een veillige manier. U kunt gemakkelijk geld oveschrijven naar vrienden of famillie via onze website. Kies een rekeningnummer schrijf over.</p>
+                    <p class="mt-4">Bij onze bank kunt u gemakkelijk overal online bankieren op een veillige manier. U kunt gemakkelijk geld oveschrijven naar famillie of vrienden via onze website. Kies een rekeningnummer en schrijf over.</p>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 col-sm-12 mt-md-0 mt-4">
@@ -156,12 +150,12 @@ include("functions.php");
                             <span class="fa fa-money"></span>
                         </div>
                         <div class="info">
-                            <p>Limiet</p>
-                            <h4>€ 5.000</h4>
-                            <h5>instellen</h5>
+                            <p>Transacties</p>
+                            <h4>Gemakkelijk</h4>
+                            <h5>Bekijken</h5>
                         </div>
                     </div>
-                    <p class="mt-4">Bekijk en wijzig je limiet tot maximaal € 5.000 per dag voor het opnemen van contant geld. Je limiet op je bankrekening per dag kan verschillen van grootte met welk betaalmiddel u betaalt.</p>
+                    <p class="mt-4">Nadat u een transactie heeft uitgevoerd kunt u gemakkelijk bekijken en hoeveel en wanneer je het geld hebt overgeschreven. Op de overschrijvings pagina kunt ook zien wat voor commentaar dat er is toegevoegd aan de overschrijving</p>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 col-sm-12 mt-lg-0 mt-4">
@@ -176,7 +170,7 @@ include("functions.php");
                             <h5></h5>
                         </div>
                     </div>
-                    <p class="mt-4">We zorgen bijvoorbeeld voor een veilige verbinding. We werken continu aan verbetering: we houden onze systemen up-to-date en we gebruiken de nieuwste technieken om verdachte zaken te ontdekken.</p>
+                    <p class="mt-4">We zorgen voor een veilige verbinding met onze website. Onze systemen worden up-to-date gehouden gebruikers krijgen de nieuwste technieken om hun rekening te beveilligen.</p>
                 </div>
             </div>
         </div>
@@ -190,8 +184,7 @@ include("functions.php");
             <div class="row">
                 <div class="col-lg-7 mb-lg-0 mb-md-5 mb-4 align-self">
                     <h3 class="title-left mx-0">Ontdek hoe je je rekening kan beveilligen</h3>
-                    <p class="mt-md-4 mt-3">Naar de toekomst toe gaan we beveiligings methodes blijven toevoegen aan onze website zodat we altijd up-to-date blijven. Bijvoorbeeld: het beveiligen van uw acount en transacties beveiligd en gemakkelijk laten gebeuren. Hierbij kan je limieten instellen en automatische afmelding na een bepaalde periode. Zodat wanneer je aangemeld ga je na een bepaalde tijd automatisch worden uitgelogd</p>
-                    <a class="btn btn-style btn-primary mt-sm-5 mt-4 mr-2" href="about.php">Ontdek</a>
+                    <p class="mt-md-4 mt-3">Als u bent ingelogd gaat u naar de instellingen pagina en kunt u daar verschillende opties aanklikken voor extra beveilliging. Naar de toekomst toe gaan we beveiligings methodes blijven toevoegen aan onze website zodat we altijd up-to-date blijven. Na een bepaalde periode wordt je automatisch afgemeld zodat niemand anders dan jij op je rekening kan.</p>
                 </div>
                 <div class="col-lg-5">
                     <div class="position-relative">
@@ -354,7 +347,7 @@ include("functions.php");
                  <h4 class="title-big">Open uw rekening nog vandaag!</h4>
              </div>
              <div class="col-lg-5 mt-lg-0 mt-4">
-                 <a class="btn btn-style btn-dark" href="RegLogin.php">Open rekening</a>
+                 <a class="btn btn-style btn-dark" href="./signup.php">Open rekening</a>
              </div>
          </div>
      </div>
@@ -382,7 +375,7 @@ include("functions.php");
                     </div>
                     <div class="content">
                         <h4 class="title">Gegevens confirmeren</h4>
-                        <p class="desc">Bij het registreren moet er nog bevestigd worden via mail .</p>
+                        <p class="desc">Bij het registreren moet er nog bevestigd worden via mail.</p>
                     </div>
                 </div>
             </div>
@@ -404,7 +397,7 @@ include("functions.php");
                     </div>
                     <div class="content">
                         <h4 class="title">Eerste overschrijving</h4>
-                        <p class="desc">Wanneer alles in orde is kunt u uw bankrekening activeren door een te overschrijven of aanmelden.</p>
+                        <p class="desc">Wanneer alles in orde is kunt u beginnen met bankieren door uw eerste overschrijving te doen.</p>
                     </div>
                 </div>
             </div>

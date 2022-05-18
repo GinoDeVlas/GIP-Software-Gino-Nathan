@@ -670,3 +670,11 @@ input[type=range]:focus::-ms-fill-upper {
   text-align: center;
   background-color: rgb(252, 243, 243);
 }
+ 
+div#tl_overlay{
+  pointer-events: none;
+}
+
+div#overzichtfin{
+  pointer-events: none;
+}

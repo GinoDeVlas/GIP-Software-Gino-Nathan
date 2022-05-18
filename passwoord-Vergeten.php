@@ -6,8 +6,8 @@ $userEmail = ''; //first we leave email field blank
 $form = "  <input type='checkbox' id='toggle'>
 <div class='wrapper'>
   <div class='content'>
-    <header>Paswoord vergeten?</header>
-    <p>Vul hier onder je E-Mail adress in en we zullen je een password reset mail versturen.</p>
+    <header>Wachtwoord vergeten?</header>
+    <p>Vul hieronder je E-mailadres in en we zullen je een wachtwoord reset mail versturen.</p>
   </div>
   <form method='POST'>
 

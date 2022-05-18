@@ -23,39 +23,39 @@ $error = NULL;
 <div class="container" id="container">
 	<div class="form-container sign-up-container">
 		<form method="POST">
-			<h1>Create Account</h1>
-			<span>or use your email for registration</span>
+			<h1>Registreer</h1>
+			<span>Maak een account aan en open een rekening.</span>
 			<input type="text" placeholder="Jhon" name="first" required/>
 			<input type="text" placeholder="Doe" name="last" required/>
 			<input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"  placeholder="test@voorbeeld.be" name="mail" required/>
 			<!-- <input type="tel" placeholder="0123 45 67 89" name= "Tele" pattern="[0-9]{4} [0-9]{2} [0-9]{2} [0-9]{2}" required/>-->
 			<input type="tel" placeholder="123-456-7890" name="Tele" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required/>
-			<input type="password" placeholder="choose a password" name="pass" required/>
-			<input type="password" placeholder="repeat password" name="rPass" required/>
-			<button>Sign Up</button>
+			<input type="password" placeholder="Wachtwoord" name="pass" required/>
+			<input type="password" placeholder="Herhaal wachtwoord" name="rPass" required/>
+			<button>Registreer</button>
 		</form>
 	</div>
 	<div class="form-container sign-in-container">
 		<form method="POST">
-			<h1>Sign in</h1>
-			<span>or use your account</span>
-			<input type="email" placeholder="E-mail adres" name="LoginEmail" required/>
-			<input type="password" placeholder="Password" name="LoginPass"required/>
-			<a href="passwoord-Vergeten.php">Forgot your password?</a>
-			<button>Sign In</button>
+			<h1>Log in</h1>
+			<span>Gebruik uw email en wachtwoord in te loggen</span>
+			<input type="email" placeholder="E-mailadres" name="LoginEmail" required/>
+			<input type="password" placeholder="Wachtwoord" name="LoginPass"required/>
+			<a href="passwoord-Vergeten.php">Wachtwoord vergeten?</a>
+			<button>Log in</button>
 		</form>
 	</div>
 	<div class="overlay-container">
 		<div class="overlay">
 			<div class="overlay-panel overlay-left">
-				<h1>Welcome Back!</h1>
-				<p>To keep connected with us please login with your personal info</p>
-				<button class="ghost" id="signIn">Sign In</button>
+				<h1>Welkom terug!</h1>
+				<p>Log terug in met uw persoonlijke gegevens.</p>
+				<button class="ghost" id="signIn">Log in</button>
 			</div>
 			<div class="overlay-panel overlay-right">
-				<h1>Hello, Friend!</h1>
-				<p>Enter your personal details and start journey with us</p>
-				<button class="ghost" id="signUp">Sign Up</button>
+				<h1>Hallo!</h1>
+				<p>Registreer met uw persoonlijke gegevens en open vandaag nog een rekening!</p>
+				<button class="ghost" id="signUp">Registreer</button>
 			</div>
 		</div>
 	</div>
