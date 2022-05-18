@@ -1,4 +1,5 @@
 <?php
+
 //voeg de connection code toe aan deze code
 include 'functions.php';
 $userEmail = ''; //first we leave email field blank
@@ -31,7 +32,6 @@ if (isset($_POST['email'])) {
   if($count > 0)
   {
     if ($info['Activaite2FA'] == 1) {
-      ECHO "count goed";
         $form ="  <input type='checkbox' id='toggle'>
         <div class='wrapper'>
           <div class='content'>
@@ -85,6 +85,7 @@ if (isset($_POST['email'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/resetpass.css">
+    <title>Passwoord vergeten</title>
     <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 

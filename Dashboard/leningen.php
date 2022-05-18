@@ -7,7 +7,14 @@ $termijnbedrag = $interesten = $verschuldigd = "0,00 EUR";
 $lblur = $rblur  = 0;
 $textT = $TextB = "";
 
+  $id = $_SESSION['id'];
+  $query = "select * FROM `tblrekening` where IDKlantenummer = '" .$id. "';";
+  $result = mysqli_query($conn,$query);
+  $info = mysqli_fetch_array($result);
+
+
 if (isset($_POST['leningstarten'])) {
+  if ($info['saldo']>"0") {
   $ID = $_SESSION['id'];
   $termijnbedrag = berkenTermijnBedrag($_POST['Krediet'], $_POST['range'], $_POST['uitstel']);
   $looptijd =$_POST['range'];
@@ -16,7 +23,7 @@ if (isset($_POST['leningstarten'])) {
   $Lstyle='filter: blur(10px);pointer-events: none;';
   $Rstyle='';
   $textT = "<div>";
-  $TextB = "</div>";
+  $TextB = "</div>";}
 }
 
 if (isset($_POST['btnlening'])) {
@@ -69,13 +76,36 @@ if (isset($_POST['leningstop'])) {
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8">
-    <title> Dashboard overview | Banking met GAC </title>
+    <title> Dashboard overview | Leningen </title>
     <link rel="stylesheet" href="../assets/css/dashboard.css">
     <!-- Boxicons CDN Link -->
+    
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
    </head>
 <body>
+  <?php   
+  if ($info['saldo']<"0") {
+    echo '<script type="text/javascript">
+    $(document).ready(function() {
+    swal({
+        title: "fout!",
+        text: "u kunt geen lening aangaan als u negatief staat!!",
+        icon: "error",
+        button: "Ok",
+        timer: 200000
+        });
+    });
+</script>' ;
+echo "<script>
+setTimeout(function () {    
+    window.location.href = 'https://archief.vhsj.be/websites/6itn/gip12/GIP-Software-Gino-Nathan/dashboard.php'; 
+},2500); // 5 seconds
+</script>";
+  } ?>
   <div class="sidebar">
     <div class="logo-details">
       <i class='bx bxl-c-plus-plus'></i>

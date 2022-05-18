@@ -9,7 +9,7 @@ $user_data = check_login($conn);
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8">
-    <title> Dashboard overview | Banking met GAC </title>
+    <title> Dashboard overview | Transacties </title>
     <link rel="stylesheet" href="../assets/css/dashboard.css">
     <!-- Boxicons CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
@@ -128,10 +128,14 @@ $user_data = check_login($conn);
             <ul class="details">
             <li class="topic">Datum</li>
               <?php
-                $query = "select * FROM `tbloverschrijving` where IDKlantenummer = ". $id ." OR Ontvanger = ". $id ." ORDER BY `Datum` ASC";
+                $query = "select * FROM `tbloverschrijving` where IDKlantenummer = ". $id ." OR Ontvanger = ". $id ." ORDER BY `Datum`  DESC";
                 $result = mysqli_query($conn, $query);
                 while ($row = mysqli_fetch_array($result)) {
-                  echo "<li><a>" . $row['Datum'] . "</a></li>";
+                  if ($row['Ontvanger'] == $id) {
+                    echo "<li><a style='color: green;'>" . $row['Datum'] . "</a></li>";
+                  }else {
+                    echo "<li><a style='color: red;'>" . $row['Datum'] . "</a></li>";
+                  }                  
                 } 
               ?>
             </ul>
@@ -139,34 +143,65 @@ $user_data = check_login($conn);
             <!-- Hier moet er een script komen voor alle overschrijven te printen -->
             <li class="topic">Naam ontvanger</li>
             <?php
-                $query = "select * FROM `tbloverschrijving` where IDKlantenummer = ". $id ." OR Ontvanger = ". $id ." ORDER BY `Datum` ASC";
+                $query = "select * FROM `tbloverschrijving` where IDKlantenummer = ". $id ." OR Ontvanger = ". $id ." ORDER BY `Datum`  DESC";
+                $result = mysqli_query($conn, $query);
+                while ($row = mysqli_fetch_array($result)) {
+                  $ontvangerid = $row['IDKlantenummer'];
+                  $queryy = "select * FROM `tblklantengegevens` where IDKlantenummer = ". $ontvangerid. " LIMIT 1; ";
+                  $resultt = mysqli_query($conn, $queryy);
+                  $rij = mysqli_fetch_array($resultt);
+                  if ($row['Ontvanger'] == $id) {
+                    echo "<li><a style='color: green;'>" . ucfirst($rij['Voornaam']) . " " . ucfirst($rij['Achternaam']) .  "</a></li>";
+                  }else {
+                    echo "<li><a style='color: red;'>". ucfirst($rij['Voornaam']) . " " . ucfirst($rij['Achternaam']) .  "</a></li>";
+                  }
+                } 
+              ?>
+          </ul>
+            <ul class="details">
+            <!-- Hier moet er een script komen voor alle overschrijven te printen -->
+            <li class="topic">Naam ontvanger</li>
+            <?php
+                $query = "select * FROM `tbloverschrijving` where IDKlantenummer = ". $id ." OR Ontvanger = ". $id ." ORDER BY `Datum`  DESC";
                 $result = mysqli_query($conn, $query);
                 while ($row = mysqli_fetch_array($result)) {
                   $ontvangerid = $row['Ontvanger'];
                   $queryy = "select * FROM `tblklantengegevens` where IDKlantenummer = ". $ontvangerid. " LIMIT 1; ";
                   $resultt = mysqli_query($conn, $queryy);
                   $rij = mysqli_fetch_array($resultt);
-                  echo "<li><a>" . ucfirst($rij['Voornaam']) . " " . ucfirst($rij['Achternaam']) . "</a></li>";
+                  if ($row['Ontvanger'] == $id) {
+                    echo "<li><a style='color: green;'>" . ucfirst($rij['Voornaam']) . " " . ucfirst($rij['Achternaam']) .  "</a></li>";
+                  }else {
+                    echo "<li><a style='color: red;'>". ucfirst($rij['Voornaam']) . " " . ucfirst($rij['Achternaam']) .  "</a></li>";
+                  }
                 } 
               ?>
           </ul>
           <ul class="details">
             <li class="topic">Bedrag</li>
             <?php
-                $query = "select * FROM `tbloverschrijving` where IDKlantenummer = ". $id ." OR Ontvanger = ". $id ." ORDER BY `Datum` ASC";
+                $query = "select * FROM `tbloverschrijving` where IDKlantenummer = ". $id ." OR Ontvanger = ". $id ." ORDER BY `Datum`  DESC";
                 $result = mysqli_query($conn, $query);
                 while ($row = mysqli_fetch_array($result)) {
-                  echo "<li><a> € " . $row['Hoeveelheid'] . "</a></li>";
+                  if ($row['Ontvanger'] == $id) {
+                    echo "<li><a style='color: green;'>" . $row['Hoeveelheid'] . "</a></li>";
+                  }else {
+                    echo "<li><a style='color: red;'>" . $row['Hoeveelheid'] . "</a></li>";
+                  }
                 } 
               ?>
           </ul>
           <ul class="details">
             <li class="topic">Communicatie</li>
             <?php
-                $query = "select * FROM `tbloverschrijving` where IDKlantenummer = ". $id ." OR Ontvanger = ". $id ." ORDER BY `Datum` ASC";
+                $query = "select * FROM `tbloverschrijving` where IDKlantenummer = ". $id ." OR Ontvanger = ". $id ." ORDER BY `Datum`  DESC";
                 $result = mysqli_query($conn, $query);
                 while ($row = mysqli_fetch_array($result)) {
-                  echo "<li><a>" . $row['Comunicatie'] . "</a></li>";
+                  if ($row['Ontvanger'] == $id) {
+                    echo "<li><a style='color: green;'>" . $row['Comunicatie'] . "</a></li>";
+                  }else {
+                    echo "<li><a style='color: red;'>" . $row['Comunicatie'] . "</a></li>";
+                  }
                 } 
               ?>
           </ul>

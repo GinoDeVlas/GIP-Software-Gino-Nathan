@@ -4,11 +4,12 @@
 include("../connection.php");
 include("../functions.php");
 $user_data = check_login($conn);
+$bedrag = "";
 ?><!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8">
-    <title> Dashboard overview | Banking met GAC </title>
+    <title> Dashboard overview | Beleggen </title>
     <link rel="stylesheet" href="../assets/css/dashboard.css">
     <!-- Boxicons CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
@@ -125,7 +126,6 @@ $user_data = check_login($conn);
             <ul class="details">
               <li>Wilt u beleggen met GAC, dat kan vanaf 500 euro waarbij u een gemiddeld rendement krijgt van 5% per jaar.</li>
               <li>De belegging gaat op lang termijn tonen hoeveel je rendement hebt.</li>
-              <li><input class="instbutton" style="position: relative;padding-inline:20px;" type="submit" name="btnlening" value="Start met beleggen"></li>
             </ul>
           </div>
         </div>
@@ -139,7 +139,7 @@ $user_data = check_login($conn);
             <ul class="details">
               <form action="" method="POST">
               <li>Stel je beleggingsopdracht in:</li>
-              <li><input type="number" min="500" style="width:50%;text-align:right" name="Krediet" placeholder="EUR" required></li>
+              <li><input type="number" min="500" style="width:50%;text-align:right" name="Krediet" placeholder="EUR" required value=<?php echo $bedrag; ?>></li>
               <li><input class="instbutton" style="position: relative;padding-inline:30px;" type="submit" name="btnlening" value="Begin"></li>
               <li>Bovenstaande bedrag wordt van uw rekening gerekend.</li>
             </ul>
@@ -155,9 +155,9 @@ $user_data = check_login($conn);
               <li font="">U heeft een actieve belegging van</li>
               <div class="bedragmaandelijks">
               <!-- Plaats hier php variable voor berekening aantal geld per maand -->
-              <li style="font-size:30px;"><img style="max-width:60px;left:110px;position:relative;" src="../assets/images/cash.png" align="left" alt=""> <b>469,97 EUR</b></li>
+              <li style="font-size:30px;"><img style="max-width:60px;left:110px;position:relative;" src="../assets/images/cash.png" align="left" alt=""> <b><?php echo TelAlleBeleggingen($_SESSION['id'], $conn) ?> EUR</b></li>
               </div>
-              <li>Text</li>
+              <li></li>
               <div class="range-wrap">
               <li></li>
             </ul>
@@ -181,3 +181,13 @@ sidebarBtn.onclick = function() {
 
 </body>
 </html>
+<?php 
+if (isset($_POST['btnlening'])) {
+  Beleggen($_SESSION['id'], $_POST['Krediet'], $conn);
+  echo "<script>
+setTimeout(function () {    
+    window.location.href = 'https://archief.vhsj.be/websites/6itn/gip12/GIP-Software-Gino-Nathan/Dashboard/beleggen.php'; 
+},0); // 5 seconds
+</script>";
+}
+?>

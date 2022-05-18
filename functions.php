@@ -317,14 +317,13 @@ function Leningstarten($ID, $termijnbedrag, $looptijd, $A,$con){
     $stmst->execute();
     $query = "select * FROM `tblrekening` where `IDKlantenummer`  = '" . $ID . "' LIMIT 1; ";
     $result = mysqli_query($con,$query);
-    while ($data = mysqli_fetch_array($result)) {
-        $beginsaldo = $data['saldo'];
-    }
-    $eindsaldo = $beginsaldo + $A;
+    $data = mysqli_fetch_array($result);
+    $beginsaldo = $data['saldo'];
+    $eindsaldo = (double)$beginsaldo + (double)$A;
     $stmst = $con->prepare("update `tblrekening` SET `saldo` = $eindsaldo where IDKlantenummer = $ID;");
     $stmst->execute();
     $communicatie = "GAC Lening van " . $eindsaldo;
-    $stmst = $con->prepare("insert INTO `tbloverschrijving` (IDKlantenummer, Ontvanger, Hoeveelheid, Datum, Comunicatie) VALUES ('".$ID."' , '". $ID."', '".$eindsaldo."', '". date("d/m/Y") ."', '".$communicatie."');");
+    $stmst = $con->prepare("insert INTO `tbloverschrijving` (IDKlantenummer, Ontvanger, Hoeveelheid, Datum, Comunicatie) VALUES ('".$ID."' , '". $ID."', '".$A."', '". date("d/m/Y") ."', '".$communicatie."');");
     $stmst->execute();
 }
 
@@ -362,7 +361,7 @@ function Leningstop($bedrag, $con){
     $stmst->execute();
     echo "<script>
     setTimeout(function () {    
-        window.location.href = 'http://localhost/GIP-Software-Gino-Nathan/Dashboard/leningen.php'; 
+        window.location.href = 'https://archief.vhsj.be/websites/6itn/gip12/GIP-Software-Gino-Nathan/Dashboard/leningen.php'; 
     },1); // 5 seconds
     </script>";
 }
@@ -429,6 +428,27 @@ function deActiveer2FA($con){
     $stmst->execute();
     $stmst = $con->prepare("update `tblklantengegevens` SET `QR` = '' where IDKlantenummer = $id;");
     $stmst->execute();
+}
+
+function Beleggen($id, $bedrag, $con){
+    $query = "select * FROM `tblrekening` where IDKlantenummer = '" .$id. "';";
+    $result = mysqli_query($con,$query);
+    $info = mysqli_fetch_array($result);
+    $nieuwSaldo = (double)$info['saldo'] - (double)$bedrag;
+    $stmst = $con->prepare("update `tblrekening` SET `saldo` = '".$nieuwSaldo."' where IDKlantenummer = $id;");
+    $stmst->execute();
+    $stmst = $con->prepare("insert INTO tblBeleggingen (IDKlantenummer, Bedrag, Startdatum) VALUES ('".$id."', '". $bedrag ."', '". date('d-m-Y') ."');");
+    $stmst->execute();
+}
+
+function TelAlleBeleggingen($id, $con){
+    $query = "select * FROM `tblBeleggingen` where IDKlantenummer = '" .$id. "';";
+    $result = mysqli_query($con,$query);
+    $totaal = "0";
+    while ($info = mysqli_fetch_array($result)) {
+       $totaal = $totaal + (double)$info['Bedrag'];
+    }
+    return $totaal;
 }
 
 ?>

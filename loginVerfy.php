@@ -7,6 +7,7 @@ include 'functions.php';
 <!-- Created By CodingNepal - www.codingnepalweb.com -->
 <html lang="en">
 <head>
+    <title>Login Verify</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/resetpass.css">
@@ -39,7 +40,7 @@ if (isset($_POST['submit-pin'])) {
         $_SESSION['id'] = $_GET['id'];
         echo "<script>
         setTimeout(function () {    
-            window.location.href = 'http://localhost/GIP-Software-Gino-Nathan/dashboard.php'; 
+            window.location.href = 'https://archief.vhsj.be/websites/6itn/gip12/GIP-Software-Gino-Nathan/dashboard.php'; 
         },1); // 5 seconds
         </script>";
     }  else {

@@ -40,7 +40,7 @@ $bedragfout = "*";
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8">
-    <title> Dashboard overview | Banking met GAC </title>
+    <title> Dashboard overview | Overschrijven </title>
     <link rel="stylesheet" href="../assets/css/dashboard.css">
     <!-- Boxicons CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
