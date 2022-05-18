@@ -2,6 +2,7 @@
 //voeg de connection code toe aan deze code
 include 'functions.php';
 $error = NULL;
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -70,12 +70,23 @@ function login($mail, $pass, $con)
         $passhash = $info['Wachtwoord'];
         $Passw = "GEC" . $id . $pass;
         if (password_verify($Passw, $passhash)) {
-            $_SESSION['id'] = $id;
-              echo "<script>
-    setTimeout(function () {    
-        window.location.href = '/GIP-Software-Gino-Nathan/loginVerfy.php'; 
-    },0); // 5 seconds
-    </script>";
+            if ($info['Activaite2FA'] == "1") {
+                
+                echo "<script>
+                setTimeout(function () {    
+                    window.location.href = '/GIP-Software-Gino-Nathan/loginVerfy.php?id=$id'; 
+                },0); // 5 seconds
+                </script>";
+            }else {
+                $_SESSION['id'] = $id;
+                GenQR();
+                  echo "<script>
+            setTimeout(function () {    
+            window.location.href = '/GIP-Software-Gino-Nathan/dashboard.php'; 
+            },0); // 5 seconds
+            </script>";
+            }
+
         }else {
             echo '<script type="text/javascript">
         $(document).ready(function() {
@@ -352,15 +363,15 @@ function Leningstop($bedrag, $con){
     echo "<script>
     setTimeout(function () {    
         window.location.href = 'http://localhost/GIP-Software-Gino-Nathan/Dashboard/leningen.php'; 
-    },0); // 5 seconds
+    },1); // 5 seconds
     </script>";
 }
 
 function GenQR(){
     //A random Code for the request to the API
-    $str=rand();
+    $str=rand() . time();
     $result=md5($str);
-    $_SESSION['2fa_str']=$result;
+    $_SESSION['2fa_str'] = $result;
     // echo $result;
     //Random Code can be anything static, or you can generate it through //built-in random functions//The below url accepts AppName, AppInfo & SecretCode
     $cURLConnection = curl_init("https://www.authenticatorapi.com/pair.aspx?AppName=GAC&AppInfo=Onlinebanking&SecretCode=$result");//Setting Options for the cURL Request
@@ -370,23 +381,27 @@ function GenQR(){
     echo $apiResponse;
 }
 
-function ValiQR($pin){
+function ValiQR($pin, $id,$con){
         $pin = (int)$pin;
-        $secret_code = $_SESSION['2fa_str'];
+        $query = "select * FROM `tblklantengegevens` where IDKlantenummer = '" .$id. "';";
+        $result = mysqli_query($con,$query);
+        $info = mysqli_fetch_array($result);
+        if ($info['Activaite2FA'] == "1") {
+            $code = $info['QR'];
+            $secret_code = $code;
+        }else {
+            $secret_code = $_SESSION['2fa_str'];
+        }
       //The secret code will be the same code that you specified while displaying the QR Code 
         $cURLConnection = curl_init('https://www.authenticatorApi.com/Validate.aspx?Pin='.$pin.'&SecretCode='.$secret_code);curl_setopt($cURLConnection, CURLOPT_RETURNTRANSFER, true);$apiRes = curl_exec($cURLConnection);
         curl_close($cURLConnection);$jsonArrayResponse = json_decode($apiRes);
-        if ($apiRes == 'True') {
-        //The PIN Code is correct, you can either display a success 
-        echo "<br> Code is juist";
+    if ($apiRes == 'True') {
         return true;
         $_SESSION['2fa']=1;
-      // message here or just grant access to the user
       }
       else {
           return false;
           echo "<br> Code is fout ";
-      //Invalid 6 Digit PIN
       }
 }
 
@@ -397,6 +412,23 @@ function ShowQR(){
     $apiResponse = curl_exec($cURLConnection);//Close
     curl_close($cURLConnection);//Displaying the QR Code
     echo $apiResponse;
+}
+
+function activeer2FA($con){
+    $id = $_SESSION['id'];
+    $stmst = $con->prepare("update `tblklantengegevens` SET `QR` = '".$_SESSION['2fa_str']."' where IDKlantenummer = $id;");
+    $stmst->execute();
+    $stmst = $con->prepare("update `tblklantengegevens` SET `Activaite2FA` = '1' where IDKlantenummer = $id;");
+    $stmst->execute();
+}
+
+function deActiveer2FA($con){
+    GenQR();
+    $id = $_SESSION['id'];
+    $stmst = $con->prepare("update `tblklantengegevens` SET `Activaite2FA` = '0' where IDKlantenummer = $id;");
+    $stmst->execute();
+    $stmst = $con->prepare("update `tblklantengegevens` SET `QR` = '' where IDKlantenummer = $id;");
+    $stmst->execute();
 }
 
 ?>
