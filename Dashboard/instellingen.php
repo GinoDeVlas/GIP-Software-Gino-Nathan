@@ -19,6 +19,20 @@ $fout = "*";
       $fout = "Onjuist wachtwoord";
     }
   }
+  $query = "select * FROM `tblklantengegevens` where IDKlantenummer  = '" .$_SESSION['id']. "' LIMIT 1; ";
+  $result = $conn->query($query);
+  $info = mysqli_fetch_array($result);
+  if ($info['Activaite2FA']=='1') {
+    $_SESSION['2fa'] = "1";
+    $actiefofnie="2FA is geactiveerd!";
+    $stylel = "pointer-events: none;background: white;color: #614da7;border: 10;border: 2px solid #614da7;";
+    $styler = "";
+}else {
+  $_SESSION['2fa'] = "0";
+  $actiefofnie="2FA is nog niet geactiveerd!";
+  $stylel = "";
+  $styler = "pointer-events: none;background: white;color: #614da7;border: 10;border: 2px solid #614da7;";
+}
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -27,6 +41,8 @@ $fout = "*";
     <title> Dashboard overview | Banking met GAC </title>
     <link rel="stylesheet" href="../assets/css/dashboard.css">
     <!-- Boxicons CDN Link -->
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
    </head>
@@ -130,37 +146,34 @@ $fout = "*";
           </ul>
           </div>
         </div>
-      </div>
+      </div></form>
       <br></br>
       <div class="sales-boxes">
         <div class="transactions box">
           <div class="title">Beveiliging</div>
           <div class="sales-details">
             <ul class="details">
-              <li id="stand0"><b><?php $actiefofnie ?></b></li>
+            <form action="" method="POST">
+              <li id="stand0"><b><?php echo $actiefofnie ?></b></li>
               <li id="stand">Twee factor authenticatie (2FA) is een extra beveiliging die je aan je account toevoegd wanneer je inlogt.</li>
-              <li><input class="instbutton" type="submit" style="padding-inline: 35px;" name="btnactivate2FA" value="Activeer 2FA" onclick="" > &nbsp;&nbsp; <input class="instbutton" type="submit" style="padding-inline: 35px;" name="btndeactivate2FA" value="Deactiveer 2FA" onclick="" ></li>
-              
+              <li><input class="instbutton" type="submit" <?php echo "style='padding-inline: 35px;$stylel'"?> name="btnactivate2FA" value="Activeer 2FA" onclick="" > &nbsp;&nbsp; <input class="instbutton" type="submit" <?php echo "style='padding-inline: 35px;$styler'"?> name="btndeactivate2FA" value="Deactiveer 2FA" onclick="" ></li>
               <!-- Er moet hier nog iets kome of te check of de user 2FA als heeft ne keer geactiveerd of niet of het de eerste keer is -->
-              <?php $_SESSION['2fa']=1; ?>
-              <?php if ($_SESSION['2fa']='1') {
+              <?php 
+              if ($_SESSION['2fa']=='1') {
                   $actiefofnie="2FA is geactiveerd!";
               }
-              elseif ($_SESSION['2fA']='0') {
+              else  {
                   $actiefofnie="2FA is nog niet geactiveerd!";
-              }
+              
                     if (isset($_POST["btnactivate2FA"])) {
                     echo "<script> document.getElementById('stand').style.display='none'; </script>";
                     echo "<li id='stand1' class='topic'>De koppeling van 2FA met uw account</li>";
                     echo "<li id='stand1'>Volg onderstaande stappen om 2FA te koppelen met uw account.</li>";
-                    echo "<div id='tl_overlay'>";
-                    GenQR();
-                    echo "</div>";
+                    ShowQR();
                     echo "<li id='stand1'>1. Open uw Google Authenticator App. <br> 2. Druk op het '+' icoon in de rechter bovenhoek. <br> 3. En kies dan voor 'Scan Barcode'.</li>";
                     echo "<li id='stand1'> <br> <input class='instbutton' type='submit' style='padding-inline: 35px;' name='btnvalidate2FA' value='Valideer' onclick=''></li>";
                     }
                     elseif (isset($_POST["btndeactivate2FA"])) {
-                      $SESSION['2fa']=0;
                       echo "<script> document.getElementById('stand1').style.display='none'; </script>";
                       echo "<script> document.getElementById('stand').style.display='none'; </script>";
                       echo "<li id='stand2'>Twee factor authenticatie is gedeactiveerd.</li>";
@@ -171,7 +184,7 @@ $fout = "*";
                       echo "<script> document.getElementById('stand').style.display='none'; </script>";
                       echo "<li id='stand3' class='topic'>Valideer 2FA</li>";
                       echo "<li id='stand3'>Vul hier de code van zes cijfers in";
-                      echo "<li><input type='number' name='pin' min='000000' max='999999' placeholder='Pin' required></li>";
+                      echo "<li><input type='number' name='pin' min='000000' max='999999' placeholder='Pin'></li>";
                       echo "<li id='stand3'> <input class='instbutton' type='submit' style='padding-inline: 15px;' name='submit-pin' value='Valideer'> &nbsp;&nbsp;  <input class='instbutton' type='submit' style='padding-inline: 15px;' name='btncancel2FAval' value='Annuleer'></li>";
                       if (isset($_POST['submit-pin'])) {
                         ValiQR($_POST['submit-pin']);
@@ -183,7 +196,7 @@ $fout = "*";
                         echo "<script> document.getElementById('stand1').style.display='none'; </script>";
                         echo "CANCEL BUTTON IS GEACTIVEERD";
                       }
-                    }
+                    }}
                ?>
             </ul>
             <ul class="details">
@@ -200,7 +213,7 @@ $fout = "*";
           </ul>
           </div>
         </div>
-      </div>
+      </div></form>
       <br></br>
       <div class="sales-boxes">
         <div class="transactions box">
@@ -233,3 +246,61 @@ sidebarBtn.onclick = function() {
 
 </body>
 </html>
+
+<?php
+if (isset($_POST['submit-pin'])) {
+  if (ValiQR($_POST["pin"], $_SESSION['id'], $conn)) {
+    activeer2FA($conn);
+    echo '<script type="text/javascript">
+    $(document).ready(function() {
+    swal({
+        title: "goed!",
+        text: "2FA in ingeschakeld",
+        icon: "success",
+        button: "Ok",
+        timer: 200000
+        });
+    });
+</script>' ;
+echo "<script>
+setTimeout(function () {    
+    window.location.href = 'http://localhost/GIP-Software-Gino-Nathan/Dashboard/instellingen.php'; 
+},3000); // 5 seconds
+</script>";
+}else {
+  echo '<script type="text/javascript">
+  $(document).ready(function() {
+  swal({
+      title: "fout!",
+      text: "pin is verkeerd of er is iets fout gelopen!",
+      icon: "error",
+      button: "Ok",
+      timer: 200000
+      });
+  });
+</script>' ;
+}
+}
+
+if (isset($_POST['btndeactivate2FA'])) {
+  deActiveer2FA($conn);
+  echo '<script type="text/javascript">
+  $(document).ready(function() {
+  swal({
+      title: "2FA!",
+      text: "p2FA is gedactiveerd!",
+      icon: "succes",
+      button: "Ok",
+      timer: 200000
+      });
+  });
+</script>' ;
+  echo "<script>
+  setTimeout(function () {    
+      window.location.href = 'http://localhost/GIP-Software-Gino-Nathan/Dashboard/instellingen.php'; 
+  },4000); // 5 seconds
+  </script>";
+}
+
+echo $_SESSION['2fa_str'];
+?>
