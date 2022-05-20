@@ -91,7 +91,7 @@ function login($mail, $pass, $con)
             echo '<script type="text/javascript">
         $(document).ready(function() {
         swal({
-            title: "fout!",
+            title: "Fout!",
             text: "Ongeldig Wachtwoord!!",
             icon: "error",
             button: "Ok",

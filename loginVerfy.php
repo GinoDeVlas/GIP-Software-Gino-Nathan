@@ -17,8 +17,8 @@ include 'functions.php';
 <input type='checkbox' id='toggle'>
 <div class='wrapper'>
 <div class='content'>
-<header>2FA verrificatie</header>
-<p>vul hier onder je code in die te zien is op je Google Authenticator app</p>
+<header>Twee factor authenticatie (2FA)</header>
+<p>Vul hier onder uw code in die te vinden is op uw Google Authenticator app</p>
 </div>
 <form action='' method='POST'>
 <div class='field'>
@@ -47,8 +47,8 @@ if (isset($_POST['submit-pin'])) {
         echo '<script type="text/javascript">
         $(document).ready(function() {
         swal({
-            title: "fout!",
-            text: "onjuiste code, probeer het opnieuw!!",
+            title: "Fout!",
+            text: "Onjuiste code, probeer opnieuw!!",
             icon: "error",
             button: "Ok",
             timer: 200000

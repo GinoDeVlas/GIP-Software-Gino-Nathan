@@ -126,7 +126,7 @@ setTimeout(function () {
       $(document).ready(function() {
       swal({
           title: "fout!",
-          text: "onjuiste code, probeer het opnieuw!!",
+          text: "Onjuiste code, probeer opnieuw!!",
           icon: "error",
           button: "Ok",
           timer: 200000
