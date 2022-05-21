@@ -53,7 +53,7 @@ if (isset($_POST['email'])) {
       }
       }else {
         $passToken = md5(time() . "GAC");
-        $message = "<a href='https://archief.vhsj.be/websites/6itn/gip12/GIP-Software-Gino-Nathan/Reset-Password.php?Token=$passToken'>Reset password</a>";
+        $message = "<a href='http://localhost/GIP-Software-Gino-Nathan/Reset-Password.php?Token=$passToken'>Reset password</a>";
         sendMail("Reset password", $mail, $message, "GAC Password Reset");
         $stmst = $conn->prepare("update `tblklantengegevens` SET `PassResetToken` = '" .$passToken."' where Email = '" .$mail. "';");
         $stmst->execute();
@@ -70,7 +70,7 @@ if (isset($_POST['email'])) {
 </script>';
         echo "<script>
         setTimeout(function () {    
-            window.location.href = 'https://archief.vhsj.be/websites/6itn/gip12/GIP-Software-Gino-Nathan/signup.php'; 
+            window.location.href = 'http://localhost/GIP-Software-Gino-Nathan/signup.php'; 
         },3000); // 5 seconds
         </script>";
       }
@@ -101,7 +101,7 @@ echo $form;
 if (isset($_POST['submit-pin'])) {
   if (ValiQR($_POST['pin'], $_SESSION['info'], $conn)) {
     $passToken = md5(time() . "GAC");
-    $message = "<a href='https://archief.vhsj.be/websites/6itn/gip12/GIP-Software-Gino-Nathan/Reset-Password.php?Token=$passToken'>Reset password</a>";
+    $message = "<a href='http://localhost/GIP-Software-Gino-Nathan/Reset-Password.php?Token=$passToken'>Reset password</a>";
     sendMail("Reset password", $_SESSION['mail'], $message, "GAC Password Reset");
     $stmst = $conn->prepare("update `tblklantengegevens` SET `PassResetToken` = '" .$passToken."' where Email = '" .$_SESSION['mail']. "';");
     $stmst->execute();
@@ -118,7 +118,7 @@ swal({
 </script>';
 echo "<script>
 setTimeout(function () {    
-    window.location.href = 'https://archief.vhsj.be/websites/6itn/gip12/GIP-Software-Gino-Nathan/signup.php'; 
+    window.location.href = 'http://localhost/GIP-Software-Gino-Nathan/signup.php'; 
 },3000); // 5 seconds
 </script>";
   }  else {

@@ -284,7 +284,7 @@ if (isset($_POST['btndeactivate2FA'])) {
 </script>' ;
   echo "<script>
   setTimeout(function () {    
-      window.location.href = 'https://archief.vhsj.be/websites/6itn/gip12/GIP-Software-Gino-Nathan/Dashboard/instellingen.php'; 
+      window.location.href = 'http://localhost/GIP-Software-Gino-Nathan/Dashboard/instellingen.php'; 
   },4000); // 5 seconds
   </script>";
 }

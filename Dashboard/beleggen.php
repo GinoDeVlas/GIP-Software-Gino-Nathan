@@ -1,6 +1,4 @@
 <?php
-
-
 include("../connection.php");
 include("../functions.php");
 $user_data = check_login($conn);
@@ -16,6 +14,29 @@ $bedrag = "";
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
    </head>
 <body>
+<?php   
+$id = $_SESSION['id'];
+$query = "select * FROM `tblrekening` where IDKlantenummer = ". $id ." LIMIT 1; ";
+$result = mysqli_query($conn, $query);
+$info = mysqli_fetch_array($result);
+  if ($info['saldo']<"0") {
+    echo '<script type="text/javascript">
+    $(document).ready(function() {
+    swal({
+        title: "fout!",
+        text: "u kunt geen lening aangaan als u negatief staat!!",
+        icon: "error",
+        button: "Ok",
+        timer: 200000
+        });
+    });
+</script>' ;
+echo "<script>
+setTimeout(function () {    
+    window.location.href = 'http://localhost/GIP-Software-Gino-Nathan/dashboard.php'; 
+},2500); // 5 seconds
+</script>";
+  } ?>
   <div class="sidebar">
     <div class="logo-details">
       <i class='bx bxl-c-plus-plus'></i>
@@ -139,7 +160,7 @@ $bedrag = "";
             <ul class="details">
               <form action="" method="POST">
               <li>Stel je beleggingsopdracht in:</li>
-              <li><input type="number" min="500" style="width:50%;text-align:right" name="Krediet" placeholder="EUR" required value=<?php echo $bedrag; ?>></li>
+              <li><input type="number" min="500" max="2500" style="width:50%;text-align:right" name="Krediet" placeholder="EUR" required value=<?php echo $bedrag; ?>></li>
               <li><input class="instbutton" style="position: relative;padding-inline:30px;" type="submit" name="btnlening" value="Begin"></li>
               <li>Bovenstaande bedrag wordt van uw rekening gerekend.</li>
             </ul>
@@ -186,7 +207,7 @@ if (isset($_POST['btnlening'])) {
   Beleggen($_SESSION['id'], $_POST['Krediet'], $conn);
   echo "<script>
 setTimeout(function () {    
-    window.location.href = 'https://archief.vhsj.be/websites/6itn/gip12/GIP-Software-Gino-Nathan/Dashboard/beleggen.php'; 
+    window.location.href = 'http://localhost/GIP-Software-Gino-Nathan/Dashboard/beleggen.php'; 
 },0); // 5 seconds
 </script>";
 }

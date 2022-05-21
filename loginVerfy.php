@@ -40,7 +40,7 @@ if (isset($_POST['submit-pin'])) {
         $_SESSION['id'] = $_GET['id'];
         echo "<script>
         setTimeout(function () {    
-            window.location.href = 'https://archief.vhsj.be/websites/6itn/gip12/GIP-Software-Gino-Nathan/dashboard.php'; 
+            window.location.href = 'http://localhost/GIP-Software-Gino-Nathan/dashboard.php'; 
         },1); // 5 seconds
         </script>";
     }  else {
