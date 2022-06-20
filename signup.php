@@ -127,7 +127,7 @@ if (isset($_POST['first']) && isset($_POST['mail']) && isset($_POST['Tele'])) {
     $(document).ready(function() {
         swal({
             title: "Registratie succesvol!",
-            text: "Log nu in om naar je account te gaan!!",
+            text: "Log nu in om naar je account te gaan.",
             icon: "success",
             button: "Ok",
             timer: 200000

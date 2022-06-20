@@ -120,8 +120,8 @@ function login($mail, $pass, $con)
             echo '<script type="text/javascript">
         $(document).ready(function() {
         swal({
-            title: "Fout!",
-            text: "Ongeldig Wachtwoord!!",
+            title: "Onjuist!",
+            text: "Ongeldig Wachtwoord!",
             icon: "error",
             button: "Ok",
             timer: 200000
