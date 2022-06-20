@@ -136,7 +136,7 @@ $fout = "*";
               <li><input type="text" name="Vnaam" value="<?php echo $row['Voornaam'];?>"></li>
               <li>Achternaam:</li>
               <li><input  type="text" name="Anaam" value="<?php echo $row['Achternaam'];?>"></li>
-              <li><input class="instbutton" type="submit" name="btnbevestig" style="padding-inline: 138px;" value="Verander"></li>
+              <li><input class="instbutton" type="submit" name="btnbevestig" style="padding-inline: 138px;" value="Wijzig"></li>
             </ul>
             <ul class="details">
               <li>Nieuw wachtwoord:</li>
@@ -155,7 +155,7 @@ $fout = "*";
             <ul class="details">
             <form action="" method="POST">
               <li id="stand0"><b><?php echo $actiefofnie ?></b></li>
-              <li id="stand">Twee factor authenticatie (2FA) is een extra beveiliging die je aan je account toevoegd wanneer je inlogt.</li>
+              <li id="stand">Twee factor authenticatie (2FA) is een extra beveiliging die u aan uw account toevoegd bij het inloggen.</li>
               <li><input class="instbutton" type="submit" <?php echo "style='padding-inline: 35px;$stylel'"?> name="btnactivate2FA" value="Activeer 2FA" onclick="" > &nbsp;&nbsp; <input class="instbutton" type="submit" <?php echo "style='padding-inline: 35px;$styler'"?> name="btndeactivate2FA" value="Deactiveer 2FA" onclick="" ></li>
               <!-- Er moet hier nog iets kome of te check of de user 2FA als heeft ne keer geactiveerd of niet of het de eerste keer is -->
               <?php 

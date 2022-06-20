@@ -91,8 +91,8 @@ function login($mail, $pass, $con)
             echo '<script type="text/javascript">
         $(document).ready(function() {
         swal({
-            title: "Fout!",
-            text: "Ongeldig Wachtwoord!!",
+            title: "Onjuist!",
+            text: "Ongeldig Wachtwoord!",
             icon: "error",
             button: "Ok",
             timer: 200000
@@ -105,8 +105,8 @@ function login($mail, $pass, $con)
         echo '<script type="text/javascript">
         $(document).ready(function() {
         swal({
-            title: "fout!",
-            text: "Er bestaat geen account met dit E-mail adres!!",
+            title: "Onjuist!",
+            text: "Er bestaat geen account met dit e-mailadres.",
             icon: "error",
             button: "Ok",
             timer: 200000

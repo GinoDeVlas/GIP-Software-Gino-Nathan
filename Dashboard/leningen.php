@@ -92,8 +92,8 @@ if (isset($_POST['leningstop'])) {
     echo '<script type="text/javascript">
     $(document).ready(function() {
     swal({
-        title: "fout!",
-        text: "u kunt geen lening aangaan als u negatief staat!!",
+        title: "Fout!",
+        text: "U kunt geen lening aangaan als u in het negatief staat!",
         icon: "error",
         button: "Ok",
         timer: 200000
@@ -317,11 +317,11 @@ setTimeout(function () {
               <li>Start kapitaal lening:</li>
               <!-- Maak hier een functie voor alleen nummer en erros show wanneer niet getal is! -->
               <li><input type="text" in="500" style="width:50%;text-align:right" value="<?php echo $data['Geleend bedrag'] ?> EUR" readonly></li>
-              <li> jaarlijkse Rentevoet = <b> 2%</b></li>
+              <li> Jaarlijkse Rentevoet = <b> 2%</b></li>
               <div class="bedragmaandelijks">
               <li><b>Uw maandelijk termijnbedrag</b></li>
               <li style="font-size:30px;"><img style="max-width:60px;left:125px;position:relative;" src="../assets/images/cash.png" align="left" alt=""> <b><?php echo $termijnbedrag ?> EUR</b></li>
-              <li><b> nog verschuldigd bedrag:</b></li>
+              <li><b>Nog verschuldigd bedrag:</b></li>
               <li style="font-size:30px;"><img style="max-width:60px;left:125px;position:relative;" src="../assets/images/cash.png" align="left" alt=""> <b><?php echo $nogverschuldigd ?> EUR</b></li>
               <li>Maandelijkse terugbetaling</li>
               </div>
