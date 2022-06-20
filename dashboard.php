@@ -1,10 +1,11 @@
 <?php
-include("connection.php");
-include("functions.php");
-$user_data = check_login($conn);
+session_start();
+  include 'connection.php';
+  include 'functions.php';
+  $user_data = check_login($conn);
 ?>
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
   <head>
     <meta charset="UTF-8">
     <title> Dashboard overview | Dashboard </title>
@@ -188,7 +189,12 @@ $user_data = check_login($conn);
     </div>
   </section>
 
-  <script>
+
+
+</body>
+</html>
+
+<script>
    let sidebar = document.querySelector(".sidebar");
 let sidebarBtn = document.querySelector(".sidebarBtn");
 sidebarBtn.onclick = function() {
@@ -199,6 +205,3 @@ sidebarBtn.onclick = function() {
   sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
 }
  </script>
-
-</body>
-</html>

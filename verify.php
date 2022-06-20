@@ -28,7 +28,7 @@ if (isset($_GET['Token'])) {
         //redirect to dashboard
         echo "<script>
         setTimeout(function () {    
-            window.location.href = 'http://localhost/GIP-Software-Gino-Nathan/signup.php'; 
+            window.location.href = 'https://archief.vhsj.be/websites/6itn/gip12/GIP-Software-Gino-Nathan/signup.php'; 
         },2000); // 5 seconds
         </script>";
     }else {
@@ -45,7 +45,7 @@ if (isset($_GET['Token'])) {
     </script>';
     echo "<script>
     setTimeout(function () {    
-        window.location.href = 'http://localhost/GIP-Software-Gino-Nathan/signup.php'; 
+        window.location.href = 'https://archief.vhsj.be/websites/6itn/gip12/GIP-Software-Gino-Nathan/signup.php'; 
     },2000); // 5 seconds
     </script>";
     }
@@ -63,7 +63,7 @@ if (isset($_GET['Token'])) {
 </script>';
 echo "<script>
 setTimeout(function () {    
-    window.location.href = 'http://localhost/GIP-Software-Gino-Nathan/signup.php'; 
+    window.location.href = 'https://archief.vhsj.be/websites/6itn/gip12/GIP-Software-Gino-Nathan/signup.php'; 
 },2000); // 5 seconds
 </script>";
 

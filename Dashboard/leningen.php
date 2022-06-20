@@ -1,4 +1,5 @@
 <?php
+session_start();
 include("../connection.php");
 include("../functions.php");
 $user_data = check_login($conn);
@@ -14,7 +15,7 @@ $textT = $TextB = "";
 
 
 if (isset($_POST['leningstarten'])) {
-  if ($info['saldo']>"0") {
+  if ($info['saldo']> -1) {
   $ID = $_SESSION['id'];
   $termijnbedrag = berkenTermijnBedrag($_POST['Krediet'], $_POST['range'], $_POST['uitstel']);
   $looptijd =$_POST['range'];

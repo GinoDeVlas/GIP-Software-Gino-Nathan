@@ -1,7 +1,8 @@
 <?php
-//voeg de connection code toe aan deze code
-include 'functions.php';
-$error = NULL;
+session_start();
+	//voeg de connection code toe aan deze code
+	include 'functions.php';
+	$error = NULL;
 
 ?>
 <!DOCTYPE html>
@@ -71,7 +72,30 @@ $error = NULL;
 
 <?php
 if (isset($_POST['LoginEmail']) && isset($_POST['LoginPass']) ) {
-	login($_POST['LoginEmail'], $_POST['LoginPass'], $conn);
+	$query = "select * FROM `tblklantengegevens` where Email = '" .$_POST['LoginEmail']. "' AND Confirmatie = '1' LIMIT 1;";
+    $result = mysqli_query($con,$query);
+	$count =mysqli_num_rows($result);
+	if($count > 0)
+    {
+	$info = mysqli_fetch_array($result);
+	$id = $info['IDKlantenummer'];
+	$passhash = $info['Wachtwoord'];
+	$Passw = "GEC" . $id . $pass;
+	login($_POST['LoginEmail'], $Passw, $conn);
+	}else {
+        echo '<script type="text/javascript">
+        $(document).ready(function() {
+        swal({
+            title: "fout!",
+            text: "Er bestaat geen account met dit E-mail adres!!",
+            icon: "error",
+            button: "Ok",
+            timer: 200000
+            });
+        });
+</script>' ;
+    }
+	
 }
 if (isset($_POST['first']) && isset($_POST['mail']) && isset($_POST['Tele'])) {
 	if ($_POST['pass'] == $_POST['rPass']) {
@@ -80,7 +104,25 @@ if (isset($_POST['first']) && isset($_POST['mail']) && isset($_POST['Tele'])) {
 			//pass creation
 				 $Passw = "GEC" . $id . $_POST['pass'];
 				$password = password_hash($Passw, PASSWORD_DEFAULT);
-		Register($id, ucfirst($_POST['first']), ucfirst($_POST['last']), $_POST['mail'], $_POST['Tele'], $password, $conn);	
+			//check als email al bestaat
+				$query = "select * FROM `tblklantengegevens` where Email = '" .$_POST['mail']. "';";
+				$result = mysqli_query($conn,$query);
+				if(mysqli_num_rows($result)) {
+					echo '<script type="text/javascript">
+					$(document).ready(function() {
+					swal({
+						title: "Fout!",
+						text: "Dit E-mail is al in gebruik!",
+						icon: "error",
+						button: "Ok",
+						timer: 200000
+						});
+					});
+			</script>' ;
+				}else {
+					Register($id, ucfirst($_POST['first']), ucfirst($_POST['last']), $_POST['mail'], $_POST['Tele'], $password, $conn);
+				
+		
 ?>	
 <script type="text/javascript">
     $(document).ready(function() {
@@ -102,6 +144,7 @@ function closeForm() {
 }
 </script>
 <?php
+}
 	}
 }
 ?>

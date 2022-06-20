@@ -1,4 +1,5 @@
 <?php
+session_start();
 include("../connection.php");
 include("../functions.php");
 $user_data = check_login($conn);
@@ -10,32 +11,33 @@ $bedrag = "";
     <title> Dashboard overview | Beleggen </title>
     <link rel="stylesheet" href="../assets/css/dashboard.css">
     <!-- Boxicons CDN Link -->
-    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
    </head>
 <body>
-<?php   
-$id = $_SESSION['id'];
-$query = "select * FROM `tblrekening` where IDKlantenummer = ". $id ." LIMIT 1; ";
-$result = mysqli_query($conn, $query);
-$info = mysqli_fetch_array($result);
-  if ($info['saldo']<"0") {
-    echo '<script type="text/javascript">
-    $(document).ready(function() {
-    swal({
-        title: "fout!",
-        text: "u kunt geen lening aangaan als u negatief staat!!",
-        icon: "error",
-        button: "Ok",
-        timer: 200000
-        });
-    });
-</script>' ;
-echo "<script>
-setTimeout(function () {    
-    window.location.href = 'http://localhost/GIP-Software-Gino-Nathan/dashboard.php'; 
-},2500); // 5 seconds
-</script>";
+<?php  
+  $id = $_SESSION['id'];
+  $query = "select * FROM `tblrekening` where IDKlantenummer = '" .$id. "';";
+  $result = mysqli_query($conn,$query);
+  $info = mysqli_fetch_array($result);
+    if ($info['saldo']<"0") {
+      echo '<script type="text/javascript">
+      $(document).ready(function() {
+      swal({
+          title: "fout!",
+          text: "u kunt geen lening aangaan als u negatief staat!!",
+          icon: "error",
+          button: "Ok",
+          timer: 200000
+          });
+      });
+  </script>' ;
+  echo "<script>
+  setTimeout(function () {    
+      window.location.href = 'http://localhost/GIP-Software-Gino-Nathan/dashboard.php'; 
+  },2500); // 5 seconds
+  </script>";
   } ?>
   <div class="sidebar">
     <div class="logo-details">
@@ -207,7 +209,7 @@ if (isset($_POST['btnlening'])) {
   Beleggen($_SESSION['id'], $_POST['Krediet'], $conn);
   echo "<script>
 setTimeout(function () {    
-    window.location.href = 'http://localhost/GIP-Software-Gino-Nathan/Dashboard/beleggen.php'; 
+    window.location.href = 'https://archief.vhsj.be/websites/6itn/gip12/GIP-Software-Gino-Nathan/Dashboard/beleggen.php'; 
 },0); // 5 seconds
 </script>";
 }

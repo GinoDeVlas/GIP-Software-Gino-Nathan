@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 
 include("../connection.php");
 include("../functions.php");
@@ -128,7 +128,7 @@ $user_data = check_login($conn);
             <ul class="details">
             <li class="topic">Datum</li>
               <?php
-                $query = "select * FROM `tbloverschrijving` where IDKlantenummer = ". $id ." OR Ontvanger = ". $id ." ORDER BY `Datum`  DESC";
+                $query = "select * FROM `tbloverschrijving` where IDKlantenummer = ". $id ." OR Ontvanger = ". $id ." Order By `Verrichtingsnummer` DESC";
                 $result = mysqli_query($conn, $query);
                 while ($row = mysqli_fetch_array($result)) {
                   if ($row['Ontvanger'] == $id) {
@@ -143,7 +143,7 @@ $user_data = check_login($conn);
             <!-- Hier moet er een script komen voor alle overschrijven te printen -->
             <li class="topic">Verzonden Door</li>
             <?php
-                $query = "select * FROM `tbloverschrijving` where IDKlantenummer = ". $id ." OR Ontvanger = ". $id ." ORDER BY `Datum`  DESC";
+                $query = "select * FROM `tbloverschrijving` where IDKlantenummer = ". $id ." OR Ontvanger = ". $id ." Order By `Verrichtingsnummer` DESC";
                 $result = mysqli_query($conn, $query);
                 while ($row = mysqli_fetch_array($result)) {
                   $ontvangerid = $row['IDKlantenummer'];
@@ -162,7 +162,7 @@ $user_data = check_login($conn);
             <!-- Hier moet er een script komen voor alle overschrijven te printen -->
             <li class="topic">Naam ontvanger</li>
             <?php
-                $query = "select * FROM `tbloverschrijving` where IDKlantenummer = ". $id ." OR Ontvanger = ". $id ." ORDER BY `Datum`  DESC";
+                $query = "select * FROM `tbloverschrijving` where IDKlantenummer = ". $id ." OR Ontvanger = ". $id ." Order By `Verrichtingsnummer` DESC";
                 $result = mysqli_query($conn, $query);
                 while ($row = mysqli_fetch_array($result)) {
                   $ontvangerid = $row['Ontvanger'];
@@ -180,7 +180,7 @@ $user_data = check_login($conn);
           <ul class="details">
             <li class="topic">Bedrag</li>
             <?php
-                $query = "select * FROM `tbloverschrijving` where IDKlantenummer = ". $id ." OR Ontvanger = ". $id ." ORDER BY `Datum`  DESC";
+                $query = "select * FROM `tbloverschrijving` where IDKlantenummer = ". $id ." OR Ontvanger = ". $id ." Order By `Verrichtingsnummer` DESC";
                 $result = mysqli_query($conn, $query);
                 while ($row = mysqli_fetch_array($result)) {
                   if ($row['Ontvanger'] == $id) {
@@ -194,7 +194,7 @@ $user_data = check_login($conn);
           <ul class="details">
             <li class="topic">Communicatie</li>
             <?php
-                $query = "select * FROM `tbloverschrijving` where IDKlantenummer = ". $id ." OR Ontvanger = ". $id ." ORDER BY `Datum`  DESC";
+                $query = "select * FROM `tbloverschrijving` where IDKlantenummer = ". $id ." OR Ontvanger = ". $id ." Order By `Verrichtingsnummer` DESC";
                 $result = mysqli_query($conn, $query);
                 while ($row = mysqli_fetch_array($result)) {
                   if ($row['Ontvanger'] == $id) {

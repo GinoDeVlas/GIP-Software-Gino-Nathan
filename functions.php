@@ -1,7 +1,7 @@
 <?php
-session_start();
-include 'connection.php';
-include 'sendmail.php';
+
+    include 'connection.php';
+
 
 function check_login($con)
 {
@@ -13,20 +13,52 @@ function check_login($con)
         $count =mysqli_num_rows($result);
         if($count > 0)
         {
+            
             $user_data = mysqli_fetch_assoc($result);
-            return $user_data;
+            
         }else {
-            header("Location: index.php");
+            echo "<script>
+            setTimeout(function () {    
+                window.location.href = 'http://localhost/GIP-Software-Gino-Nathan/index.php'; 
+            },); // 5 seconds
+            </script>";
 
         }
     }else {
     //redirect naar login
-    header("Location: index.php");
+    echo "<script>
+    setTimeout(function () {    
+        window.location.href = 'http://localhost/GIP-Software-Gino-Nathan/index.php'; 
+    },); // 5 seconds
+    </script>";
     die;
     }
 
 }
+function verstuurMail($name, $mail, $bericht, $onderwerp){
+    require_once './vendor/autoload.php';
+    // Create the Transport
+$transport = (new Swift_SmtpTransport('smtp.mail.yahoo.com', 587, 'tls'))
+->setUsername('gac_banking@yahoo.com')
+->setPassword('iylfvpphpapvsmfd')
+;
 
+// Create the Mailer using your created Transport
+$mailer = new Swift_Mailer($transport);
+
+// Create a message
+$message = (new Swift_Message("$onderwerp"))
+->setFrom(['gac_banking@yahoo.com' => "$onderwerp"])
+->setTo(["$mail"=> "$name"])
+->setBody($bericht)
+;
+
+// Send the message
+if($mailer->send($message))
+{
+  echo 'mails verstuurd';
+}
+}
 function AantlalRijen($database, $con)
 {
     $sql = "select * FROM " . $database . "";
@@ -42,9 +74,8 @@ function Register($id, $vname, $lname, $mail, $Tel, $pass, $con){
     //Token creation
         $Token = md5(time() . $name);
     //Verrificatie mail versturen
-    
         $message = "<a href='https://archief.vhsj.be/websites/6itn/gip12/GIP-Software-Gino-Nathan/verify.php?Token=$Token'>Register account</a>";
-        sendMail($name, $mail, $message, "Email verrificatie GAC");
+        verstuurMail($name, $mail, $message, "Email verrificatie GAC");
     //account creation in tblKlantengegevens
         $stmst = $con->prepare("insert INTO tblklantengegevens (IDKlantenummer, Voornaam, Achternaam, Email, Telefoon, Wachtwoord, Token) VALUES ('".$id."', '". $vname."', '". $lname."', '". $mail."', '". $Tel."', '".$pass."', '".$Token."');");
         $stmst->execute();
@@ -60,21 +91,17 @@ function Register($id, $vname, $lname, $mail, $Tel, $pass, $con){
 
 function login($mail, $pass, $con)
 {
-    $query = "select * FROM `tblklantengegevens` where Email = '" .$mail. "' AND Confirmatie = 1 LIMIT 1;";
+    $query = "select * FROM `tblklantengegevens` where Email = '" .$mail. "' AND Confirmatie = '1' LIMIT 1;";
     $result = mysqli_query($con,$query);
     $count =mysqli_num_rows($result);
-    if($count > 0)
-    {
         $info = mysqli_fetch_array($result);
-        $id = $info['IDKlantenummer'];
         $passhash = $info['Wachtwoord'];
-        $Passw = "GEC" . $id . $pass;
-        if (password_verify($Passw, $passhash)) {
+        if (password_verify($pass, $passhash)) {
             if ($info['Activaite2FA'] == "1") {
                 
                 echo "<script>
                 setTimeout(function () {    
-                    window.location.href = 'https://archief.vhsj.be/websites/6itn/gip12/GIP-Software-Gino-Nathan/loginVerfy.php?id=$id'; 
+                    window.location.href = 'http://localhost/GIP-Software-Gino-Nathan/loginVerfy.php?id=$id'; 
                 },0); // 5 seconds
                 </script>";
             }else {
@@ -82,8 +109,8 @@ function login($mail, $pass, $con)
                 GenQR();
                   echo "<script>
             setTimeout(function () {    
-            window.location.href = 'https://archief.vhsj.be/websites/6itn/gip12/GIP-Software-Gino-Nathan/dashboard.php'; 
-            },0); // 5 seconds
+            window.location.href = 'http://localhost/GIP-Software-Gino-Nathan/dashboard.php'; 
+            },20); // 5 seconds
             </script>";
             }
 
@@ -101,19 +128,7 @@ function login($mail, $pass, $con)
 </script>' ;
 
         }
-    }else {
-        echo '<script type="text/javascript">
-        $(document).ready(function() {
-        swal({
-            title: "fout!",
-            text: "Er bestaat geen account met dit E-mail adres!!",
-            icon: "error",
-            button: "Ok",
-            timer: 200000
-            });
-        });
-</script>' ;
-    }
+    
 }
 
 function Verrichting($bedrag, $rekeningnummer, $communicatie, $con)
@@ -270,14 +285,12 @@ echo $bedrag;
 }
 
 
-function VeranderAlgemeneInstellingen($Vnaam, $Anaam, $Email, $NewPass, $con)
+function VeranderAlgemeneInstellingen($Vnaam, $Anaam, $NewPass, $con)
 {
     $id = $_SESSION['id'];
     $stmst = $con->prepare("update `tblklantengegevens` SET `Voornaam` = '$Vnaam' WHERE `tblklantengegevens`.`IDKlantenummer` = $id;");
     $stmst->execute();
     $stmst = $con->prepare("update `tblklantengegevens` SET `Achternaam` = '$Anaam' WHERE `tblklantengegevens`.`IDKlantenummer` = $id;");
-    $stmst->execute();
-    $stmst = $con->prepare("update `tblklantengegevens` SET `Email` = '$Email' WHERE `tblklantengegevens`.`IDKlantenummer` = $id;");
     $stmst->execute();
     $Passw = "GEC" . $id . $NewPass;
     $password = password_hash($Passw, PASSWORD_DEFAULT);
@@ -313,7 +326,7 @@ return $tot;
 }
 
 function Leningstarten($ID, $termijnbedrag, $looptijd, $A,$con){
-    $stmst = $con->prepare("insert INTO `tblLeningen` (`IDKlantennummer`, `Termijnbedrag`, `Looptijd`, `Geleend bedrag`, Leendatum) VALUES ('".$ID."' , '". $termijnbedrag."', '".$looptijd."', '".$A."', '".date("Y-m-d H:i:s")."');");
+    $stmst = $con->prepare("insert INTO `tblLeningen` (`IDKlantennummer`, `Termijnbedrag`, `Looptijd`, `Geleend bedrag`, Leendatum) VALUES ('18524230711' , '". $termijnbedrag."', '".$looptijd."', '".$A."', '".date("Y-m-d H:i:s")."');");
     $stmst->execute();
     $query = "select * FROM `tblrekening` where `IDKlantenummer`  = '" . $ID . "' LIMIT 1; ";
     $result = mysqli_query($con,$query);
@@ -322,7 +335,7 @@ function Leningstarten($ID, $termijnbedrag, $looptijd, $A,$con){
     $eindsaldo = (double)$beginsaldo + (double)$A;
     $stmst = $con->prepare("update `tblrekening` SET `saldo` = $eindsaldo where IDKlantenummer = $ID;");
     $stmst->execute();
-    $communicatie = "GAC Lening van " . $eindsaldo;
+    $communicatie = "GAC Lening van " . $A;
     $stmst = $con->prepare("insert INTO `tbloverschrijving` (IDKlantenummer, Ontvanger, Hoeveelheid, Datum, Comunicatie) VALUES ('".$ID."' , '". $ID."', '".$A."', '". date("d/m/Y") ."', '".$communicatie."');");
     $stmst->execute();
 }
@@ -354,14 +367,14 @@ function Leningstop($bedrag, $con){
     $eindsaldo = $beginsaldo - $bedrag;
     $stmst = $con->prepare("update `tblrekening` SET `saldo` = $eindsaldo where IDKlantenummer = $id;");
     $stmst->execute();
-    $communicatie = "GAC afbetaling lening van " . $eindsaldo;
-    $stmst = $con->prepare("insert INTO `tbloverschrijving` (IDKlantenummer, Ontvanger, Hoeveelheid, Datum, Comunicatie) VALUES ('".$id."' , '". $id."', '".$eindsaldo."', '". date("d/m/Y") ."', '".$communicatie."');");
+    $communicatie = "GAC afbetaling lening van " . ($eindsaldo . $beginsaldo);
+    $stmst = $con->prepare("insert INTO `tbloverschrijving` (IDKlantenummer, Ontvanger, Hoeveelheid, Datum, Comunicatie) VALUES ('".$id."' , '18524230711', '".$eindsaldo."', '". date("d/m/Y") ."', '".$communicatie."');");
     $stmst->execute();
     $stmst = $con->prepare("delete FROM tblLeningen WHERE IDKlantennummer = '".$id."';");
     $stmst->execute();
     echo "<script>
     setTimeout(function () {    
-        window.location.href = 'https://archief.vhsj.be/websites/6itn/gip12/GIP-Software-Gino-Nathan/Dashboard/leningen.php'; 
+        window.location.href = 'http://localhost/GIP-Software-Gino-Nathan/leningen.php'; 
     },1); // 5 seconds
     </script>";
 }

@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 
 include("../connection.php");
 include("../functions.php");
@@ -131,7 +131,7 @@ $bedragfout = "*";
           <div class="right-side">
             <div class="box-topic">Rekeningsnummer</div>
             <?php
-              $query = "select * FROM `tblrekening` where IDKlantenummer = ". $id ." LIMIT 1; ";
+              $query = "select * FROM `tblrekening` where IDKlantenummer = ". $id ."  LIMIT 1; ";
               $result = mysqli_query($conn, $query);
               $row = mysqli_fetch_array($result);
             ?>

@@ -1,4 +1,5 @@
 <?php
+session_start();
 include("../connection.php");
 include("../functions.php");
 $user_data = check_login($conn);
@@ -14,7 +15,7 @@ $fout = "*";
     $pass = $_POST["oudww"];
     $Passw = "GEC" . $id . $pass;
     if (password_verify($Passw, $passhash)) {
-      VeranderAlgemeneInstellingen($_POST["Vnaam"], $_POST["Anaam"], $_POST["Email"], $_POST["nieuwww"], $conn);
+      VeranderAlgemeneInstellingen($_POST["Vnaam"], $_POST["Anaam"], $_POST["nieuwww"], $conn);
     }else {
       $fout = "Onjuist wachtwoord";
     }
@@ -251,7 +252,7 @@ if (isset($_POST['submit-pin'])) {
 </script>' ;
 echo "<script>
 setTimeout(function () {    
-    window.location.href = 'https://archief.vhsj.be/websites/6itn/gip12/GIP-Software-Gino-Nathan/Dashboard/instellingen.php'; 
+    window.location.href = 'http://localhost/GIP-Software-Gino-Nathan/Dashboard/instellingen.php'; 
 },3000); // 5 seconds
 </script>";
 }else {
@@ -284,7 +285,7 @@ if (isset($_POST['btndeactivate2FA'])) {
 </script>' ;
   echo "<script>
   setTimeout(function () {    
-      window.location.href = 'http://localhost/GIP-Software-Gino-Nathan/Dashboard/instellingen.php'; 
+      window.location.href = 'http://localhost/GIP-Software-Gino-Nathan//Dashboard/instellingen.php'; 
   },4000); // 5 seconds
   </script>";
 }
