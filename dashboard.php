@@ -1,4 +1,5 @@
 <?php
+session_start();
   include 'connection.php';
   include 'functions.php';
   $user_data = check_login($conn);
@@ -115,7 +116,7 @@
             <!-- GINO schrijf hier de variable voor het inkomen van de ingelogde gebruiker-->
             <div class="number"><?php OntvangenDezeMaand($conn) ?> EUR</div>
             <div class="indicator">
-              <span class="text">Een overzicht van uw inkomen voor deze maand</span>
+              <span class="text">Een overzicht van je inkomen voor deze maand</span>
             </div>
           </div>
         </div>
@@ -125,7 +126,7 @@
              <!-- GINO plaats hier het uitgaven per maand van de ingelogde gebruiker -->
             <div class="number"><?php UitgaveDezeMaand($conn) ?> EUR</div>
             <div class="indicator">
-              <span class="text">Een overzicht van uw uitgaves voor deze maand</span>
+              <span class="text">Een overzicht van je uitgaves voor deze maand</span>
             </div>
           </div>
         </div>

@@ -35,7 +35,7 @@ $bedrag = "";
   </script>' ;
   echo "<script>
   setTimeout(function () {    
-      window.location.href = 'http://localhost/GIP-Software-Gino-Nathan/dashboard.php'; 
+      window.location.href = 'https://archief.vhsj.be/websites/6itn/gip12/GIP-Software-Gino-Nathan/dashboard.php'; 
   },2500); // 5 seconds
   </script>";
   } ?>
