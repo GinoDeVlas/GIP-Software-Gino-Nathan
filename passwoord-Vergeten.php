@@ -50,6 +50,7 @@ if (isset($_POST['email'])) {
     $info = mysqli_fetch_array($result);
     $_SESSION['info'] = $info['IDKlantenummer'];
     if ($info['Activaite2FA'] == '1') {
+      $naam = $info['Voornaam'];
         $form ="  <input type='checkbox' id='toggle'>
         <div class='wrapper'>
           <div class='content'>
@@ -71,8 +72,8 @@ if (isset($_POST['email'])) {
       }
       else {
         $passToken = md5(time() . "GAC");
-        $message = "https://archief.vhsj.be/websites/6itn/gip12/GIP-Software-Gino-Nathan/Reset-Password.php?Token=$passToken";
-        verstuurMail("Reset password", $mail, $message, "GAC Password Reset");
+        $message = "Dag ". $info['Voornaam']."\n\n Wachtwoord vergeten? Geen probleem! U kunt hem opnieuw instellen met de volgende link: \n https://archief.vhsj.be/websites/6itn/gip12/GIP-Software-Gino-Nathan/Reset-Password.php?Token=$passToken \n\n Het GAC Team";
+        verstuurMail("Reset password", $mail, $message, "GAC Wachtwoord Vergeten");
         $stmst = $conn->prepare("update `tblklantengegevens` SET `PassResetToken` = '" .$passToken."' where Email = '" .$mail. "';");
         $stmst->execute();
         echo '<script type="text/javascript">
@@ -116,7 +117,7 @@ echo $form;
 if (isset($_POST['submit-pin'])) {
   if (ValiQR($_POST['pin'], $_SESSION['info'], $conn)) {
     $passToken = md5(time() . "GAC");
-    $message = "<a href='https://archief.vhsj.be/websites/6itn/gip12/GIP-Software-Gino-Nathan/Reset-Password.php?Token=$passToken'>Reset password</a>";
+    $message = "Dag $naam \n\n Wachtwoord vergeten? Geen probleem! U kunt hem opnieuw instellen met de volgende link: \n https://archief.vhsj.be/websites/6itn/gip12/GIP-Software-Gino-Nathan/Reset-Password.php?Token=$passToken \n\n Het GAC Team";
     verstuurMail("Reset password", $_SESSION['mail'], $message, "GAC Password Reset");
     $stmst = $conn->prepare("update `tblklantengegevens` SET `PassResetToken` = '" .$passToken."' where Email = '" .$_SESSION['mail']. "';");
     $stmst->execute();

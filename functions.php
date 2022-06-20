@@ -40,8 +40,8 @@ function verstuurMail($name, $mail, $bericht, $onderwerp){
     require_once './vendor/autoload.php';
     // Create the Transport
 $transport = (new Swift_SmtpTransport('smtp.mail.yahoo.com', 587, 'tls'))
-->setUsername('gac_banking@yahoo.com')
-->setPassword('iylfvpphpapvsmfd')
+->setUsername('gac_info@yahoo.com')
+->setPassword('eeynwyyiuoxvzfdm')
 ;
 
 // Create the Mailer using your created Transport
@@ -49,7 +49,7 @@ $mailer = new Swift_Mailer($transport);
 
 // Create a message
 $message = (new Swift_Message("$onderwerp"))
-->setFrom(['gac_banking@yahoo.com' => "$onderwerp"])
+->setFrom(['gac_info@yahoo.com' => "$onderwerp"])
 ->setTo(["$mail"=> "$name"])
 ->setBody($bericht)
 ;
@@ -75,9 +75,9 @@ function Register($id, $vname, $lname, $mail, $Tel, $pass, $con){
     $name = $vname . " " . $lname;
     //Token creation
         $Token = md5(time() . $name);
-    //Verrificatie mail versturen
-        $message = "<a href='https://archief.vhsj.be/websites/6itn/gip12/GIP-Software-Gino-Nathan/verify.php?Token=$Token'>Register account</a>";
-        verstuurMail($name, $mail, $message, "Email verrificatie GAC");
+    //Verrificatie mail 
+        $message = "Dag ". $vname ."\n\n Welkom bij GAC, vooraleer u gebruik kunt maken van uw account moet u hem eerst activeren met de volgende link:\n https://archief.vhsj.be/websites/6itn/gip12/GIP-Software-Gino-Nathan/verify.php?Token=$Token \n\n Het GAC Team";
+        verstuurMail( "Email Account Activatie GAC", $mail, $message, "Email Account Activatie GAC");
     //account creation in tblKlantengegevens
         $stmst = $con->prepare("insert INTO tblklantengegevens (IDKlantenummer, Voornaam, Achternaam, Email, Telefoon, Wachtwoord, Token) VALUES ('".$id."', '". $vname."', '". $lname."', '". $mail."', '". $Tel."', '".$pass."', '".$Token."');");
         $stmst->execute();

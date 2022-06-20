@@ -1,3 +1,7 @@
+<?php
+  include 'connection.php';
+  include 'functions.php';
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -65,19 +69,19 @@
                     
             </div>
             <div class="col-lg-6 form-inner-cont mt-lg-0 mt-sm-5 mt-4">
-                <form action="https://sendmail.w3layouts.com/submitForm" method="post" class="signin-form">
+                <form  method="post" class="signin-form">
                     <div class="form-input">
-                        <input type="text" name="w3lName" id="w3lName" placeholder="Naam">
+                        <input type="text" name="Name" id="w3lName" placeholder="Naam" required>
                     </div>
                     <div class="form-input">
-                        <input type="email" name="w3lSender" id="w3lSender" placeholder="e-mailadres"
+                        <input type="email" name="Sender" id="w3lSender" placeholder="e-mailadres"
                             required="">
                     </div>
                     <div class="form-input">
-                        <textarea name="w3lMessage" id="w3lMessage" placeholder="Bericht" required=""></textarea>
+                        <textarea name="Message" id="w3lMessage" placeholder="Bericht" required=""></textarea>
                     </div>
                     <div class="text-right">
-                        <button type="submit" class="btn btn-style btn-primary">Verzenden</button>
+                        <button type="submit" name="verzenden" class="btn btn-style btn-primary">Verzenden</button>
                     </div>
                 </form>
             </div>
@@ -89,3 +93,11 @@
 </body>
 
 </html>
+<?php
+if (isset($_POST['verzenden'])) {
+    $onderwerp = "GAC Support";
+    $bericht = "Dag " . $_POST['Name'] . " \n\n Wij hebben uw aanvraag succesvol ontvangen. \n Aarzel niet om deze e-mail te beantwoorden indien u nog met vragen zit. Hieronder is een kopie van uw bericht te zien: \n\n  " . $_POST['Message'] . "\n\n  Het GAC Team";
+    verstuurMail($_POST['Name'], $_POST['Sender'], $bericht, $onderwerp);
+    verstuurMail($_POST['Name'], "gac_banking@yahoo.com", $_POST['Message'], $onderwerp);
+}
+?>
