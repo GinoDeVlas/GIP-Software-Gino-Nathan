@@ -28,7 +28,7 @@
     <div class="container py-lg-5 py-md-4 py-2">
         <div class="row bottom-ab-grids">
             <div class="col-lg-6 bottom-ab-left align-self">
-                <h3 class="title-big mb-4">Wij hebben professionele service voor onze klanten</h3>
+                <h3 class="title-big mb-4">Wij hebben een professionele service voor onze klanten</h3>
                 <p class="">Onze service wordt aangeboden door ervaren werkenmers. De tevredenheid van onze klant staat prioriteit en klantloyaliteit is ook een groot onderdeel in ons bedrijf.</p>
                 <div class="cont-4 mt-lg-5 mt-4">
                     <div class="list mb-4">

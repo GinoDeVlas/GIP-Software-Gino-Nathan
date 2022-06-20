@@ -25,8 +25,8 @@ $bedrag = "";
       echo '<script type="text/javascript">
       $(document).ready(function() {
       swal({
-          title: "error!",
-          text: "u kunt geen lening aangaan als u in het negatief staat!",
+          title: "Error!",
+          text: "U kunt geen lening aangaan als u in het negatief staat.",
           icon: "error",
           button: "Ok",
           timer: 200000

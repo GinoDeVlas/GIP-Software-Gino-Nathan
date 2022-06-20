@@ -35,7 +35,7 @@
                 </div>
                 <div class="col-lg-6 mt-lg-0 mt-md-5 mt-4 align-self">
                     <h3 class="title-big mx-0">Kies voor GAC met veel gemak.</h3>
-                    <p class="mt-md-4 mt-3">Gebruiksvriendelijkheid is een belangerijk onderdeel op onze website. Het zorgt ervoor dat de gebruiker zich gemakkelijk rond kan navigeren op onze website. Het doel is hiervan is om u de best mogelijke ervaring te geven bij ons!</p>
+                    <p class="mt-md-4 mt-3">Gebruiksvriendelijkheid is een belangerijk onderdeel op onze website. Het zorgt ervoor dat de gebruiker zich gemakkelijk rond kan navigeren op onze website. Het doel is hiervan is om u de best mogelijke ervaring te geven!</p>
                 </div>
             </div>
         </div>
@@ -54,7 +54,7 @@
                     <span class="fa fa-line-chart"></span>
                     <div class="area-box">
                         <h4><a style="pointer-events:none;" href="#feature" class="title-head">Up-to-date</a></h4>
-                        <p class="my-3">Nieuwe bedreigingen onstaan elke dag. Wees zeker bij ons omdat wij up-to-date blijven bij alle nieuwe beveiligingstechnieken</p>
+                        <p class="my-3">Nieuwe bedreigingen onstaan elke dag. Wij blijven atlijd up-to-date alle nieuwe beveiligingstechnieken</p>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 grids-feature mt-md-0 mt-4">
@@ -68,14 +68,14 @@
                     <span class="fa fa-percent"></span>
                     <div class="area-box">
                         <h4><a style="pointer-events:none;" href="#feature" class="title-head">Overzichtelijk investeren</a></h4>
-                        <p class="my-3">Investeer overzichtelijk met ons. Onze bank biedt de mogelijkheid aan om te beleggen. Hiermee krijgt u een overzichtelijk schema met alle informatie die nodig is.</p>
+                        <p class="my-3">Investeer overzichtelijk met ons. Onze bank biedt de mogelijkheid aan om te beleggen. Hiermee krijgt u een overzicht met alle informatie over uw belegging.</p>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 grids-feature mt-lg-5 mt-4">
                     <span class="fa fa-dollar"></span>
                     <div class="area-box">
                         <h4><a style="pointer-events:none;" href="#feature" class="title-head">Overzichtelijk lenen</a></h4>
-                        <p class="my-3">Leen bij ons en krijg direct te zien wat er wordt verwacht van u. Het schema gaat tonen wat uw leningen gaat kosten, doe de simulatie gratis!</p>
+                        <p class="my-3">Leen bij ons en krijg direct te zien wat er wordt verwacht van u. Het overzicht gaat tonen wat uw leningen gaat kosten, doe de simulatie gratis!</p>
                     </div>
                 </div>
             </div>
