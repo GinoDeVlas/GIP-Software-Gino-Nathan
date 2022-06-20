@@ -73,14 +73,13 @@ session_start();
 <?php
 if (isset($_POST['LoginEmail']) && isset($_POST['LoginPass']) ) {
 	$query = "select * FROM `tblklantengegevens` where Email = '" .$_POST['LoginEmail']. "' AND Confirmatie = '1' LIMIT 1;";
-    $result = mysqli_query($con,$query);
+    $result = mysqli_query($conn,$query);
 	$count =mysqli_num_rows($result);
 	if($count > 0)
     {
 	$info = mysqli_fetch_array($result);
 	$id = $info['IDKlantenummer'];
-	$passhash = $info['Wachtwoord'];
-	$Passw = "GEC" . $id . $pass;
+	$Passw = "GEC" . $id . $_POST['LoginPass'];
 	login($_POST['LoginEmail'], $Passw, $conn);
 	}else {
         echo '<script type="text/javascript">

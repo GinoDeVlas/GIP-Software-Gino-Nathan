@@ -20,7 +20,7 @@ include 'functions.php';
 if (isset($_GET['Token']) OR isset($_POST['Token'])) {
     $Token = '';  
     $Token = $_GET['Token'];
-    $query = "select * FROM `tblklantengegevens` where PassResetToken = '" .$Token."' LIMIT 1  ";
+    $query = "select * FROM `tblklantengegevens` where PassResetToken = '" .$Token."' LIMIT 1";
     $result = mysqli_query($conn,$query);
     $count =mysqli_num_rows($result);
     if($count > 0)

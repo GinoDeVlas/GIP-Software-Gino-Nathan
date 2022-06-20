@@ -1,8 +1,8 @@
 <?php
-
+session_start();
     include 'connection.php';
 
-
+//checklogin functie
 function check_login($con)
 {
     if(isset($_SESSION['id']))
@@ -35,6 +35,7 @@ function check_login($con)
     }
 
 }
+//sendamil functie
 function verstuurMail($name, $mail, $bericht, $onderwerp){
     require_once './vendor/autoload.php';
     // Create the Transport
@@ -56,9 +57,10 @@ $message = (new Swift_Message("$onderwerp"))
 // Send the message
 if($mailer->send($message))
 {
-  echo 'mails verstuurd';
+  echo 'mail verstuurd';
 }
 }
+//functie aantalrijen
 function AantlalRijen($database, $con)
 {
     $sql = "select * FROM " . $database . "";
@@ -67,7 +69,7 @@ function AantlalRijen($database, $con)
         return $rowcount; 
     }
 }
-
+//functie registreren
 function Register($id, $vname, $lname, $mail, $Tel, $pass, $con){
 
     $name = $vname . " " . $lname;
@@ -94,8 +96,8 @@ function login($mail, $pass, $con)
     $query = "select * FROM `tblklantengegevens` where Email = '" .$mail. "' AND Confirmatie = '1' LIMIT 1;";
     $result = mysqli_query($con,$query);
     $count =mysqli_num_rows($result);
-        $info = mysqli_fetch_array($result);
-        $passhash = $info['Wachtwoord'];
+    $info = mysqli_fetch_array($result);
+    $passhash = $info['Wachtwoord'];
         if (password_verify($pass, $passhash)) {
             if ($info['Activaite2FA'] == "1") {
                 
