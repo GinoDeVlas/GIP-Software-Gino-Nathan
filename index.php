@@ -59,7 +59,7 @@ include("functions.php");
                                 <div class="row">
                                     <div class="col-lg-6 banner-info-bg">
                                         <h5>Gebruiksvriendelijk platform</h5>
-                                        <p class="mt-md-4 mt-3">Maak gebruik van ons gebruiksvriendelijke beheerpagina. Op deze pagina kunt u overzichtelijk alles zien in verband met uw rekening.
+                                        <p class="mt-md-4 mt-3">Maak gebruik van onze gebruiksvriendelijke beheerpagina. Op deze pagina kunt u overzichtelijk alles zien in verband met uw rekening.
                                         </p>
                                         <a class="btn btn-style btn-primary mt-sm-5 mt-4 mr-2" href="./signup.php"> Open een rekening</a>
                                         <a class="btn btn-style btn-outline-light mt-sm-5 mt-4 mr-2" href="./signup.php">Aanmelden</a>
@@ -155,7 +155,7 @@ include("functions.php");
                             <h5>Bekijken</h5>
                         </div>
                     </div>
-                    <p class="mt-4">Nadat u een transactie heeft uitgevoerd kunt u gemakkelijk bekijken en hoeveel en wanneer je het geld hebt overgeschreven. Op de overschrijvings pagina kunt ook zien wat voor commentaar dat er is toegevoegd aan de overschrijving</p>
+                    <p class="mt-4">Nadat u een transactie heeft gemaakt kunt u gemakkelijk bekijken hoeveel en wanneer u het geld heeft overgeschreven. Op de overschrijvings pagina kunt ook zien wat voor commentaar is toegevoegd aan de overschrijving.</p>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 col-sm-12 mt-lg-0 mt-4">
@@ -170,7 +170,7 @@ include("functions.php");
                             <h5></h5>
                         </div>
                     </div>
-                    <p class="mt-4">We zorgen voor een veilige verbinding met onze website. Onze systemen worden up-to-date gehouden gebruikers krijgen de nieuwste technieken om hun rekening te beveilligen.</p>
+                    <p class="mt-4">We zorgen voor een veilige verbinding met onze website. Onze systemen worden up-to-date gehouden en gebruikers krijgen de nieuwste technieken om hun rekening te beveilligen.</p>
                 </div>
             </div>
         </div>
@@ -347,7 +347,7 @@ include("functions.php");
                  <h4 class="title-big">Open uw rekening nog vandaag!</h4>
              </div>
              <div class="col-lg-5 mt-lg-0 mt-4">
-                 <a class="btn btn-style btn-dark" href="./signup.php">Open rekening</a>
+                 <a class="btn btn-style btn-dark" href="./signup.php">Open een rekening</a>
              </div>
          </div>
      </div>
@@ -375,7 +375,7 @@ include("functions.php");
                     </div>
                     <div class="content">
                         <h4 class="title">Gegevens confirmeren</h4>
-                        <p class="desc">Bij het registreren moet er nog bevestigd worden via mail.</p>
+                        <p class="desc">Na registratie moet er een bevestiging gebeuren voordat je kan inloggen.</p>
                     </div>
                 </div>
             </div>
@@ -386,7 +386,7 @@ include("functions.php");
                     </div>
                     <div class="content">
                         <h4 class="title">Rekening openen</h4>
-                        <p class="desc">In deze fase word uw rekening geopend op uw naam en worden alle gegevens verwerkt.</p>
+                        <p class="desc">In deze fase wordt uw rekening geopend op uw naam en worden alle gegevens verwerkt.</p>
                     </div>
                 </div>
             </div>
@@ -397,7 +397,7 @@ include("functions.php");
                     </div>
                     <div class="content">
                         <h4 class="title">Eerste overschrijving</h4>
-                        <p class="desc">Wanneer alles in orde is kunt u beginnen met bankieren door uw eerste overschrijving te doen.</p>
+                        <p class="desc">Wanneer alles in orde is kunt u beginnen met bankieren door uw eerste overschrijving te maken.</p>
                     </div>
                 </div>
             </div>

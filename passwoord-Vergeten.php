@@ -78,8 +78,8 @@ if (isset($_POST['email'])) {
         echo '<script type="text/javascript">
         $(document).ready(function() {
         swal({
-            title: "Paswoord reset mail is verstuurd!",
-            text: "Check je mailbox!!",
+            title: "Wachtwoord vergeten mail verstuurd!",
+            text: "Controleer uw mailbox (eventueel in het spam folder).",
             icon: "success",
             button: "Ok",
             timer: 200000
@@ -97,8 +97,8 @@ if (isset($_POST['email'])) {
       echo '<script type="text/javascript">
       $(document).ready(function() {
       swal({
-          title: "onbekend E-mail adres!",
-          text: "Er bestaat geen account met dit E-mail adres!",
+          title: "Onbekend e-mailadres!",
+          text: "Er bestaat geen account met dit e-mailadres!",
           icon: "error",
           button: "Ok",
           timer: 200000

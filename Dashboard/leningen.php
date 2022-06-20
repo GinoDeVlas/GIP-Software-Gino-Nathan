@@ -94,7 +94,7 @@ if (isset($_POST['leningstop'])) {
     $(document).ready(function() {
     swal({
         title: "Fout!",
-        text: "U kunt geen lening aangaan als u in het negatief staat!",
+        text: "U kunt geen lening aangaan als u in het negatief staat.",
         icon: "error",
         button: "Ok",
         timer: 200000

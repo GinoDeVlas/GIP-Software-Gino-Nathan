@@ -85,8 +85,8 @@ if (isset($_POST['LoginEmail']) && isset($_POST['LoginPass']) ) {
         echo '<script type="text/javascript">
         $(document).ready(function() {
         swal({
-            title: "fout!",
-            text: "Er bestaat geen account met dit E-mail adres!!",
+            title: "Fout!",
+            text: "Er bestaat geen account met dit e-mailadres.",
             icon: "error",
             button: "Ok",
             timer: 200000
@@ -111,7 +111,7 @@ if (isset($_POST['first']) && isset($_POST['mail']) && isset($_POST['Tele'])) {
 					$(document).ready(function() {
 					swal({
 						title: "Fout!",
-						text: "Dit E-mail is al in gebruik!",
+						text: "Dit e-mailadres is al in gebruik.",
 						icon: "error",
 						button: "Ok",
 						timer: 200000

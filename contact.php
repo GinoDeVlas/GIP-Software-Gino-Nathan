@@ -52,7 +52,7 @@
                         <div class="icon-box"> <span class="fa fa-envelope"></span></div>
                         <div class="text-box">
                             <h3 class="mb-1">Email ons</h3>
-                            <p> <a href="mailto:info@support.com">info@GECbanking.com</a></p>
+                            <p> <a href="mailto:gac_banking@yahoo.com">gac_banking@yahoo.com</a></p>
                         </div>
                     </div>
                 </div>
@@ -60,9 +60,7 @@
         </div>
         <div class="row mt-5">
             <div class="col-lg-6 map">
-                
                     <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10031.103233436736!2d3.7295898!3d51.0572273!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xf81310ae149dae63!2sSint-Lievenscollege%20Business!5e0!3m2!1snl!2sbe!4v1648033017022!5m2!1snl!2sbe" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>"
-                    
             </div>
             <div class="col-lg-6 form-inner-cont mt-lg-0 mt-sm-5 mt-4">
                 <form action="https://sendmail.w3layouts.com/submitForm" method="post" class="signin-form">
@@ -70,7 +68,7 @@
                         <input type="text" name="w3lName" id="w3lName" placeholder="Naam">
                     </div>
                     <div class="form-input">
-                        <input type="email" name="w3lSender" id="w3lSender" placeholder="e-mailadres"
+                        <input type="email" name="w3lSender" id="w3lSender" placeholder="E-mailadres"
                             required="">
                     </div>
                     <div class="form-input">

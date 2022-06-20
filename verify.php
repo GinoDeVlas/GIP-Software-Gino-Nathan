@@ -54,7 +54,7 @@ if (isset($_GET['Token'])) {
     $(document).ready(function() {
         swal({
             title: "Er is iets mis gegaan!",
-            text: "Probeer het later opnieuw!!",
+            text: "Probeer het later opnieuw.",
             icon: "error",
             button: "Ok",
             timer: 20000

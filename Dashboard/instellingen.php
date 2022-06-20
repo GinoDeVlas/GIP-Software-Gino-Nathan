@@ -142,7 +142,7 @@ $fout = "*";
             <ul class="details">
               <li>Nieuw wachtwoord:</li>
               <li><input  type="password" name="nieuwww" value=""></li>
-              <li>Bevestig met huidig Wachtwoord:</li> 
+              <li>Bevestig met huidig wachtwoord:</li> 
               <li><input type="password" name="oudww" value=""></li> <?php echo $fout; ?>
           </ul>
           </div>
@@ -259,8 +259,8 @@ setTimeout(function () {
   echo '<script type="text/javascript">
   $(document).ready(function() {
   swal({
-      title: "fout!",
-      text: "pin is verkeerd of er is iets fout gelopen!",
+      title: "Fout!",
+      text: "PIN is verkeerd of er is iets fout gelopen.",
       icon: "error",
       button: "Ok",
       timer: 200000

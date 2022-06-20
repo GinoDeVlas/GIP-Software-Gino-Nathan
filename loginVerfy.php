@@ -48,7 +48,7 @@ if (isset($_POST['submit-pin'])) {
         $(document).ready(function() {
         swal({
             title: "Fout!",
-            text: "Onjuiste code, probeer opnieuw!!",
+            text: "Onjuiste code, probeer opnieuw.",
             icon: "error",
             button: "Ok",
             timer: 200000
