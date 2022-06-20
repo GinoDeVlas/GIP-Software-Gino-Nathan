@@ -74,7 +74,7 @@ if (isset($_GET['Token']) OR isset($_POST['Token'])) {
     $stmst->execute();
     echo "<script>
     setTimeout(function () {    
-        window.location.href = 'http://localhost/GIP-Software-Gino-Nathan/signup.php'; 
+        window.location.href = 'https://archief.vhsj.be/websites/6itn/gip12/GIP-Software-Gino-Nathan/signup.php'; 
     },3000); // 5 seconds
     </script>";
           }
@@ -94,7 +94,7 @@ if (isset($_GET['Token']) OR isset($_POST['Token'])) {
 </script>' ;
 echo "<script>
 setTimeout(function () {    
-    window.location.href = 'http://localhost/GIP-Software-Gino-Nathan/signup.php'; 
+    window.location.href = 'https://archief.vhsj.be/websites/6itn/gip12/GIP-Software-Gino-Nathan/signup.php'; 
 },3000); // 5 seconds
 </script>";
     }
@@ -112,7 +112,7 @@ setTimeout(function () {
 </script>' ;
 echo "<script>
 setTimeout(function () {    
-    window.location.href = 'http://localhost/GIP-Software-Gino-Nathan/signup.php'; 
+    window.location.href = 'https://archief.vhsj.be/websites/6itn/gip12/GIP-Software-Gino-Nathan/signup.php'; 
 },3000); // 5 seconds
 </script>";
 

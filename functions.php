@@ -19,7 +19,7 @@ function check_login($con)
         }else {
             echo "<script>
             setTimeout(function () {    
-                window.location.href = 'http://localhost/GIP-Software-Gino-Nathan/index.php'; 
+                window.location.href = 'https://archief.vhsj.be/websites/6itn/gip12/GIP-Software-Gino-Nathan/index.php'; 
             },); // 5 seconds
             </script>";
 
@@ -28,7 +28,7 @@ function check_login($con)
     //redirect naar login
     echo "<script>
     setTimeout(function () {    
-        window.location.href = 'http://localhost/GIP-Software-Gino-Nathan/index.php'; 
+        window.location.href = 'https://archief.vhsj.be/websites/6itn/gip12/GIP-Software-Gino-Nathan/index.php'; 
     },); // 5 seconds
     </script>";
     die;
@@ -85,8 +85,10 @@ function Register($id, $vname, $lname, $mail, $Tel, $pass, $con){
         $_SESSION['id'] = $id;
     //rekeningsnummer creation    
         $rekeningnummer = "BE69 " . chunk_split(hexdec(crc32($name . $id)), 4, ' ');
+        //insert in tblmyKlant
         $stmst = $con->prepare("insert INTO tblmyklant (IDKlantenummer, IDRekekingnummer) VALUES ('".$id."' , '". $rekeningnummer."');");
         $stmst->execute();
+        //insert in tblrekening
         $stmsts= $con->prepare("insert INTO tblrekening (IDKlantenummer, IDRekeningnummer, saldo) VALUES ('".$id."' , '". $rekeningnummer."' , 0);");
         $stmsts->execute();
 }
@@ -100,20 +102,20 @@ function login($mail, $pass, $con)
     $passhash = $info['Wachtwoord'];
         if (password_verify($pass, $passhash)) {
             if ($info['Activaite2FA'] == "1") {
-                
+                $id = $info['IDKlantenummer'];
                 echo "<script>
                 setTimeout(function () {    
-                    window.location.href = 'http://localhost/GIP-Software-Gino-Nathan/loginVerfy.php?id=$id'; 
+                    window.location.href = 'https://archief.vhsj.be/websites/6itn/gip12/GIP-Software-Gino-Nathan/loginVerfy.php?id=$id'; 
                 },0); // 5 seconds
                 </script>";
             }else {
-                $_SESSION['id'] = $id;
+                $_SESSION['id'] = $info['IDKlantenummer'];
                 GenQR();
-                  echo "<script>
-            setTimeout(function () {    
-            window.location.href = 'http://localhost/GIP-Software-Gino-Nathan/dashboard.php'; 
-            },20); // 5 seconds
-            </script>";
+                echo "<script>
+                setTimeout(function () {    
+                window.location.href = 'https://archief.vhsj.be/websites/6itn/gip12/GIP-Software-Gino-Nathan/dashboard.php'; 
+                },20); // 5 seconds
+                </script>";
             }
 
         }else {
@@ -148,6 +150,7 @@ function Verrichting($bedrag, $rekeningnummer, $communicatie, $con)
         }else {
             $stmst = $con->prepare("insert INTO `tbloverschrijving` (IDKlantenummer, Ontvanger, Hoeveelheid, Datum, Comunicatie) VALUES ('".$id."' , '". $receiverid."', '".$bedrag."', '". date("d/m/Y") ."', '".$communicatie."');");
             $stmst->execute();
+            
             //bedrag toevoegen bij de ontvanger
             $query = "select * FROM `tblrekening` where `IDRekeningnummer`  = '" . $rekeningnummer . "' LIMIT 1; ";
             $result = mysqli_query($con,$query);
@@ -157,6 +160,7 @@ function Verrichting($bedrag, $rekeningnummer, $communicatie, $con)
             $eindsaldo = $beginsaldo + $bedrag;
             $stmst = $con->prepare("update `tblrekening` SET `saldo` = $eindsaldo where IDKlantenummer = $receiverid;");
             $stmst->execute();
+
             //bedrag van de verzender zijn saldo halen
             $query = "select * FROM `tblrekening` where `IDKlantenummer`  = '" . $id  . "' LIMIT 1; ";
             $result = mysqli_query($con,$query);
@@ -376,7 +380,7 @@ function Leningstop($bedrag, $con){
     $stmst->execute();
     echo "<script>
     setTimeout(function () {    
-        window.location.href = 'http://localhost/GIP-Software-Gino-Nathan/leningen.php'; 
+        window.location.href = 'https://archief.vhsj.be/websites/6itn/gip12/GIP-Software-Gino-Nathan/leningen.php'; 
     },1); // 5 seconds
     </script>";
 }

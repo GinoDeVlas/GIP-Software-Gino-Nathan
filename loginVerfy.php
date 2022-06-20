@@ -36,11 +36,13 @@ include 'functions.php';
 </html>
 <?php
 if (isset($_POST['submit-pin'])) {
+    echo "isset";
     if (ValiQR($_POST['pin'], $_GET['id'], $conn)) {
         $_SESSION['id'] = $_GET['id'];
+        echo $_SESSION['id'];
         echo "<script>
         setTimeout(function () {    
-            window.location.href = 'http://localhost/GIP-Software-Gino-Nathan/dashboard.php'; 
+            window.location.href = 'https://archief.vhsj.be/websites/6itn/gip12/GIP-Software-Gino-Nathan/dashboard.php'; 
         },1); // 5 seconds
         </script>";
     }  else {

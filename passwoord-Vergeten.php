@@ -71,7 +71,7 @@ if (isset($_POST['email'])) {
       }
       else {
         $passToken = md5(time() . "GAC");
-        $message = "<a href='https://archief.vhsj.be/websites/6itn/gip12/GIP-Software-Gino-Nathan/Reset-Password.php?Token=$passToken'>Reset password</a>";
+        $message = "https://archief.vhsj.be/websites/6itn/gip12/GIP-Software-Gino-Nathan/Reset-Password.php?Token=$passToken";
         verstuurMail("Reset password", $mail, $message, "GAC Password Reset");
         $stmst = $conn->prepare("update `tblklantengegevens` SET `PassResetToken` = '" .$passToken."' where Email = '" .$mail. "';");
         $stmst->execute();
