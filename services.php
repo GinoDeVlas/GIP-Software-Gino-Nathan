@@ -60,7 +60,7 @@
         <div class="welcome-left text-center py-md-5 py-3">
             <h3 class="title-big">Vragen of meer informatie?</h3>
             <h3 class="mt-4">Bel ons : <a href="tel:+1 123 456 789">(+32)9 225 89 07 </a> </h3>
-            <p class="mt-4">Contacteer ons via email of telefoon!</p>
+            <p class="mt-4">Contacteer ons via e-mail of telefoon!</p>
             <a href="contact.php" class="btn btn-style btn-primary mt-sm-5 mt-4 mr-2">Contacteer ons</a>
         </div>
     </div>

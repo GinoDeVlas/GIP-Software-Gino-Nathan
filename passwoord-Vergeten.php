@@ -7,7 +7,7 @@ $form = "  <input type='checkbox' id='toggle'>
 <div class='wrapper'>
   <div class='content'>
     <header>Wachtwoord vergeten?</header>
-    <p>Vul hieronder je E-mailadres in en we zullen je een wachtwoord reset mail versturen.</p>
+    <p>Vul hieronder je e-mailadres in en we zullen je een wachtwoord reset mail versturen.</p>
   </div>
   <form method='POST'>
 
@@ -109,7 +109,7 @@ if (isset($_POST['submit-pin'])) {
 $(document).ready(function() {
 swal({
     title: "Paswoord reset mail is verstuurd!",
-    text: "Check je mailbox!!",
+    text: "Check je mailbox.",
     icon: "success",
     button: "Ok",
     timer: 200000
@@ -125,8 +125,8 @@ setTimeout(function () {
       echo '<script type="text/javascript">
       $(document).ready(function() {
       swal({
-          title: "fout!",
-          text: "Onjuiste code, probeer opnieuw!!",
+          title: "Fout!",
+          text: "Onjuiste code, probeer opnieuw",
           icon: "error",
           button: "Ok",
           timer: 200000

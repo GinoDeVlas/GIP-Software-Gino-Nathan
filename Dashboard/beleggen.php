@@ -23,8 +23,8 @@ $info = mysqli_fetch_array($result);
     echo '<script type="text/javascript">
     $(document).ready(function() {
     swal({
-        title: "fout!",
-        text: "u kunt geen lening aangaan als u negatief staat!!",
+        title: "Error!",
+        text: "U kunt geen lening aangaan als u in het negatief staat.",
         icon: "error",
         button: "Ok",
         timer: 200000
